@@ -1,4 +1,5 @@
 This is the Google standard NDK and supports Termux and aarch64 host devices.
+
 clang version: 11.0.1
 ##### download [android-ndk-r21](https://github.com/Lzhiyong/termux-ndk/releases)
 
