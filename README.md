@@ -96,8 +96,6 @@ ln -sf ../../android/arm64/simpleperf ./simpleperf
 ```bash
 cd /data/data/com.termux/files/home
 
-mkdir shader-tools && cd shader-tools
-
 git clone https://github.com/google/shaderc
 
 cd shaderc/third_party
@@ -117,7 +115,7 @@ git clone https://github.com/KhronosGroup/glslang.git
 
 # start building...
 
-mkdir build && cd build
+cd ~/shaderc && mkdir build && cd build
 
 cmake -G "Ninja" 
 	-DCMAKE_BUILD_TYPE=Release \
