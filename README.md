@@ -1,5 +1,7 @@
 This is the Google standard NDK and supports Termux and aarch64 host devices.
-##### download android-ndk-r21
+clang version: 11.0.1
+##### download [android-ndk-r21](https://github.com/Lzhiyong/termux-ndk/releases)
+
 
 ####  How to build
 At first, we don‘t need to rebuild the whole NDK, since google already built most of it.
@@ -30,7 +32,8 @@ exit
 python toolchain/llvm_android/build.py
 ```
 You need to make some changes to it before performing build.py, 
-download the toolchain aarch64-linux-android (toolchain from NDK, make_standalone_toolchain.py)
+download the toolchain [aarch64-linux-android](https://github.com/Lzhiyong/termux-ndk/releases)
+ (toolchain from NDK, make_standalone_toolchain.py)
 ```bash
 # remove prebuilt clang, CLANG_PREBUILT_VERSION is defined in ~/llvm-toolchain/toolchain/llvm_android/constants.py
 
@@ -67,7 +70,7 @@ There are some that need to be modified, please see llvm_android for details
 ###### Please note that aarch64-linux-android/bin/clang++ does not link libstdc++ by default, so add the link parameter -lstdc++ in do_build.py
 
  **** 
-###  OK start compile now!!!
+###  OK start compile now!
 ```bash
 python toolchain/llvm_android/build.py
 ```
@@ -125,9 +128,22 @@ ninja install -j16
 
  **** 
 #### Building renderscript (bcc_compat llvm-rs-cc)
-build bcc_compat and llvm-rs-cc need older version clang, download clang-3.9 or you can download the source code and compile it yourself
+build bcc_compat and llvm-rs-cc need older version clang, download [clang-3.9](https://github.com/Lzhiyong/termux-ndk/releases)
+ or you can download the source code and compile it yourself
 
 ```bash
+# slang source code
+# git clone https://android.googlesource.com/platform/frameworks/compile/slang
+# libbcc source code
+# git clone https://android.googlesource.com/platform/frameworks/compile/libbcc
+# rs souce code
+# git clone https://android.googlesource.com/platform/frameworks/rs
+# clang-3.9 source code
+# git clone https://android.googlesource.com/platform/external/llvm
+# git clone https://android.googlesource.com/platform/external/clang
+
+
+
 # I assume you have clang-3.9
 git clone https://github.com/Lzhiyong/termux-ndk.git
 
@@ -141,7 +157,9 @@ cd renderscript/slang/build
 cd renderscript/libbcc/build
 ./build.sh
 
-#
+# I rewrote the code of rs_cc_options.cpp
+# because RSCCOptions.inc compilation error, this may have bugs, 
+# if anyone knows how to compile RSCCOptions.inc, please tell me, thank you
 ```
  **** 
 #### Building finish!
@@ -149,9 +167,9 @@ llvm-toolchain stage1 and stage2 compilation takes about 10 hours
 
 My Phone: Xiao Mi6 
 
-RAM:6G
+RAM: 6G
 
-ROM:128G
+ROM: 128G
 
 Snapdragon 835 processor
 
@@ -159,21 +177,15 @@ There may be some errors during the compilation process, please solve it yoursel
 
  **** 
 #### Test app with NDK cmake
+```bash
+cd termux-ndk/cmake-example && gradle build
+```
+
 Screenshot_01.jpg
 ![image](https://github.com/Lzhiyong/termux-ndk/blob/master/screenshot/Screenshot_01.jpg)
 
 Screenshot_02.jpg
 ![image](https://github.com/Lzhiyong/termux-ndk/blob/master/screenshot/Screenshot_02.jpg)
-
-
-
-
-
-
-
-
-
-
 
 
 
