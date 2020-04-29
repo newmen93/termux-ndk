@@ -143,7 +143,6 @@ build bcc_compat and llvm-rs-cc need older version clang, download [clang-3.9](h
 # git clone https://android.googlesource.com/platform/external/clang
 
 
-
 # I assume you have clang-3.9
 git clone https://github.com/Lzhiyong/termux-ndk.git
 
@@ -156,6 +155,7 @@ cd renderscript/slang/build
 #build bcc_compat
 cd renderscript/libbcc/build
 ./build.sh
+
 
 # I rewrote the code of rs_cc_options.cpp
 # because RSCCOptions.inc compilation error, this may have bugs, 
@@ -186,7 +186,5 @@ Screenshot_01.jpg
 
 Screenshot_02.jpg
 ![image](https://github.com/Lzhiyong/termux-ndk/blob/master/screenshot/Screenshot_02.jpg)
-
-
 
 
