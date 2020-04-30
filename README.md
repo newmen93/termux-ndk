@@ -178,6 +178,9 @@ There may be some errors during the compilation process, please solve it yoursel
 
  **** 
 #### Test app with NDK cmake
+you need [openjdk](https://github.com/Lzhiyong/termux-ndk/releases)
+ and [gradle](https://gradle.org)
+
 ```bash
 cd termux-ndk/cmake-example && gradle build
 ```
