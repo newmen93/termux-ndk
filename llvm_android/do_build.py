@@ -873,7 +873,6 @@ def host_gcc_toolchain_flags(host: hosts.Host, is_32_bit=False):
     cflags.append(f'-B{gccRoot}/{gccTriple}/bin')
 
     gccLibDir = f'{gccRoot}/lib/gcc/{gccTriple}/{gccVersion}'
-    gccStlDir = f'{gccRoot}/{gccTriple}/lib'
     gccBuiltinDir = f'{gccRoot}/{gccTriple}/lib64'
     if is_32_bit:
         None
@@ -882,8 +881,6 @@ def host_gcc_toolchain_flags(host: hosts.Host, is_32_bit=False):
 
     ldflags.extend(('-B' + gccLibDir,
                     '-L' + gccLibDir,
-                    '-B' + gccStlDir,
-                    '-L' + gccStlDir,
                     '-B' + gccBuiltinDir,
                     '-L' + gccBuiltinDir,
                     '-fuse-ld=lld',
@@ -919,14 +916,13 @@ class Stage1Builder(builders.LLVMBuilder):
     @property
     def cflags(self) -> List[str]:
         cflags = super().cflags
-        cflags.append('-fPIC')
-        #cflags.append('-fPIC -D__ANDROID__ -DANDROID')
+        cflags.append('-fPIC -D__ANDROID__ -DANDROID')
         return cflags
 
     @property
     def ldflags(self) -> List[str]:
         ldflags = super().ldflags
-        ldflags.append('-ldl -lgcc -lstdc++ -latomic')
+        ldflags.append('-ldl -lgcc -lstdc++')
         # Point CMake to the libc++.so from the prebuilts.  Install an rpath
         # to prevent linking with the newly-built libc++.so
         ldflags.append(f'-Wl,-rpath,{self.toolchain.lib_dir}')
@@ -1007,7 +1003,7 @@ class Stage2Builder(builders.LLVMBuilder):
 
     @property
     def llvm_projects(self) -> Set[str]:
-        proj = {'clang', 'lld', 'libunwind', 'libcxxabi', 'libcxx',  'compiler-rt',  'compiler-rt', 'clang-tools-extra', 'openmp', 'polly'} #'lld', 'libunwind', 'compiler-rt', 'libcxxabi', 'libcxx', 'compiler-rt', 'clang-tools-extra', 'openmp', 'polly'
+        proj = {'clang', 'lld', 'libunwind', 'libcxxabi', 'libcxx',  'compiler-rt',  'compiler-rt', 'clang-tools-extra', 'openmp', 'polly'} 
         if self.build_lldb:
             proj.add('lldb')
         return proj
@@ -1025,7 +1021,7 @@ class Stage2Builder(builders.LLVMBuilder):
     @property
     def ldflags(self) -> List[str]:
         ldflags = super().ldflags
-        ldflags.append('-ldl -lgcc -lstdc++ -lc++_static -latomic')
+        ldflags.append('-ldl -lgcc -lstdc++ -lc++_static')
         if self.build_instrumented:
             # Building libcxx, libcxxabi with instrumentation causes linker errors
             # because these are built with -nodefaultlibs and prevent libc symbols
@@ -1040,8 +1036,8 @@ class Stage2Builder(builders.LLVMBuilder):
         cflags = super().cflags
         cflags.append('-fPIC -frtti -fexceptions -fno-builtin-bcmp -DANDROID -D__ANDROID__')
         cflags.append('-target aarch64-linux-android')
-        #/data/data/com.termux/files/home/llvm-toolchain/toolchain/llvm-project/libcxx/include
-        cflags.append('-isystem /data/data/com.termux/files/home/llvm-toolchain/out/llvm-project/libcxx/include')
+        # /data/data/com.termux/files/home/llvm-toolchain/toolchain/llvm-project/libcxx/include
+        cflags.append('-isystem ' + str(ANDROID_DIR / 'toolchain/llvm-project/libcxx/include'))
         if self.profdata_file:
             cflags.append('-Wno-profile-instr-out-of-date')
             cflags.append('-Wno-profile-instr-unprofiled')
@@ -1051,7 +1047,7 @@ class Stage2Builder(builders.LLVMBuilder):
     def cmake_defines(self) -> Dict[str, str]:
         defines = super().cmake_defines
         # static building
-        #defines['LLVM_BUILD_STATIC'] = 'TRUE'
+        # defines['LLVM_BUILD_STATIC'] = 'TRUE'
         defines['LLVM_ENABLE_LIBCXX'] = 'ON'
         defines['SANITIZER_ALLOW_CXXABI'] = 'OFF'
         defines['OPENMP_ENABLE_OMPT_TOOLS'] = 'FALSE'
