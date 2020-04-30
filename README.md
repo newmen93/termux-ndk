@@ -30,7 +30,8 @@ repo sync -c -j4
 # download finish, exit ArchLinux
 exit
 
-python toolchain/llvm_android/build.py
+# no build windows
+python toolchain/llvm_android/build.py --no-build windows
 ```
 You need to make some changes to it before performing build.py, 
 download the toolchain [aarch64-linux-android](https://github.com/Lzhiyong/termux-ndk/releases)
@@ -73,7 +74,8 @@ There are some that need to be modified, please see llvm_android for details
  **** 
 ###  OK start compile now!
 ```bash
-python toolchain/llvm_android/build.py
+# no build windows
+python toolchain/llvm_android/build.py --no-build windows
 ```
 
  **** 
@@ -156,13 +158,13 @@ cd renderscript/libbcc/build
 ./build.sh
 
 
-# I rewrote the code of rs_cc_options.cpp, this may have bugs
+# I rewrote the code of rs_cc_options.cpp, this may have bugs.
 # because RSCCOptions.inc compilation error, I can't solve it yet.
-# if anyone knows how to compile RSCCOptions.inc, please tell me, thank you
+# if anyone knows how to compile RSCCOptions.inc, please tell me, thank you!
 ```
  **** 
 #### Building finish!
-llvm-toolchain stage1 and stage2 compilation takes about 10 hours 
+llvm-toolchain stage1 and stage2 compilation takes about 10 hours.
 
 My Phone: Xiao Mi6 
 
@@ -172,7 +174,7 @@ ROM: 128G
 
 Snapdragon 835 processor
 
-There may be some errors during the compilation process, please solve it yourself
+There may be some errors during the compilation process, please solve it yourself!
 
  **** 
 #### Test app with NDK cmake
