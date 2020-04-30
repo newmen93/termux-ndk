@@ -167,6 +167,7 @@ cd renderscript/libbcc/build
  **** 
 #### Building finish!
 llvm-toolchain stage1 and stage2 compilation takes about 10 hours.
+
 If your phone performance is good, the time may be shorter, but it still takes a lot of time to compile.
 
 There may be some errors during the compilation process, please solve it yourself!
