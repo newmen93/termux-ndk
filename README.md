@@ -1,7 +1,7 @@
 This is the Google standard NDK and supports Termux and aarch64 host devices.
 
 clang version: 11.0.1
-##### download [android-ndk-r21](https://github.com/Lzhiyong/termux-ndk/releases)
+##### [download r21](https://github.com/Lzhiyong/termux-ndk/releases)
 
 
 ####  How to build
@@ -151,13 +151,13 @@ tar -xJvf clang-3.9.tar.xz -C renderscript
 cd renderscript/slang/build
 ./build.sh
 
-#build bcc_compat
+# build bcc_compat
 cd renderscript/libbcc/build
 ./build.sh
 
 
-# I rewrote the code of rs_cc_options.cpp
-# because RSCCOptions.inc compilation error, this may have bugs, 
+# I rewrote the code of rs_cc_options.cpp, this may have bugs
+# because RSCCOptions.inc compilation error, I can't solve it yet.
 # if anyone knows how to compile RSCCOptions.inc, please tell me, thank you
 ```
  **** 
