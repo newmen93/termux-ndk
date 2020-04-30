@@ -141,7 +141,8 @@ def clang_prebuilt_bin_dir():
 
 def clang_resource_dir(version, arch: Optional[hosts.Arch] = None):
     arch_str = arch.value if arch else ''
-    return os.path.join('lib64', 'clang', version, 'lib', 'linux', arch_str)
+    #return os.path.join('lib64', 'clang', version, 'lib', 'linux', arch_str)
+    return os.path.join('lib64', 'clang', version, 'lib', 'android', arch_str)
 
 
 def clang_prebuilt_libcxx_headers():
@@ -1317,10 +1318,9 @@ def build_runtimes(toolchain, args=None):
     else:
         build_libomp(toolchain, version)
         build_libomp(toolchain, version, ndk_cxx=True)
-        #build_libomp(toolchain, version, ndk_cxx=True, is_shared=True)
+        build_libomp(toolchain, version, ndk_cxx=True, is_shared=True)
     if BUILD_LLDB:
-        None
-        #LldbServerBuilder().build()
+        LldbServerBuilder().build()
     # Bug: http://b/64037266. `strtod_l` is missing in NDK r15. This will break
     # libcxx build.
     # build_libcxx(toolchain, version)
@@ -1854,7 +1854,7 @@ def main():
         stage2.lto = not args.no_lto
         stage2.build_instrumented = instrumented
         stage2.profdata_file = Path(profdata) if profdata else None
-        #stage2.build()
+        stage2.build()
         stage2_install = str(stage2.install_dir)
 
         if hosts.build_host().is_linux and do_runtimes:
