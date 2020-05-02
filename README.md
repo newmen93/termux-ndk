@@ -177,6 +177,8 @@ There may be some errors during the compilation process, please solve it yoursel
 you need [openjdk](https://github.com/Lzhiyong/termux-ndk/releases)
  and [gradle](https://gradle.org)
 
+modify local.properties file, sdk.dir=your_path  ndk.dir=your_path
+
 ```bash
 cd termux-ndk/cmake-example && gradle build
 ```
