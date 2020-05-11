@@ -177,6 +177,8 @@ There may be some errors during the compilation process, please solve it yoursel
 you need [openjdk](https://github.com/Lzhiyong/termux-ndk/releases)
  and [gradle](https://gradle.org)
 
+update [aapt2](https://github.com/Lzhiyong/build-tools) is here.
+
 modify local.properties file, sdk.dir=your_path  ndk.dir=your_path
 
 ```bash
