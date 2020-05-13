@@ -95,7 +95,7 @@ cd binutils && mkdir build && cd build
     CC=$HOME/android/aarch64-linux-android/bin/clang \                                              
     CXX=$HOME/android/aarch64-linux-android/bin/clang++ \                                           
     CFLAGS="-fPIC -std=c11" \                       
-    CXXFLAGS="-fPIC -std=c++14" \                   
+    CXXFLAGS="-fPIC -std=c++17" \                   
     --prefix=$HOME/binutils/x86_64 \                
     --host=aarch64-linux-android \                  
     --target=x86_64-linux-android \
