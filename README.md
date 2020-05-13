@@ -146,9 +146,9 @@ git clone https://github.com/KhronosGroup/glslang.git
 cd ~/shaderc && mkdir build && cd build
 
 cmake -G "Ninja" 
-	-DCMAKE_BUILD_TYPE=Release \
-	-DCMAKE_INSTALL_PREFIX=your_install_path \
-	..
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_PREFIX=your_install_path \
+    ..
 
 ninja install -j16
 ```
