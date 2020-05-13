@@ -106,6 +106,7 @@ cd binutils && mkdir build && cd build
     --enable-libada \
     --enable-liboffloadmic=target \
     --enable-libssp \
+    --enable-threads \
     --enable-new-dtags
 ```
 
