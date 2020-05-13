@@ -83,9 +83,25 @@ python toolchain/llvm_android/build.py --no-build windows
 ```bash
 python toolchain/binutils/build.py
 
-# or
-../configure \                                      CC=$HOME/android/aarch64-linux-android/bin/clang \                                              CXX=$HOME/android/aarch64-linux-android/bin/clang++ \                                           CFLAGS="-fPIC -std=c11" \                       CXXFLAGS="-fPIC -std=c++17" \                   --prefix=$HOME/binutils/x86_64 \                --host=aarch64-linux-android \                  --target=x86_64-linux-android \
-    --enable-initfini-array \                       --enable-plugins \                              --enable-gold \
+# or compile it yourself
+# host is aarch64-linux-android
+# target: arm-linux-androideabi 
+#         aarch64-linux-android
+#         i686-linux-android
+#         x86_64-linux-android
+
+cd binutils && mkdir build && cd build
+../configure \                                      
+    CC=$HOME/android/aarch64-linux-android/bin/clang \                                              
+    CXX=$HOME/android/aarch64-linux-android/bin/clang++ \                                           
+    CFLAGS="-fPIC -std=c11" \                       
+    CXXFLAGS="-fPIC -std=c++14" \                   
+    --prefix=$HOME/binutils/x86_64 \                
+    --host=aarch64-linux-android \                  
+    --target=x86_64-linux-android \
+    --enable-initfini-array \                       
+    --enable-plugins \                              
+    --enable-gold \
     --enable-lto \
     --enable-libada \
     --enable-liboffloadmic=target \
