@@ -82,6 +82,15 @@ python toolchain/llvm_android/build.py --no-build windows
 #### Building binutils
 ```bash
 python toolchain/binutils/build.py
+
+# or
+../configure \                                      CC=$HOME/android/aarch64-linux-android/bin/clang \                                              CXX=$HOME/android/aarch64-linux-android/bin/clang++ \                                           CFLAGS="-fPIC -std=c11" \                       CXXFLAGS="-fPIC -std=c++17" \                   --prefix=$HOME/binutils/x86_64 \                --host=aarch64-linux-android \                  --target=x86_64-linux-android \
+    --enable-initfini-array \                       --enable-plugins \                              --enable-gold \
+    --enable-lto \
+    --enable-libada \
+    --enable-liboffloadmic=target \
+    --enable-libssp \
+    --enable-new-dtags
 ```
 
  **** 
