@@ -1,2 +1,0 @@
-ninja: Entering directory `/storage/emulated/0/mt2/termux-ndk/cmake-example/app/.cxx/cmake/debug/arm64-v8a'
-ninja: no work to do.

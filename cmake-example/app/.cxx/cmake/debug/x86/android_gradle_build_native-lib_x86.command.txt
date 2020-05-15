@@ -1,7 +1,0 @@
-Executable : ninja
-arguments : 
--C
-/storage/emulated/0/mt2/termux-ndk/cmake-example/app/.cxx/cmake/debug/x86
-native-lib
-jvmArgs : 
-
