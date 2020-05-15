@@ -1,0 +1,7 @@
+Executable : ninja
+arguments : 
+-C
+/storage/emulated/0/mt2/termux-ndk/cmake-example/app/.cxx/cmake/release/armeabi-v7a
+native-lib
+jvmArgs : 
+

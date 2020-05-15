@@ -1,0 +1,26 @@
+[
+  {
+    "level": "INFO",
+    "message": "Start JSON generation. Platform version: 21 min SDK version: x86",
+    "file": "/storage/emulated/0/mt2/termux-ndk/cmake-example/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|x86"
+  },
+  {
+    "level": "INFO",
+    "message": "No CMake version was specified in build.gradle. Using default version 3.10.2.",
+    "file": "/storage/emulated/0/mt2/termux-ndk/cmake-example/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|x86"
+  },
+  {
+    "level": "INFO",
+    "message": "JSON \u0027/storage/emulated/0/mt2/termux-ndk/cmake-example/app/.cxx/cmake/debug/x86/android_gradle_build.json\u0027 was up-to-date",
+    "file": "/storage/emulated/0/mt2/termux-ndk/cmake-example/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|x86"
+  },
+  {
+    "level": "INFO",
+    "message": "JSON generation completed without problems",
+    "file": "/storage/emulated/0/mt2/termux-ndk/cmake-example/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|x86"
+  }
+]

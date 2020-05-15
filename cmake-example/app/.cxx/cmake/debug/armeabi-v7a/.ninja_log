@@ -1,0 +1,3 @@
+# ninja log v5
+0	161	1589540190208461881	CMakeFiles/native-lib.dir/main.cpp.o	e925f3900f2cd620
+162	362	1589540190408461881	/storage/emulated/0/mt2/termux-ndk/cmake-example/app/build/intermediates/cmake/debug/obj/armeabi-v7a/libnative-lib.so	914366ac081025ad

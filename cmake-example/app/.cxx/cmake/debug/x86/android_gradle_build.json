@@ -1,0 +1,42 @@
+{
+  "stringTable": {
+    "0": "/storage/emulated/0/mt2/termux-ndk/cmake-example/app/.cxx/cmake/debug/x86",
+    "1": "--target=i686-none-linux-android21 --gcc-toolchain=/data/data/com.termux/files/home/android/android-ndk-r21/toolchains/llvm/prebuilt/linux-aarch64 --sysroot=/data/data/com.termux/files/home/android/android-ndk-r21/toolchains/llvm/prebuilt/linux-aarch64/sysroot -Dnative_lib_EXPORTS -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -O0 -fno-limit-debug-info -fPIC"
+  },
+  "buildFiles": [
+    "/data/data/com.termux/files/home/android/android-ndk-r21/build/cmake/android.toolchain.cmake",
+    "/storage/emulated/0/mt2/termux-ndk/cmake-example/app/src/main/cpp/CMakeLists.txt",
+    "/data/data/com.termux/files/home/android/android-ndk-r21/build/cmake/platforms.cmake"
+  ],
+  "cleanCommands": [
+    "ninja -C \"/storage/emulated/0/mt2/termux-ndk/cmake-example/app/.cxx/cmake/debug/x86\" clean"
+  ],
+  "buildTargetsCommand": "ninja  -C \"/storage/emulated/0/mt2/termux-ndk/cmake-example/app/.cxx/cmake/debug/x86\" {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "native-lib-Debug-x86": {
+      "buildCommand": "ninja -C \"/storage/emulated/0/mt2/termux-ndk/cmake-example/app/.cxx/cmake/debug/x86\" native-lib",
+      "buildType": "debug",
+      "toolchain": "4047260675",
+      "abi": "x86",
+      "artifactName": "native-lib",
+      "files": [
+        {
+          "src": "/storage/emulated/0/mt2/termux-ndk/cmake-example/app/src/main/cpp/main.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        }
+      ],
+      "headers": [],
+      "output": "/storage/emulated/0/mt2/termux-ndk/cmake-example/app/build/intermediates/cmake/debug/obj/x86/libnative-lib.so"
+    }
+  },
+  "toolchains": {
+    "4047260675": {
+      "cppCompilerExecutable": "/data/data/com.termux/files/home/android/android-ndk-r21/toolchains/llvm/prebuilt/linux-aarch64/bin/clang++"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}

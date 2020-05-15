@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 28
-    buildToolsVersion "28.0.3"
+    buildToolsVersion "30.0.0-rc1"
 
     defaultConfig {
         applicationId "com.cmake.test"
@@ -14,8 +14,10 @@ android {
         // cmake arguments
         externalNativeBuild {
              cmake {
-                 arguments "-DANDROID_APP_PLATFORM=android-21", "-DANDROID_STL=c++_static"
-                 abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+			    // specify the cmake version
+				version "3.17.2"
+                arguments "-DANDROID_APP_PLATFORM=android-21", "-DANDROID_STL=c++_static", "-fuse-ld=lld"
+                abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
             }
         }
     }

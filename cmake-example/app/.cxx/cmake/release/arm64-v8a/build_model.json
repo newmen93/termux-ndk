@@ -1,0 +1,201 @@
+{
+  "abi": "ARM64_V8A",
+  "abiPlatformVersion": 21,
+  "buildSettings": {
+    "environmentVariables": []
+  },
+  "cmake": {
+    "cmakeArtifactsBaseFolder": "/storage/emulated/0/mt2/termux-ndk/cmake-example/app/.cxx/cmake/release/arm64-v8a",
+    "cmakeServerLogFile": "/storage/emulated/0/mt2/termux-ndk/cmake-example/app/.cxx/cmake/release/arm64-v8a/cmake_server_log.txt",
+    "cmakeWrappingBaseFolder": "/storage/emulated/0/mt2/termux-ndk/cmake-example/app/.cxx/cxx/release/arm64-v8a",
+    "effectiveConfiguration": {
+      "name": "traditional-android-studio-cmake-environment",
+      "description": "Composite reified CMakeSettings configuration",
+      "generator": "Ninja",
+      "inheritEnvironments": [
+        "ndk"
+      ],
+      "buildRoot": "/storage/emulated/0/mt2/termux-ndk/cmake-example/app/.cxx/cmake/release/arm64-v8a",
+      "cmakeToolchain": "/data/data/com.termux/files/home/android/android-ndk-r21/build/cmake/android.toolchain.cmake",
+      "cmakeExecutable": "/data/data/com.termux/files/home/android/android-sdk/cmake/bin/cmake",
+      "variables": [
+        {
+          "name": "CMAKE_BUILD_TYPE",
+          "value": "Release"
+        },
+        {
+          "name": "CMAKE_TOOLCHAIN_FILE",
+          "value": "/data/data/com.termux/files/home/android/android-ndk-r21/build/cmake/android.toolchain.cmake"
+        },
+        {
+          "name": "ANDROID_ABI",
+          "value": "arm64-v8a"
+        },
+        {
+          "name": "ANDROID_NDK",
+          "value": "/data/data/com.termux/files/home/android/android-ndk-r21"
+        },
+        {
+          "name": "ANDROID_PLATFORM",
+          "value": "android-21"
+        },
+        {
+          "name": "CMAKE_ANDROID_ARCH_ABI",
+          "value": "arm64-v8a"
+        },
+        {
+          "name": "CMAKE_ANDROID_NDK",
+          "value": "/data/data/com.termux/files/home/android/android-ndk-r21"
+        },
+        {
+          "name": "CMAKE_EXPORT_COMPILE_COMMANDS",
+          "value": "ON"
+        },
+        {
+          "name": "CMAKE_LIBRARY_OUTPUT_DIRECTORY",
+          "value": "/storage/emulated/0/mt2/termux-ndk/cmake-example/app/build/intermediates/cmake/release/obj/arm64-v8a"
+        },
+        {
+          "name": "CMAKE_SYSTEM_NAME",
+          "value": "Android"
+        },
+        {
+          "name": "CMAKE_SYSTEM_VERSION",
+          "value": "21"
+        },
+        {
+          "name": "ANDROID_APP_PLATFORM",
+          "value": "android-21"
+        },
+        {
+          "name": "ANDROID_STL",
+          "value": "c++_static"
+        }
+      ]
+    }
+  },
+  "cxxBuildFolder": "/storage/emulated/0/mt2/termux-ndk/cmake-example/app/.cxx/cmake/release/arm64-v8a",
+  "info": {
+    "abi": "ARM64_V8A",
+    "bitness": 64,
+    "deprecated": false,
+    "default": true
+  },
+  "originalCxxBuildFolder": "/storage/emulated/0/mt2/termux-ndk/cmake-example/app/.cxx/cmake/release/arm64-v8a",
+  "variant": {
+    "buildSystemArgumentList": [
+      "-DANDROID_APP_PLATFORM\u003dandroid-21",
+      "-DANDROID_STL\u003dc++_static",
+      "-fuse-ld\u003dlld"
+    ],
+    "buildTargetSet": [],
+    "cFlagsList": [],
+    "cmakeSettingsConfiguration": "android-gradle-plugin-predetermined-name",
+    "cppFlagsList": [],
+    "isDebuggableEnabled": false,
+    "module": {
+      "buildSystem": "CMAKE",
+      "cmake": {
+        "cmakeExe": "/data/data/com.termux/files/home/android/android-sdk/cmake/bin/cmake",
+        "minimumCmakeVersion": "3.10.2"
+      },
+      "cmakeToolchainFile": "/data/data/com.termux/files/home/android/android-ndk-r21/build/cmake/android.toolchain.cmake",
+      "cxxFolder": "/storage/emulated/0/mt2/termux-ndk/cmake-example/app/.cxx",
+      "gradleModulePathName": ":app",
+      "intermediatesFolder": "/storage/emulated/0/mt2/termux-ndk/cmake-example/app/build/intermediates",
+      "makeFile": "/storage/emulated/0/mt2/termux-ndk/cmake-example/app/src/main/cpp/CMakeLists.txt",
+      "moduleBuildFile": "/storage/emulated/0/mt2/termux-ndk/cmake-example/app/build.gradle",
+      "moduleRootFolder": "/storage/emulated/0/mt2/termux-ndk/cmake-example/app",
+      "ndkDefaultAbiList": [
+        "ARMEABI_V7A",
+        "ARM64_V8A",
+        "X86",
+        "X86_64"
+      ],
+      "ndkFolder": "/data/data/com.termux/files/home/android/android-ndk-r21",
+      "ndkMetaAbiList": [
+        {
+          "abi": "ARMEABI_V7A",
+          "bitness": 32,
+          "deprecated": false,
+          "default": true
+        },
+        {
+          "abi": "ARM64_V8A",
+          "bitness": 64,
+          "deprecated": false,
+          "default": true
+        },
+        {
+          "abi": "X86",
+          "bitness": 32,
+          "deprecated": false,
+          "default": true
+        },
+        {
+          "abi": "X86_64",
+          "bitness": 64,
+          "deprecated": false,
+          "default": true
+        }
+      ],
+      "ndkMetaPlatforms": {
+        "min": 16,
+        "max": 29,
+        "aliases": {
+          "20": 19,
+          "25": 24,
+          "J": 16,
+          "J-MR1": 17,
+          "J-MR2": 18,
+          "K": 19,
+          "L": 21,
+          "L-MR1": 22,
+          "M": 23,
+          "N": 24,
+          "N-MR1": 24,
+          "O": 26,
+          "O-MR1": 27,
+          "P": 28,
+          "Q": 29
+        }
+      },
+      "ndkSupportedAbiList": [
+        "ARMEABI_V7A",
+        "ARM64_V8A",
+        "X86",
+        "X86_64"
+      ],
+      "ndkVersion": "21.0.6113669",
+      "project": {
+        "compilerSettingsCacheFolder": "/storage/emulated/0/mt2/termux-ndk/cmake-example/.cxx",
+        "cxxFolder": "/storage/emulated/0/mt2/termux-ndk/cmake-example/.cxx",
+        "isBuildOnlyTargetAbiEnabled": true,
+        "isCmakeBuildCohabitationEnabled": false,
+        "isNativeCompilerSettingsCacheEnabled": false,
+        "rootBuildGradleFolder": "/storage/emulated/0/mt2/termux-ndk/cmake-example",
+        "sdkFolder": "/data/data/com.termux/files/home/android/android-sdk"
+      },
+      "splitsAbiFilterSet": [],
+      "stlSharedObjectMap": {
+        "LIBCXX_SHARED": {
+          "ARMEABI_V7A": "/data/data/com.termux/files/home/android/android-ndk-r21/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/arm-linux-androideabi/libc++_shared.so",
+          "ARM64_V8A": "/data/data/com.termux/files/home/android/android-ndk-r21/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/libc++_shared.so",
+          "X86": "/data/data/com.termux/files/home/android/android-ndk-r21/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android/libc++_shared.so",
+          "X86_64": "/data/data/com.termux/files/home/android/android-ndk-r21/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/x86_64-linux-android/libc++_shared.so"
+        },
+        "LIBCXX_STATIC": {},
+        "NONE": {},
+        "SYSTEM": {}
+      }
+    },
+    "objFolder": "/storage/emulated/0/mt2/termux-ndk/cmake-example/app/build/intermediates/cmake/release/obj",
+    "variantName": "release",
+    "validAbiList": [
+      "ARMEABI_V7A",
+      "ARM64_V8A",
+      "X86",
+      "X86_64"
+    ]
+  }
+}

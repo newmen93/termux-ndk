@@ -1,0 +1,3 @@
+/storage/emulated/0/mt2/termux-ndk/cmake-example/app/.cxx/cmake/debug/x86/CMakeFiles/rebuild_cache.dir
+/storage/emulated/0/mt2/termux-ndk/cmake-example/app/.cxx/cmake/debug/x86/CMakeFiles/edit_cache.dir
+/storage/emulated/0/mt2/termux-ndk/cmake-example/app/.cxx/cmake/debug/x86/CMakeFiles/native-lib.dir
