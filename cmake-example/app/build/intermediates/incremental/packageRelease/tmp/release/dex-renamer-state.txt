@@ -1,4 +1,0 @@
-#Fri May 15 10:58:11 GMT 2020
-base.0=/storage/emulated/0/mt2/termux-ndk/cmake-example/app/build/intermediates/dex/release/out/classes.dex
-renamed.0=classes.dex
-path.0=classes.dex
