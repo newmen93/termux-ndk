@@ -213,15 +213,14 @@ update [aapt2](https://github.com/Lzhiyong/build-tools) is here.
 
 externalNativeBuild {
     cmake {
-	    // specify the cmake version
-		version "3.17.2"
+        // specify the cmake version
+        version "3.17.2"
         arguments "-DANDROID_APP_PLATFORM=android-21", "-DANDROID_STL=c++_static", "-fuse-ld=lld"
         abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
     }
 }
 
 ......
-
 
 # modify local.properties file
 # sdk.dir=your_path  
