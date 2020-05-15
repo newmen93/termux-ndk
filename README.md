@@ -200,6 +200,8 @@ There may be some errors during the compilation process, please solve it yoursel
 
  **** 
 #### Test app with NDK cmake
+using termux to build termux.
+
 you need [openjdk](https://github.com/Lzhiyong/termux-ndk/releases)
  and [gradle](https://gradle.org)
 
