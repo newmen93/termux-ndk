@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.4.3)
+cmake_minimum_required(VERSION 3.14.2)
 
 project(libbcc)
 
@@ -34,8 +34,8 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../bcinfo/include)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../bcinfo/rs)
 
 
-add_library(bcc SHARED ${LIBBCC_SRC_FILES})
-target_link_libraries(bcc bcinfo)
+add_library(bcc STATIC ${LIBBCC_SRC_FILES})
+target_link_libraries(bcc)
 
 
 

@@ -1,12 +1,22 @@
-cmake_minimum_required(VERSION 3.4.3)
+cmake_minimum_required(VERSION 3.14.2)
 
 project(slang)
 
-set(CMAKE_C_COMPILE "${HOME}/android/aarch64-linux-android/bin/clang")
-set(CMAKE_CXX_COMPILE "${HOME}/android/aarch64-linux-android/bin/clang++")
+set(HOME "/data/data/com.termux/files/home")
 
-set(CXXFLAGS "-Wall -Werror -fno-rtti -fno-exceptions -fPIC -std=c++11 -D__DISABLE_ASSERTS -DTARGET_BUILD_VARIANT=eng")
+set(TOOLCHAIN "${HOME}/android/android-ndk-r21/llvm/prebuilt/linux-aarch64")
 
+set(CMAKE_C_COMPILE "${TOOLCHAIN}/bin/aarch64-linux-android29-clang")
+set(CMAKE_CXX_COMPILE "${TOOLCHAIN}/bin/aarch64-linux-android29-clang++")
+
+set(CXXFLAGS " \
+    -Wall -Werror \
+    -Wno-deprecated-declarations \
+    -fno-rtti -fno-exceptions \
+    -fPIC -std=c++11 \
+    -D__DISABLE_ASSERTS \
+    -DTARGET_BUILD_VARIANT=eng \
+    ")
 
 set(LIBSLANG_SRC_FILES 
 	slang.cpp 
@@ -43,24 +53,24 @@ set(LLVM_RS_CC_SRC_FILES
 	slang_rs_special_kernel_param.cpp 
 	)
 
-set(LLD_SRC_FILES lld_main.cpp)
+# set(LLD_SRC_FILES lld_main.cpp)
 
 set(CMAKE_CXX_FLAGS ${CXXFLAGS})
 
-include_directories(${CMAKE_SOURCE_DIR}/../clang-3.9/include)
+include_directories(${CMAKE_SOURCE_DIR}/../llvm/include)
 include_directories(${CMAKE_SOURCE_DIR}/../libbcc/bcinfo/include)
 
-link_directories(${CMAKE_SOURCE_DIR}/../clang-3.9/lib)
+link_directories(${CMAKE_SOURCE_DIR}/../llvm/lib)
 
 add_subdirectory(BitWriter_2_9)
 add_subdirectory(BitWriter_2_9_func)
 add_subdirectory(BitWriter_3_2)
 add_subdirectory(StripUnkAttr)
 
+set(CMAKE_EXE_LINKER_FLAGS "-static")
 
 add_library(slang STATIC ${LIBSLANG_SRC_FILES})
 target_link_libraries(slang LLVMBitWriter_2_9 LLVMBitWriter_2_9_func LLVMBitWriter_3_2 StripUnkAttr)
-
 
 add_executable(llvm-rs-as ${LLVM_RS_AS_SRC_FILES})
 target_link_libraries(llvm-rs-as slang LLVM_static -ldl -lz -lm)

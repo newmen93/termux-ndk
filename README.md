@@ -33,21 +33,24 @@ exit
 # no build windows
 python toolchain/llvm_android/build.py --no-build windows
 ```
-You need to make some changes to it before performing build.py, 
-download the toolchain [aarch64-linux-android](https://github.com/Lzhiyong/termux-ndk/releases)
- (toolchain from NDK, make_standalone_toolchain.py)
+You need to download the prebuilt [ndk](https://github.com/Lzhiyong/termux-ndk/releases), before performing build.py.
+
 ```bash
 # remove prebuilt clang, CLANG_PREBUILT_VERSION is defined in ~/llvm-toolchain/toolchain/llvm_android/constants.py
 
 rm -vrf ~/llvm-toolchain/prebuilts/clang/host/linux-x86/CLANG_PREBUILT_VERSION/*
 
-tar -xJvf aarch64-linux-android.tar.xz -C ~/llvm-toolchain/prebuilts/clang/host/linux-x86/CLANG_PREBUILT_VERSION
+# extract android-ndk-r21.tar.xz to your path
+tar -xJvf android-ndk-r21.tar.xz -C /path/to/android-ndk-r21
+
+# copy ndk llvm to prebuilt clang directory
+ cp -r android-ndk-r21/toolchains/llvm/prebuilt/linux-aarch64/* ~/llvm-toolchain/prebuilts/clang/host/linux-x86/CLANG_PREBUILT_VERSION
 
 # you have installed cmake via apt install cmake
-ln -sf ~/../usr/bin/cmake ~/llvm-toolchain/prebuilts/cmake/linux-x86/bin/cmake
+ln -sf /data/data/com.termux/files/usr/bin/cmake ~/llvm-toolchain/prebuilts/cmake/linux-x86/bin/cmake
 
 # you have installed ninja via apt install ninja
-ln -sf ~/../usr/bin/ninja ~/llvm-toolchain/prebuilts/ninja/linux-x86/bin/ninja
+ln -sf /data/data/com.termux/files/usr/bin/ninja ~/llvm-toolchain/prebuilts/ninja/linux-x86/bin/ninja
 
 # remove prebuilt python
 rm -vrf ~/llvm-toolchain/prebuilts/python/linux-x86/*
@@ -60,16 +63,15 @@ rm -vrf ~/llvm-toolchain/prebuilts/python/linux-x86/*
 # go is the same
 
 # apt install libedit and cpoy libedit to prebuilt dirctory
-cp ~/../usr/lib/libedit* ~/llvm-toolchain/prebuilts/libedit/linux-x86/lib
+cp /data/data/com.termux/files/usr/lib/libedit* ~/llvm-toolchain/prebuilts/libedit/linux-x86/lib
 
 # apt install swig and copy swig to prebuilt directory
-cp ~/../usr/bin/swig ~/llvm-toolchain/prebuilts/swig/linux-x86/bin
+cp /data/data/com.termux/files/usr/bin/swig ~/llvm-toolchain/prebuilts/swig/linux-x86/bin
 
-# modify ~/llvm-toolchain/toolchain/llvm_android/configs.py 
-# sysroot:~/llvm-toolchain/prebuilts/clang/host/linux-x86/CLANG_PREBUILT_VERSION/sysroot
+# modify llvm-toolchain/toolchain/llvm_android/configs.py 
+# sysroot: llvm-toolchain/prebuilts/clang/host/linux-x86/CLANG_PREBUILT_VERSION/sysroot
 ```
 There are some that need to be modified, please see llvm_android for details
-###### Please note that aarch64-linux-android/bin/clang++ does not link libstdc++ by default, so add the link parameter -lstdc++ in do_build.py
 
  **** 
 ###  OK start compile now!
@@ -91,9 +93,12 @@ python toolchain/binutils/build.py
 #         x86_64-linux-android
 
 cd binutils && mkdir build && cd build
+
+TOOLCHAIN=/path/to/android-ndk-r21/toolchains/llvm/prebuilt/linux-aarch64
+
 ../configure \                                      
-    CC=$HOME/android/aarch64-linux-android/bin/clang \                                              
-    CXX=$HOME/android/aarch64-linux-android/bin/clang++ \                                           
+    CC=$TOOLCHAIN/bin/aarch64-linux-android29-clang \                                              
+    CXX=$TOOLCHAIN/bin/aarch64-linux-android29-clang++ \                                           
     CFLAGS="-fPIC -std=c11" \                       
     CXXFLAGS="-fPIC -std=c++17" \                   
     --prefix=$HOME/binutils/x86_64 \                
@@ -145,9 +150,14 @@ git clone https://github.com/KhronosGroup/glslang.git
 
 cd ~/shaderc && mkdir build && cd build
 
-cmake -G "Ninja" 
+TOOLCHAIN=/path/to/android-ndk-r21/toolchains/llvm/prebuilt/linux-aarch64
+
+cmake -G "Ninja" \
+    -DCMAKE_C_COMPILER=$TOOLCHAIN/bin/aarch64-linux-android29-clang \
+    -DCMAKE_CXX_COMPILER=$TOOLCHAIN/bin/aarch64-linux-android29-clang++ \
+    -DCMAKE_SYSROOT=$TOOLCHAIN/sysroot \
     -DCMAKE_BUILD_TYPE=Release \
-    -DCMAKE_INSTALL_PREFIX=your_install_path \
+    -DCMAKE_INSTALL_PREFIX=/path/to/shader-tools \
     ..
 
 ninja install -j16
@@ -155,7 +165,7 @@ ninja install -j16
 
  **** 
 #### Building renderscript (bcc_compat llvm-rs-cc)
-build bcc_compat and llvm-rs-cc need older version clang, download [clang-3.9](https://github.com/Lzhiyong/termux-ndk/releases)
+build bcc_compat and llvm-rs-cc need older version llvm and clang, download [llvm](https://github.com/Lzhiyong/termux-ndk/releases)
  or you can download the source code and compile it yourself
 
 ```bash
@@ -165,15 +175,15 @@ build bcc_compat and llvm-rs-cc need older version clang, download [clang-3.9](h
 # git clone https://android.googlesource.com/platform/frameworks/compile/libbcc
 # rs souce code
 # git clone https://android.googlesource.com/platform/frameworks/rs
-# clang-3.9 source code
+# llvm and clang source code
 # git clone https://android.googlesource.com/platform/external/llvm
 # git clone https://android.googlesource.com/platform/external/clang
 
 
-# I assume you have clang-3.9
+# I assume you have llvm
 git clone https://github.com/Lzhiyong/termux-ndk.git
 
-tar -xJvf clang-3.9.tar.xz -C renderscript
+tar -xJvf llvm.tar.xz -C renderscript
 
 # build llvm-rs-cc
 cd renderscript/slang/build
@@ -187,7 +197,7 @@ cd renderscript/libbcc/build
 # I rewrote the code of rs_cc_options.cpp, this may have bugs.
 # because RSCCOptions.inc compilation error, I can't solve it yet.
 # RSCCOptions.inc is generated by llvm-tblgen, But I don’t know why there is an error
-# llvm-tblgen -I=../clang-3.9/include RSCCOptions.tb -o RSCCOptions.inc
+# llvm-tblgen -I=../llvm/include RSCCOptions.tb -o RSCCOptions.inc
 # if you don't want to compile liblog, modify <log/log.h> to <android/log>
 ```
  **** 
@@ -207,7 +217,18 @@ you need [openjdk](https://github.com/Lzhiyong/termux-ndk/releases)
 
 update [aapt2](https://github.com/Lzhiyong/build-tools) is here.
 
+#####Please note !!!
+
+when you execute the gradle build command finish, some errors will occur, 
+this is because the gradle plugin will download a corresponding aapt2, We need to replace the aapt2, 
+aapt2 in /data/data/com.termux/files/home/.gradle (aapt2-3.6.1-6040484-linux.jar), extract the jar file, aapt2 in this jar file, replace it with [android-sdk](https://github.com/Lzhiyong/termux-ndk/releases)/build-tools/aapt2, 
+if there are errors, continue to replace！
+
+
 ```bash
+# set build tools version
+buildToolsVersion "30.0.0-rc1"
+
 # update the cmake version
 ......
 
@@ -223,9 +244,9 @@ externalNativeBuild {
 ......
 
 # modify local.properties file
-# sdk.dir=your_path  
-# ndk.dir=your_path
-# cmake.dir=your_path
+# sdk.dir=/path/to/android-sdk
+# ndk.dir=/path/to/ndk
+# cmake.dir=/path/to/cmake
 
 cd termux-ndk/cmake-example && gradle build
 ```

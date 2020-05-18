@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.4.3)
+cmake_minimum_required(VERSION 3.14.2)
 
 project(libbcinfo)
 
@@ -20,7 +20,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/rs)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 
-add_library(bcinfo SHARED ${LIBBCINFO_SRC_FILES})
+add_library(bcinfo STATIC ${LIBBCINFO_SRC_FILES})
 target_link_libraries(bcinfo LLVMWrap LLVMBitReader_2_7 LLVMBitReader_3_0 LLVMBitWriter_3_2 StripUnkAttr LLVMBitReader LLVMCore LLVMSupport log)
 
 

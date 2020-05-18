@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.4.3)
+cmake_minimum_required(VERSION 3.14.2)
 
 project(bcinfo_exe)
 
@@ -8,8 +8,9 @@ set(BCINFO_SRC_FILES
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../include)
 
-add_executable(bcinfo_exe  ${BCINFO_SRC_FILES})
+#set(CMAKE_EXE_LINKER_FLAGS "-static")
 
-target_link_libraries(bcinfo_exe bcinfo LLVMBitReader LLVMBitWriter LLVMCore LLVMSupport -lm)
+add_executable(bcinfo_exe  ${BCINFO_SRC_FILES})
+target_link_libraries(bcinfo_exe bcinfo clang_static LLVM_static -lm -llog)
 
 
