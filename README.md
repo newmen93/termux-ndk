@@ -217,7 +217,7 @@ you need [openjdk](https://github.com/Lzhiyong/termux-ndk/releases)
 
 update [aapt2](https://github.com/Lzhiyong/build-tools) is here.
 
-#####Please note !!!
+================ Please note!!! ===============
 
 when you execute the gradle build command finish, some errors will occur, 
 this is because the gradle plugin will download a corresponding aapt2, We need to replace the aapt2, 
