@@ -33,6 +33,7 @@ exit
 # no build windows
 python toolchain/llvm_android/build.py --no-build windows
 ```
+ ****
 You need to download the prebuilt [ndk](https://github.com/Lzhiyong/termux-ndk/releases), before performing build.py
 
 ```bash
