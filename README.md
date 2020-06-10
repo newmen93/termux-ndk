@@ -34,7 +34,7 @@ exit
 python toolchain/llvm_android/build.py --no-build windows
 ```
  ****
-You need to download the prebuilt [ndk](https://github.com/Lzhiyong/termux-ndk/releases), before performing build.py
+You need to download the prebuilt ndk-r21, before performing build.py
 
 ```bash
 # remove prebuilt clang, CLANG_PREBUILT_VERSION is defined in ~/llvm-toolchain/toolchain/llvm_android/constants.py
@@ -213,8 +213,7 @@ There may be some errors during the compilation process, please solve it yoursel
 #### Test app with NDK cmake
 using termux to build termux.
 
-you need [openjdk](https://github.com/Lzhiyong/termux-ndk/releases)
- and [gradle](https://gradle.org)
+download the necessary tools, [gradle](https://gradle.org) and [openjdk](https://github.com/Lzhiyong/termux-ndk/releases)
 
 update [aapt2](https://github.com/Lzhiyong/build-tools) is here.
 
