@@ -1,4 +1,4 @@
-package com.cmake.test;
+package com.cmake.example;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
