@@ -15,7 +15,7 @@ android {
         externalNativeBuild {
              cmake {
                 // specify the cmake version
-		version "3.17.2"
+                version "3.17.2"
                 arguments "-DANDROID_APP_PLATFORM=android-21", "-DANDROID_STL=c++_static", "-fuse-ld=lld"
                 abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
             }
@@ -44,10 +44,6 @@ android {
 
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0'
-<<<<<<< HEAD
 	implementation 'com.google.android.material:material:1.2.0-alpha06'
-=======
-    implementation 'com.google.android.material:material:1.2.0-alpha06'
->>>>>>> 5593b7ca407dfb0b9a80f34e6be43e425adc5832
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 }

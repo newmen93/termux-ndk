@@ -4,6 +4,8 @@
 
 cmake_minimum_required(VERSION 3.14.2)
 
+project(native-lib)
+
 # Specifies a library name, specifies whether the library is STATIC or
 # SHARED, and provides relative paths to the source code. You can
 # define multiple libraries by adding multiple add.library() commands,
