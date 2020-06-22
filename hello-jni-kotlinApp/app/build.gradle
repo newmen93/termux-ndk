@@ -42,6 +42,11 @@ android {
         }
     }
 
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
     flavorDimensions 'cpuArch'
     productFlavors {
         arm7 {
