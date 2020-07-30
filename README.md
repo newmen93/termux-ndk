@@ -210,6 +210,13 @@ If your phone performance is good, the time may be shorter, but it still takes a
 There may be some errors during the compilation process, please solve it yourself!
 
  **** 
+
+## Screenshots
+
+<a href="./screenshot/Screenshot_01.jpg"><img src="./screenshot/Screenshot_01.jpg" width="30%" /></a>
+<a href="./screenshot/Screenshot_02.jpg"><img src="./screenshot/Screenshot_02.jpg" width="30%" /></a>
+<a href="./screenshot/Screenshot_03.jpg"><img src="./screenshot/Screenshot_03.jpg" width="30%" /></a>
+
 #### Test app with NDK cmake
 using termux to build termux.
 
@@ -257,15 +264,3 @@ externalNativeBuild {
 
 cd termux-ndk/cmake-example && gradle build
 ```
-
-Screenshot_01.jpg
-![image](https://github.com/Lzhiyong/termux-ndk/blob/master/screenshot/Screenshot_01.jpg)
-
-Screenshot_02.jpg
-![image](https://github.com/Lzhiyong/termux-ndk/blob/master/screenshot/Screenshot_02.jpg)
-
-Screenshot_03.jpg
-![image](https://github.com/Lzhiyong/termux-ndk/blob/master/screenshot/Screenshot_03.jpg)
-
-
-
