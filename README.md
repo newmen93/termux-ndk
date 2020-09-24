@@ -232,7 +232,8 @@ please note when you execute the gradle build command finish, some errors will o
 
 this is because the gradle plugin will download a corresponding version of aapt2.
 
-We need to replace the aapt2, aapt2 in /data/data/com.termux/files/home/.gradle 
+We need to replace the aapt2, aapt2 in 
+/data/data/com.termux/files/home/.gradle 
 
 execute the find command to search for aapt2, find . -type f -name "\*aapt2\*.jar"
 (such as aapt2-4.0.1-6197926-linux.jar or other version)
