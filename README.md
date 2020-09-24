@@ -229,7 +229,7 @@ download the build-essential toolchain, [gradle](https://gradle.org) and [openjd
 update [aapt2](https://github.com/Lzhiyong/build-tools) is here.
 
 please note when you execute the gradle build command finish, some errors will occur.
-> AAPT2 aapt2-4.0.1-6197926-linux Daemon #7: Daemon startup failed  
+> AAPT2 aapt2-4.0.1-6197926-linux Daemon #7: Daemon startup failed.  
         This should not happen under normal circumstances, please file an issue if it does.
 
 this is because the gradle plugin will download a corresponding version of aapt2.
