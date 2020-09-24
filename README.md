@@ -211,13 +211,14 @@ There may be some errors during the compilation process, please solve it yoursel
  **** 
 
 
-#### Buinding app with ndk cmake
-
-##### Screenshots
+#### Screenshots
 
 <a href="./screenshot/Screenshot_01.jpg"><img src="./screenshot/Screenshot_01.jpg" width="30%" /></a>
 <a href="./screenshot/Screenshot_02.jpg"><img src="./screenshot/Screenshot_02.jpg" width="30%" /></a>
 <a href="./screenshot/Screenshot_03.jpg"><img src="./screenshot/Screenshot_03.jpg" width="30%" /></a>
+
+
+#### Buinding app with ndk cmake
 
 using termux to build android app.
 
