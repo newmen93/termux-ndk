@@ -234,7 +234,7 @@ this is because the gradle plugin will download a corresponding version of aapt2
 
 We need to replace the aapt2, aapt2 in /data/data/com.termux/files/home/.gradle 
 
-execute the find command to search for aapt2, find . -type f -name "\*aapt2\*.jar"
+execute the find command to search for aapt2, find . -type f -name "\aapt2\*-linux.jar"
 (such as aapt2-4.0.1-6197926-linux.jar or other version)
 
 extract the jar file, aapt2 is inside this jar file, replace it with [sdk-tools](https://github.com/Lzhiyong/build-tools)/sdk-tools/build-tools/aapt2
