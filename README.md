@@ -278,7 +278,9 @@ cd termux-ndk/cmake-example && gradle build
 
 ## Issues
 
-I rewrote the rs_cc_options.cpp file for llvm-rs-cc, this may have bugs.
+Every NDK version has a lot of changes, direct compilation will fail, please solve by yourself.
+
+llvm-rs-cc may have bugs, I rewrote the rs_cc_options.cpp file.
 
 because RSCCOptions.inc compilation error, I can't solve it yet.
 
