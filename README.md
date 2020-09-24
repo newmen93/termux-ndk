@@ -212,10 +212,16 @@ There may be some errors during the compilation process, please solve it yoursel
 
 
 #### Buinding app with ndk cmake
+
+## Screenshots
+
+<a href="./screenshot/Screenshot_01.jpg"><img src="./screenshot/Screenshot_01.jpg" width="30%" /></a>
+<a href="./screenshot/Screenshot_02.jpg"><img src="./screenshot/Screenshot_02.jpg" width="30%" /></a>
+<a href="./screenshot/Screenshot_03.jpg"><img src="./screenshot/Screenshot_03.jpg" width="30%" /></a>
+
 using termux to build android app.
 
-download the build-essential toolchain, [gradle](https://gradle.org) and [openjdk](https://github.com/Lzhiyong/termux-ndk/releases)
-
+download the build-essential toolchain, [gradle](https://gradle.org) and [openjdk](https://github.com/Lzhiyong/termux-ndk/releases), 
 update [aapt2](https://github.com/Lzhiyong/build-tools) is here.
 
 please note when you execute the gradle build command finish, some errors will occur.
@@ -224,10 +230,10 @@ this is because the gradle plugin will download a corresponding version of aapt2
 
 We need to replace the aapt2, aapt2 in /data/data/com.termux/files/home/.gradle 
 
-execute the find command to search for aapt2, for example: find . -type f -name "\*aapt2\*.jar"
+execute the find command to search for aapt2, find . -type f -name "\*aapt2\*.jar"
 such as aapt2-4.0.1-6197926-linux.jar or other version
 
-extract the jar file, aapt2 is inside this jar file, replace it with [sdk-tools](https://github.com/Lzhiyong/build-tools/releases/tag/sdk-tools_201001)/build-tools/aapt2
+extract the jar file, aapt2 is inside this jar file, replace it with [sdk-tools](https://github.com/Lzhiyong/build-tools)/sdk-tools/build-tools/aapt2
 
 if there are still errors, continue to replace！
 
@@ -240,13 +246,13 @@ if there are still errors, continue to replace！
 # cmake.dir=/path/to/cmake
 
 
-# set the buildToolsVersion
+# setting the buildToolsVersion
 # update buildToolsVersion you need download the sdk-tools, then copy it to android-sdk/build-tools platform-tools
 # sdk-tools from https://github.com/Lzhiyong/build-tools
 buildToolsVersion "30.0.0-rc1"
 
 
-# set the cmake version 
+# setting the cmake version 
 # update cmake you need download the cmake source code to compile it
 ......
 
@@ -265,13 +271,6 @@ externalNativeBuild {
 cd termux-ndk/cmake-example && gradle build
 
 ```
-
-## Screenshots
-
-<a href="./screenshot/Screenshot_01.jpg"><img src="./screenshot/Screenshot_01.jpg" width="30%" /></a>
-<a href="./screenshot/Screenshot_02.jpg"><img src="./screenshot/Screenshot_02.jpg" width="30%" /></a>
-<a href="./screenshot/Screenshot_03.jpg"><img src="./screenshot/Screenshot_03.jpg" width="30%" /></a>
-
 
 ## Issues
 
