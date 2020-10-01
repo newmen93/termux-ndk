@@ -274,7 +274,9 @@ externalNativeBuild {
 ......
 
 # building examples
-cd termux-ndk/cmake-example && gradle build
+cd termux-ndk/cmake-example 
+
+gradle build
 
 ```
 
