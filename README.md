@@ -1,4 +1,4 @@
-This is Google's standard NDK, which only supports running on Android devices with aarch64 architecture
+This is Google's standard NDK, which only supports running on android devices with aarch64 architecture
 
 the source code from AOSP llvm-toolchain master branch, because llvm is cross-platform, so we can recompile it to Android
 
