@@ -225,7 +225,7 @@ There may be some errors during the compilation process, please solve it yoursel
 
 Using termux to build android app.
 
-1. download the build-essential toolchain, [gradle](https://gradle.org) and [openjdk](https://github.com/Lzhiyong/termux-ndk/releases), 
+1\. download the build-essential toolchain, [gradle](https://gradle.org) and [openjdk](https://github.com/Lzhiyong/termux-ndk/releases), 
 update [aapt2](https://github.com/Lzhiyong/sdk-tools) is here.
 
 2. please note when you execute the gradle build command finish, some errors will occur.
