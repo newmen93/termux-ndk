@@ -1,4 +1,4 @@
-This is Google's standard ndk, which only supports running on Android devices with aarch64 architecture
+This is Google's standard NDK, which only supports running on Android devices with aarch64 architecture
 
 the source code from AOSP llvm-toolchain master branch, because llvm is cross-platform, so we can recompile it to Android
 
@@ -225,23 +225,23 @@ There may be some errors during the compilation process, please solve it yoursel
 
 Using termux to build android app.
 
-1 download the build-essential toolchain, [gradle](https://gradle.org) and [openjdk](https://github.com/Lzhiyong/termux-ndk/releases), 
+- download the build-essential toolchain, [gradle](https://gradle.org) and [openjdk](https://github.com/Lzhiyong/termux-ndk/releases), 
 update [aapt2](https://github.com/Lzhiyong/sdk-tools) is here.
 
-2 please note when you execute the gradle build command finish, some errors will occur.
+- please note when you execute the gradle build command finish, some errors will occur.
 > AAPT2 aapt2-4.0.1-6197926-linux Daemon #7: Daemon startup failed.  
         This should not happen under normal circumstances, please file an issue if it does.
 
-3 this is because the gradle plugin will download a corresponding version of aapt2.
+- this is because the gradle plugin will download a corresponding version of aapt2.
 
-4 We need to replace the aapt2-xxx-linux.jar, which under /data/data/com.termux/files/home/.gradle 
+- We need to replace the aapt2-xxx-linux.jar, which under /data/data/com.termux/files/home/.gradle 
 
-5 execute the find command to search for aapt2, find . -type f -name "aapt2\*-linux.jar"
+- execute the find command to search for aapt2, find . -type f -name "aapt2\*-linux.jar"
 (such as aapt2-4.0.1-6197926-linux.jar or other version)
 
-6 extract the jar file, aapt2 is inside this jar file, replace it with [sdk-tools](https://github.com/Lzhiyong/sdk-tools)/build-tools/aapt2
+- extract the jar file, aapt2 is inside this jar file, replace it with [sdk-tools](https://github.com/Lzhiyong/sdk-tools)/build-tools/aapt2
 
-7 if there are still errors, continue to replace！
+- if there are still errors, continue to replace！
 
 
 ```bash
