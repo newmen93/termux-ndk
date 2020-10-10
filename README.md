@@ -255,7 +255,7 @@ update [aapt2](https://github.com/Lzhiyong/sdk-tools) is here.
 # setting the buildToolsVersion
 # update buildToolsVersion you need download the sdk-tools, then copy it to android-sdk/build-tools platform-tools
 # sdk-tools from https://github.com/Lzhiyong/sdk-tools
-buildToolsVersion "30.0.0-rc1"
+buildToolsVersion "30.0.1"
 
 
 # setting the cmake version 
