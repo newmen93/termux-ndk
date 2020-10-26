@@ -16,10 +16,7 @@ I recommend using [TermuxArch](https://github.com/SDRausty/TermuxArch)
 
 For more details, please refer to toolchain build doc
 
-The latest version of this document is available at [https://android.googlesource.com/platform/ndk/+/master/docs/Toolchains.md](https://android.googlesource.com/platform/ndk/+/master/docs/Toolchains.md)
-
-[Android Clang/LLVM Toolchain Prebuilts Doc](https://android.googlesource.com/platform/external/clang/+/dev/ToolchainPrebuilts.md)
-
+The latest version of this document is available at [Toolchains.md](https://android.googlesource.com/platform/ndk/+/master/docs/Toolchains.md) and [ToolchainPrebuilts.md](https://android.googlesource.com/platform/external/clang/+/dev/ToolchainPrebuilts.md)
 
 ```bash
 # I assume that you have installed the ArchLinux
