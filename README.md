@@ -14,6 +14,13 @@ Termux needs to install aarch64 version of Linux,
 I recommend using [TermuxArch](https://github.com/SDRausty/TermuxArch)
 , ArchLinux only downloads source code, we are not using it to compile
 
+For more details, please refer to toolchain build doc
+
+The latest version of this document is available at [https://android.googlesource.com/platform/ndk/+/master/docs/Toolchains.md](https://android.googlesource.com/platform/ndk/+/master/docs/Toolchains.md)
+
+[Android Clang/LLVM Toolchain Prebuilts Doc](https://android.googlesource.com/platform/external/clang/+/dev/ToolchainPrebuilts.md)
+
+
 ```bash
 # I assume that you have installed the ArchLinux
 # install repo
