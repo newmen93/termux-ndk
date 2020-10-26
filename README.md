@@ -11,8 +11,8 @@ of course you can build the whole NDK, use checkbuild.py, but the source code is
 ####  How to build
 
 Termux needs to install aarch64 version of Linux,
-I recommend using [TermuxArch](https://github.com/SDRausty/TermuxArch)
-, ArchLinux only downloads source code, we are not using it to compile
+I recommend using [TermuxArch](https://github.com/SDRausty/TermuxArch) 
+ArchLinux only downloads source code, we are not using it to compile
 
 For more details, please refer to toolchain build doc
 
