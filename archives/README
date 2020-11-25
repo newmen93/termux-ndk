@@ -1,7 +1,7 @@
-####  llvm-3.9
+#### llvm-3.9
 llvm libraries and headers, for building llvm-rs-cc and bcc_compat.
 
-####  libjansi
+#### libjansi
 libjansi for aarch64
 
 rm -vrf /data/data/com.termux/files/home/.cache
