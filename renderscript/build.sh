@@ -13,7 +13,7 @@ else
 fi
 
 # /path/to/android-ndk-r21d
-TOOLCHAIN=$HOME/proj/android-ndk-r21d/toolchains/llvm/prebuilt/linux-aarch64
+TOOLCHAIN=$HOME/toolchain/android-ndk-r21d/toolchains/llvm/prebuilt/linux-aarch64
 
 cmake -G "Unix Makefiles" \
 	-DCMAKE_C_COMPILER=${TOOLCHAIN}/bin/aarch64-linux-android30-clang \
