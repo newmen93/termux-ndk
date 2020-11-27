@@ -87,7 +87,7 @@ bool CompilerConfig::initializeTarget() {
   if (mTarget != nullptr) {
     return true;
   } else {
-    __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Cannot initialize llvm::Target for given triple '%s'! (%s)",
+    ALOGE("Cannot initialize llvm::Target for given triple '%s'! (%s)",
           mTriple.c_str(), error.c_str());
     return false;
   }
@@ -226,7 +226,7 @@ bool CompilerConfig::initializeArch() {
 #endif  // PROVIDE_X86_CODEGEN
 
   default:
-    __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Unsupported architecture type: %s", mTarget->getName());
+    ALOGE("Unsupported architecture type: %s", mTarget->getName());
     return false;
   }
 

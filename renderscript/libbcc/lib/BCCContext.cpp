@@ -30,7 +30,7 @@ BCCContext *BCCContext::GetOrCreateGlobalContext() {
   if (GlobalContext == nullptr) {
     GlobalContext = new (std::nothrow) BCCContext();
     if (GlobalContext == nullptr) {
-      __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Out of memory when allocating global BCCContext!");
+      ALOGE("Out of memory when allocating global BCCContext!");
     }
   }
   return GlobalContext;

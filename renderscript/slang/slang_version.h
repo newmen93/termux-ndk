@@ -19,7 +19,6 @@
 
 #include <climits>
 
-#define RS_VERSION 30
 #define RS_DEVELOPMENT_API UINT_MAX
 
 // API levels used by the standard Android SDK.

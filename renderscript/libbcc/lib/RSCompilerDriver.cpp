@@ -140,7 +140,7 @@ Compiler::ErrorCode RSCompilerDriver::compileScript(Script& pScript, const char*
   // Link RS script with Renderscript runtime.
   //===--------------------------------------------------------------------===//
   if (!pScript.LinkRuntime(pRuntimePath)) {
-    __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Failed to link script '%s' with Renderscript runtime %s!",
+    ALOGE("Failed to link script '%s' with Renderscript runtime %s!",
           pScriptName, pRuntimePath);
     return Compiler::kErrInvalidSource;
   }
@@ -155,7 +155,7 @@ Compiler::ErrorCode RSCompilerDriver::compileScript(Script& pScript, const char*
     FileMutex write_output_mutex(pOutputPath);
 
     if (write_output_mutex.hasError() || !write_output_mutex.lockMutex()) {
-      __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Unable to acquire the lock for writing %s! (%s)",
+      ALOGE("Unable to acquire the lock for writing %s! (%s)",
             pOutputPath, write_output_mutex.getErrorMessage().c_str());
       return Compiler::kErrInvalidOutputFileState;
     }
@@ -165,7 +165,7 @@ Compiler::ErrorCode RSCompilerDriver::compileScript(Script& pScript, const char*
     std::error_code error;
     llvm::raw_fd_ostream out_stream(pOutputPath, error, llvm::sys::fs::F_RW);
     if (error) {
-      __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Unable to open %s for write! (%s)", pOutputPath,
+      ALOGE("Unable to open %s for write! (%s)", pOutputPath,
             error.message().c_str());
       return Compiler::kErrPrepareOutput;
     }
@@ -174,7 +174,7 @@ Compiler::ErrorCode RSCompilerDriver::compileScript(Script& pScript, const char*
     bool compiler_need_reconfigure = setupConfig(pScript);
 
     if (mConfig == nullptr) {
-      __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Failed to setup config for RS compiler to compile %s!",
+      ALOGE("Failed to setup config for RS compiler to compile %s!",
             pOutputPath);
       return Compiler::kErrInvalidSource;
     }
@@ -182,7 +182,7 @@ Compiler::ErrorCode RSCompilerDriver::compileScript(Script& pScript, const char*
     if (compiler_need_reconfigure) {
       Compiler::ErrorCode err = mCompiler.config(*mConfig);
       if (err != Compiler::kSuccess) {
-        __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Failed to config the RS compiler for %s! (%s)",pOutputPath,
+        ALOGE("Failed to config the RS compiler for %s! (%s)",pOutputPath,
               Compiler::GetErrorString(err));
         return Compiler::kErrInvalidSource;
       }
@@ -195,7 +195,7 @@ Compiler::ErrorCode RSCompilerDriver::compileScript(Script& pScript, const char*
       IRStream.reset(new llvm::raw_fd_ostream(
           path.c_str(), error, llvm::sys::fs::F_RW | llvm::sys::fs::F_Text));
       if (error) {
-        __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Unable to open %s for write! (%s)", path.c_str(),
+        ALOGE("Unable to open %s for write! (%s)", path.c_str(),
               error.message().c_str());
         return Compiler::kErrPrepareOutput;
       }
@@ -206,7 +206,7 @@ Compiler::ErrorCode RSCompilerDriver::compileScript(Script& pScript, const char*
         mCompiler.compile(pScript, out_stream, IRStream.get());
 
     if (compile_result != Compiler::kSuccess) {
-      __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Unable to compile the source to file %s! (%s)", pOutputPath,
+      ALOGE("Unable to compile the source to file %s! (%s)", pOutputPath,
             Compiler::GetErrorString(compile_result));
       return Compiler::kErrInvalidSource;
     }
@@ -229,14 +229,14 @@ bool RSCompilerDriver::build(BCCContext &pContext,
   // Check parameters.
   //===--------------------------------------------------------------------===//
   if ((pCacheDir == nullptr) || (pResName == nullptr)) {
-    __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Invalid parameter passed to RSCompilerDriver::build()! (cache dir: "
+    ALOGE("Invalid parameter passed to RSCompilerDriver::build()! (cache dir: "
           "%s, resource name: %s)", ((pCacheDir) ? pCacheDir : "(null)"),
                                     ((pResName) ? pResName : "(null)"));
     return false;
   }
 
   if ((pBitcode == nullptr) || (pBitcodeSize <= 0)) {
-    __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "No bitcode supplied! (bitcode: %p, size of bitcode: %u)",
+    ALOGE("No bitcode supplied! (bitcode: %p, size of bitcode: %u)",
           pBitcode, static_cast<unsigned>(pBitcodeSize));
     return false;
   }
@@ -280,9 +280,9 @@ bool RSCompilerDriver::build(BCCContext &pContext,
   static const uint32_t kSlangMinimumFixedStructureNames = SlangVersion::M_RS_OBJECT;
   uint32_t version = wrapper.getCompilerVersion();
   if (version < kSlangMinimumFixedStructureNames) {
-    __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Found invalid legacy bitcode compiled with a version %u llvm-rs-cc "
+    ALOGE("Found invalid legacy bitcode compiled with a version %u llvm-rs-cc "
           "used with an assertion build", version);
-    __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Please recompile this apk with a more recent llvm-rs-cc "
+    ALOGE("Please recompile this apk with a more recent llvm-rs-cc "
           "(at least %u)", kSlangMinimumFixedStructureNames);
     return false;
   }
@@ -313,7 +313,7 @@ bool RSCompilerDriver::buildScriptGroup(
   std::vector<bcinfo::MetadataExtractor*> metadata;
   for (Source* source : sources) {
     if (!source->extractMetadata()) {
-      __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Cannot extract metadata from module");
+      ALOGE("Cannot extract metadata from module");
       return false;
     }
   }
@@ -334,7 +334,7 @@ bool RSCompilerDriver::buildScriptGroup(
     if (gotFirstSource) {
       if ((wrapperCompilerVersion != sourceWrapperCompilerVersion) ||
           (wrapperOptimizationLevel != sourceWrapperOptimizationLevel))
-        __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "ScriptGroup source files have inconsistent metadata");
+        ALOGE("ScriptGroup source files have inconsistent metadata");
         return false;
     } else {
       wrapperCompilerVersion = sourceWrapperCompilerVersion;
@@ -343,7 +343,7 @@ bool RSCompilerDriver::buildScriptGroup(
     }
     std::unique_ptr<llvm::Module> sourceModule(&source->getModule());
     if (linker.linkInModule(std::move(sourceModule))) {
-      __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Linking for module in source failed.");
+      ALOGE("Linking for module in source failed.");
       return false;
     }
     // source->getModule() is destroyed after linking.

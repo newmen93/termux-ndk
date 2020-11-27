@@ -75,7 +75,7 @@ private:
       if (llvm::StructType *STy = llvm::dyn_cast<llvm::StructType>(*GTI)) {
         llvm::ConstantInt *OpC = llvm::dyn_cast<llvm::ConstantInt>(GTI.getOperand());
         if (!OpC) {
-          __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Operand for struct type is not constant!");
+          ALOGE("Operand for struct type is not constant!");
           bccAssert(false);
         }
 

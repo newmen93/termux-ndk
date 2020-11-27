@@ -396,7 +396,7 @@ class RSExportPrimitiveType : public RSExportType {
         mNormalized(Normalized) {
   }
 
-  virtual llvm::Type *convertToLLVMType() const override;
+  virtual llvm::Type *convertToLLVMType() const;
 
   static DataType GetDataType(RSContext *Context, const clang::Type *T);
 
@@ -443,7 +443,7 @@ class RSExportPrimitiveType : public RSExportType {
   // For a vector type, this is the size of a single element.
   unsigned getElementSizeInBytes() const { return (GetElementSizeInBits(this) >> 3); }
 
-  std::string getElementName() const override{
+  std::string getElementName() const {
     return getRSReflectionType(this)->rs_short_type;
   }
 };  // RSExportPrimitiveType
@@ -468,10 +468,10 @@ class RSExportPointerType : public RSExportType {
                                      const clang::PointerType *PT,
                                      const llvm::StringRef &TypeName);
 
-  virtual llvm::Type *convertToLLVMType() const override;
+  virtual llvm::Type *convertToLLVMType() const;
 
  public:
-  virtual bool keep() override;
+  virtual bool keep();
 
   inline const RSExportType *getPointeeType() const { return mPointeeType; }
 
@@ -502,14 +502,14 @@ class RSExportVectorType : public RSExportPrimitiveType {
                                     const llvm::StringRef &TypeName,
                                     bool Normalized = false);
 
-  virtual llvm::Type *convertToLLVMType() const override;
+  virtual llvm::Type *convertToLLVMType() const;
 
  public:
   static llvm::StringRef GetTypeName(const clang::ExtVectorType *EVT);
 
   inline unsigned getNumElement() const { return mNumElement; }
 
-  std::string getElementName() const override{
+  std::string getElementName() const {
     std::stringstream Name;
     Name << RSExportPrimitiveType::getRSReflectionType(this)->rs_short_type
          << "_" << getNumElement();
@@ -540,7 +540,7 @@ class RSExportMatrixType : public RSExportType {
       mDim(Dim) {
   }
 
-  virtual llvm::Type *convertToLLVMType() const override;
+  virtual llvm::Type *convertToLLVMType() const;
 
  public:
   // @RT was normalized by calling RSExportType::NormalizeType() before
@@ -575,17 +575,17 @@ class RSExportConstantArrayType : public RSExportType {
   static RSExportConstantArrayType *Create(RSContext *Context,
                                            const clang::ConstantArrayType *CAT);
 
-  virtual llvm::Type *convertToLLVMType() const override;
+  virtual llvm::Type *convertToLLVMType() const;
 
  public:
   unsigned getNumElement() const { return mNumElement; }
   const RSExportType *getElementType() const { return mElementType; }
 
-  std::string getElementName() const override{
+  std::string getElementName() const {
     return mElementType->getElementName();
   }
 
-  virtual bool keep() override;
+  virtual bool keep();
   bool matchODR(const RSExportType *E, bool LookInto) const override;
 };
 
@@ -663,20 +663,20 @@ class RSExportRecordType : public RSExportType {
                                     const llvm::StringRef &TypeName,
                                     bool mIsArtificial = false);
 
-  virtual llvm::Type *convertToLLVMType() const override;
+  virtual llvm::Type *convertToLLVMType() const;
 
  public:
   inline const std::list<const Field*>& getFields() const { return mFields; }
   inline bool isPacked() const { return mIsPacked; }
   inline bool isArtificial() const { return mIsArtificial; }
-  virtual size_t getStoreSize() const override{ return mStoreSize; }
-  virtual size_t getAllocSize() const override{ return mAllocSize; }
+  virtual size_t getStoreSize() const { return mStoreSize; }
+  virtual size_t getAllocSize() const { return mAllocSize; }
 
-  virtual std::string getElementName() const override{
+  virtual std::string getElementName() const {
     return "ScriptField_" + getName();
   }
 
-  virtual bool keep() override;
+  virtual bool keep();
   bool matchODR(const RSExportType *E, bool LookInto) const override;
 
   ~RSExportRecordType() {

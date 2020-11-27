@@ -33,7 +33,7 @@
 
 #ifndef LOG_TAG
 #   define LOG_TAG "bcc"
-#   include <android/log.h>
+#   include <log/log.h>
 #endif
 
 #define __ABORT_ON_FAILURES 1
@@ -41,7 +41,7 @@
 #define bccAssert(v)                                \
   do {                                              \
     if (!(v)) {                                     \
-      __android_log_print(ANDROID_LOG_ERROR, LOG_TAG,"bccAssert failed at %s:%d - '%s'\n",   \
+      ALOGE("bccAssert failed at %s:%d - '%s'\n",   \
           __FILE__, __LINE__, #v);                  \
       if (__ABORT_ON_FAILURES) {                    \
         abort();                                    \

@@ -223,8 +223,14 @@ extern "C" const char *__asan_default_options() {
     return "detect_leaks=0";
 }
 
-int main(int argc, char **argv) {
+// remove error: cannot initialize a parameter of type 'char **' with an lvalue of type 'const char **'
+int main(int argc, /*const*/ char **argv) {
   llvm::llvm_shutdown_obj Y; // Call llvm_shutdown() on exit.
+  //LLVMInitializeARMTargetInfo();
+  //LLVMInitializeARMTarget();
+  //LLVMInitializeARMAsmPrinter();
+  
+  // for aarch64
   LLVMInitializeAArch64TargetInfo();
   LLVMInitializeAArch64Target();
   LLVMInitializeAArch64AsmPrinter();
@@ -237,8 +243,7 @@ int main(int argc, char **argv) {
   slang::RSCCOptions Opts;
   llvm::IntrusiveRefCntPtr<clang::DiagnosticOptions> DiagOpts =
       new clang::DiagnosticOptions();
-  
-  
+      
   // 解析参数
   /*
   if (!slang::ParseArguments(llvm::makeArrayRef(argv, argc), Inputs, Opts,
@@ -268,7 +273,7 @@ int main(int argc, char **argv) {
        slang::PrintHelper();
        return 0;
    }
-  
+   
   if (Opts.mShowVersion) {
     llvm_rs_cc_VersionPrinter();
     return 0;

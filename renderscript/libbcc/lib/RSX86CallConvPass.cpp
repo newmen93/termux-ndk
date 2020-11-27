@@ -99,7 +99,7 @@ private:
         ArgNums.push_back(Arg.getArgNo());
 
         if (kDebug) {
-          __android_log_print(ANDROID_LOG_INFO, LOG_TAG, "Lowering argument %u for function %s\n", Arg.getArgNo(),
+          ALOGV("Lowering argument %u for function %s\n", Arg.getArgNo(),
                 F->getName().str().c_str());
         }
       }

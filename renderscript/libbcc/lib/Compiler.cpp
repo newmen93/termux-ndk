@@ -87,7 +87,7 @@ bool validateLayoutOfExportedTypes(const llvm::Module &module,
     const llvm::StructLayout *const targetStructLayout = targetDataLayout.getStructLayout(exportedType);
 
     if (moduleStructLayout->getSizeInBits() != targetStructLayout->getSizeInBits()) {
-      __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "%s: getSizeInBits() does not match (%u, %u)", exportedTypeName.c_str(),
+      ALOGE("%s: getSizeInBits() does not match (%u, %u)", exportedTypeName.c_str(),
             unsigned(moduleStructLayout->getSizeInBits()), unsigned(targetStructLayout->getSizeInBits()));
       allOk = false;
     }
@@ -99,7 +99,7 @@ bool validateLayoutOfExportedTypes(const llvm::Module &module,
          elementIdx < elementCount; ++elementIdx) {
       if (moduleStructLayout->getElementOffsetInBits(elementIdx) !=
           targetStructLayout->getElementOffsetInBits(elementIdx)) {
-        __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "%s: getElementOffsetInBits(%u) does not match (%u, %u)",
+        ALOGE("%s: getElementOffsetInBits(%u) does not match (%u, %u)",
               exportedTypeName.c_str(), elementIdx,
               unsigned(moduleStructLayout->getElementOffsetInBits(elementIdx)),
               unsigned(targetStructLayout->getElementOffsetInBits(elementIdx)));
@@ -168,7 +168,8 @@ Compiler::Compiler(const CompilerConfig &pConfig) : mTarget(nullptr),
 
   enum ErrorCode err = config(pConfig);
   if (err != kSuccess) {
-    __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "%s (%s, features: %s)", GetErrorString(err), triple.c_str(), pConfig.getFeatureString().c_str());
+    ALOGE("%s (%s, features: %s)", GetErrorString(err),
+          triple.c_str(), pConfig.getFeatureString().c_str());
     return;
   }
 
@@ -347,7 +348,7 @@ enum Compiler::ErrorCode Compiler::compile(Script &script,
     // is successful.
     std::error_code ec = module.materializeAll();
     if (ec) {
-      __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Failed to materialize the module `%s'! (%s)",
+      ALOGE("Failed to materialize the module `%s'! (%s)",
             module.getModuleIdentifier().c_str(), ec.message().c_str());
       return kErrMaterialization;
     }
@@ -494,7 +495,7 @@ enum Compiler::ErrorCode Compiler::screenGlobalFunctions(Script &script) {
   if (module.getMaterializer() != nullptr) {
     std::error_code ec = module.materializeAll();
     if (ec) {
-      __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Failed to materialize module `%s' when screening globals! (%s)",
+      ALOGE("Failed to materialize module `%s' when screening globals! (%s)",
             module.getModuleIdentifier().c_str(), ec.message().c_str());
       return kErrMaterialization;
     }

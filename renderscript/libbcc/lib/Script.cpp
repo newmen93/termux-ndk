@@ -42,7 +42,7 @@ bool Script::LinkRuntime(const char *core_lib) {
 
   Source *libclcore_source = Source::CreateFromFile(context, core_lib);
   if (libclcore_source == nullptr) {
-    __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Failed to load Renderscript library '%s' to link!", core_lib);
+    ALOGE("Failed to load Renderscript library '%s' to link!", core_lib);
     return false;
   }
 
@@ -79,7 +79,7 @@ bool Script::LinkRuntime(const char *core_lib) {
   bccAssert(wrapperMDNode != nullptr);
   libclcore_module.eraseNamedMetadata(wrapperMDNode);
   if (!mSource->merge(*libclcore_source)) {
-    __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Failed to link Renderscript library '%s'!", core_lib);
+    ALOGE("Failed to link Renderscript library '%s'!", core_lib);
     delete libclcore_source;
     return false;
   }

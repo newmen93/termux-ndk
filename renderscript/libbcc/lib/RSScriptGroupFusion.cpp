@@ -55,13 +55,13 @@ getFunction(Module* mergedModule, const Source* source, const int slot,
   bcinfo::MetadataExtractor &metadata = *source->getMetadata();
   const char* functionName = metadata.getExportForEachNameList()[slot];
   if (functionName == nullptr || !functionName[0]) {
-    __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Kernel fusion (module %s slot %d): failed to find kernel function",
+    ALOGE("Kernel fusion (module %s slot %d): failed to find kernel function",
           source->getName().c_str(), slot);
     return nullptr;
   }
 
   if (metadata.getExportForEachInputCountList()[slot] > 1) {
-    __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Kernel fusion (module %s function %s): cannot handle multiple inputs",
+    ALOGE("Kernel fusion (module %s function %s): cannot handle multiple inputs",
           source->getName().c_str(), functionName);
     return nullptr;
   }
@@ -75,7 +75,7 @@ getFunction(Module* mergedModule, const Source* source, const int slot,
   return function;
 }
 
-// The whitelist of supported signature bits. Context or user data arguments are
+// The collection of supported signature bits. Context or user data arguments are
 // not currently supported in kernel fusion. To support them or any new kinds of
 // arguments in the future, it requires not only listing the signature bits here,
 // but also implementing additional necessary fusion logic in the getFusedFuncSig(),
@@ -100,14 +100,14 @@ int getFusedFuncSig(const std::vector<Source*>& sources,
     bcinfo::MetadataExtractor &metadata = *source->getMetadata();
 
     if (metadata.getExportForEachInputCountList()[slot] > 1) {
-      __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Kernel fusion (module %s slot %d): cannot handle multiple inputs",
+      ALOGE("Kernel fusion (module %s slot %d): cannot handle multiple inputs",
             source->getName().c_str(), slot);
       return -1;
     }
 
     signature = metadata.getExportForEachSignatureList()[slot];
     if (signature & ~ExpectedSignatureBits) {
-      __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Kernel fusion (module %s slot %d): Unexpected signature %x",
+      ALOGE("Kernel fusion (module %s slot %d): Unexpected signature %x",
             source->getName().c_str(), slot, signature);
       return -1;
     }
@@ -237,7 +237,7 @@ bool fuseKernels(bcc::BCCContext& Context,
 
     // Don't try to fuse a non-kernel
     if (!bcinfo::MetadataExtractor::hasForEachSignatureKernel(inputFunctionSignature)) {
-      __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Kernel fusion (module %s function %s): not a kernel",
+      ALOGE("Kernel fusion (module %s function %s): not a kernel",
             source->getName().c_str(), inputFunction->getName().str().c_str());
       return false;
     }
@@ -246,7 +246,7 @@ bool fuseKernels(bcc::BCCContext& Context,
 
     if (bcinfo::MetadataExtractor::hasForEachSignatureIn(inputFunctionSignature)) {
       if (dataElement == nullptr) {
-        __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Kernel fusion (module %s function %s): expected input, but got null",
+        ALOGE("Kernel fusion (module %s function %s): expected input, but got null",
               source->getName().c_str(), inputFunction->getName().str().c_str());
         return false;
       }
@@ -261,7 +261,7 @@ bool fuseKernels(bcc::BCCContext& Context,
         firstArgType->print(rso);
         rso << ", received ";
         dataElement->getType()->print(rso);
-        __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Kernel fusion (module %s function %s): %s", source->getName().c_str(),
+        ALOGE("Kernel fusion (module %s function %s): %s", source->getName().c_str(),
               inputFunction->getName().str().c_str(), rso.str().c_str());
         return false;
       }
@@ -270,7 +270,7 @@ bool fuseKernels(bcc::BCCContext& Context,
     } else {
       // Only the first kernel in a batch is allowed to have no input
       if (slotIter != slots.begin()) {
-        __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Kernel fusion (module %s function %s): function not first in batch takes no input",
+        ALOGE("Kernel fusion (module %s function %s): function not first in batch takes no input",
               source->getName().c_str(), inputFunction->getName().str().c_str());
         return false;
       }

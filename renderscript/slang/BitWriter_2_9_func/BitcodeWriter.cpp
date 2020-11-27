@@ -12,7 +12,7 @@
 //===----------------------------------------------------------------------===//
 
 #include "ReaderWriter_2_9_func.h"
-#include "../legacy_bitcode.h"
+#include "legacy_bitcode.h"
 #include "ValueEnumerator.h"
 #include "llvm/ADT/Triple.h"
 #include "llvm/Bitcode/BitstreamWriter.h"
@@ -1762,7 +1762,7 @@ static void EmitDarwinBCHeaderAndTrailer(SmallVectorImpl<char> &Buffer,
   WriteInt32ToBuffer(BCSize     , Buffer, Position);
   WriteInt32ToBuffer(CPUType    , Buffer, Position);
 
-  // If the file is not a multiple of 16 bytes, insert dummy padding.
+  // If the file is not a multiple of 16 bytes, insert placeholder padding.
   while (Buffer.size() & 15)
     Buffer.push_back(0);
 }

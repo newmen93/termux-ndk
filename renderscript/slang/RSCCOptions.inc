@@ -1,4 +1,4 @@
-// ------------- Classes -----------------
+------------- Classes -----------------
 class Alias<Option Alias:alias = ?> {
   Option Alias = Alias:alias;
 }

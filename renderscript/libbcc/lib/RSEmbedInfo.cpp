@@ -176,7 +176,7 @@ public:
       s << "bcc - " << LLVM_VERSION_STRING << "\n";
       s << "slang - " << slangVersion << "\n";
       if (slangVersion != LLVM_VERSION_STRING && me.hasDebugInfo()) {
-        __android_log_print(ANDROID_LOG_WARN, LOG_TAG,
+        ALOGW(
             "The debug info in module '%s' has a different version than "
             "expected (%s, expecting %s). The debugging experience may be "
             "unreliable.",

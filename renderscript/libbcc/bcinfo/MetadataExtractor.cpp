@@ -20,7 +20,7 @@
 #include "rsDefines.h"
 
 #define LOG_TAG "bcinfo"
-#include <android/log.h>
+#include <log/log.h>
 
 #include "Assert.h"
 
@@ -118,7 +118,7 @@ bool populateNameMetadata(const llvm::NamedMDNode *NameMetadata,
     if (Name && Name->getNumOperands() > 0) {
       NameList[i] = createStringFromValue(Name->getOperand(0));
     } else {
-      __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Metadata operand does not contain a name string");
+      ALOGE("Metadata operand does not contain a name string");
       for (size_t AllocatedIndex = 0; AllocatedIndex < i; AllocatedIndex++) {
         delete [] NameList[AllocatedIndex];
       }
@@ -295,11 +295,11 @@ bool MetadataExtractor::populateObjectSlotMetadata(
     llvm::MDNode *ObjectSlot = ObjectSlotMetadata->getOperand(i);
     if (ObjectSlot != nullptr && ObjectSlot->getNumOperands() == 1) {
       if (!extractUIntFromMetadataString(&TmpSlotList[i], ObjectSlot->getOperand(0))) {
-        __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Non-integer object slot value");
+        ALOGE("Non-integer object slot value");
         return false;
       }
     } else {
-      __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Corrupt object slot information");
+      ALOGE("Corrupt object slot information");
       return false;
     }
   }
@@ -347,7 +347,7 @@ void MetadataExtractor::populatePragmaMetadata(
     if (!Relaxed.compare(mPragmaKeyList[i])) {
       RelaxedPragmaSeen = true;
     } else if (!Imprecise.compare(mPragmaKeyList[i])) {
-      __android_log_print(ANDROID_LOG_WARN, LOG_TAG, "rs_fp_imprecise is deprecated.  Assuming rs_fp_relaxed instead.");
+      ALOGW("rs_fp_imprecise is deprecated.  Assuming rs_fp_relaxed instead.");
       RelaxedPragmaSeen = true;
     } else if (!Full.compare(mPragmaKeyList[i])) {
       FullPragmaSeen = true;
@@ -355,7 +355,7 @@ void MetadataExtractor::populatePragmaMetadata(
   }
 
   if (RelaxedPragmaSeen && FullPragmaSeen) {
-    __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Full and relaxed precision specified at the same time!");
+    ALOGE("Full and relaxed precision specified at the same time!");
   }
   mRSFloatPrecision = RelaxedPragmaSeen ? RS_FP_Relaxed : RS_FP_Full;
 
@@ -369,17 +369,17 @@ void MetadataExtractor::populatePragmaMetadata(
   property_get("debug.rs.precision", PrecisionPropBuf, "");
   if (PrecisionPropBuf[0]) {
     if (!Relaxed.compare(PrecisionPropBuf)) {
-      __android_log_print(ANDROID_LOG_INFO, LOG_TAG, "Switching to RS FP relaxed mode via setprop");
+      ALOGI("Switching to RS FP relaxed mode via setprop");
       mRSFloatPrecision = RS_FP_Relaxed;
     } else if (!Imprecise.compare(PrecisionPropBuf)) {
-      __android_log_print(ANDROID_LOG_WARN, LOG_TAG, "Switching to RS FP relaxed mode via setprop. rs_fp_imprecise was "
+      ALOGW("Switching to RS FP relaxed mode via setprop. rs_fp_imprecise was "
             "specified but is deprecated ");
       mRSFloatPrecision = RS_FP_Relaxed;
     } else if (!Full.compare(PrecisionPropBuf)) {
-      __android_log_print(ANDROID_LOG_INFO, LOG_TAG, "Switching to RS FP full mode via setprop");
+      ALOGI("Switching to RS FP full mode via setprop");
       mRSFloatPrecision = RS_FP_Full;
     } else {
-      __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Unrecognized debug.rs.precision %s", PrecisionPropBuf);
+      ALOGE("Unrecognized debug.rs.precision %s", PrecisionPropBuf);
     }
   }
 #endif
@@ -447,11 +447,11 @@ bool MetadataExtractor::populateForEachMetadata(
     llvm::MDNode *SigNode = Signatures->getOperand(i);
     if (SigNode != nullptr && SigNode->getNumOperands() == 1) {
       if (!extractUIntFromMetadataString(&TmpSigList[i], SigNode->getOperand(0))) {
-        __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Non-integer signature value");
+        ALOGE("Non-integer signature value");
         return false;
       }
     } else {
-      __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Corrupt signature information");
+      ALOGE("Corrupt signature information");
       return false;
     }
   }
@@ -479,7 +479,7 @@ bool MetadataExtractor::populateForEachMetadata(
     }
   } else {
     if (mExportForEachSignatureCount != 1) {
-      __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "mExportForEachSignatureCount = %zu, but should be 1",
+      ALOGE("mExportForEachSignatureCount = %zu, but should be 1",
             mExportForEachSignatureCount);
     }
     char *RootName = new char[5];
@@ -512,7 +512,7 @@ bool MetadataExtractor::populateReduceMetadata(const llvm::NamedMDNode *ReduceMe
   for (size_t i = 0; i < mExportReduceCount; i++) {
     llvm::MDNode *Node = ReduceMetadata->getOperand(i);
     if (!Node || Node->getNumOperands() < 3) {
-      __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Missing reduce metadata");
+      ALOGE("Missing reduce metadata");
       return false;
     }
 
@@ -520,19 +520,19 @@ bool MetadataExtractor::populateReduceMetadata(const llvm::NamedMDNode *ReduceMe
 
     if (!extractUIntFromMetadataString(&TmpReduceList[i].mAccumulatorDataSize,
                                        Node->getOperand(1))) {
-      __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Non-integer accumulator data size value in reduce metadata");
+      ALOGE("Non-integer accumulator data size value in reduce metadata");
       return false;
     }
 
     llvm::MDNode *AccumulatorNode = llvm::dyn_cast<llvm::MDNode>(Node->getOperand(2));
     if (!AccumulatorNode || AccumulatorNode->getNumOperands() != 2) {
-      __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Malformed accumulator node in reduce metadata");
+      ALOGE("Malformed accumulator node in reduce metadata");
       return false;
     }
     TmpReduceList[i].mAccumulatorName = createStringFromValue(AccumulatorNode->getOperand(0));
     if (!extractUIntFromMetadataString(&TmpReduceList[i].mSignature,
                                        AccumulatorNode->getOperand(1))) {
-      __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Non-integer signature value in reduce metadata");
+      ALOGE("Non-integer signature value in reduce metadata");
       return false;
     }
     // Note that looking up the function by name can fail: One of the
@@ -601,7 +601,7 @@ void MetadataExtractor::readBuildChecksumMetadata(
 
 bool MetadataExtractor::extract() {
   if (!(mBitcode && mBitcodeSize) && !mModule) {
-    __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Invalid/empty bitcode/module");
+    ALOGE("Invalid/empty bitcode/module");
     return false;
   }
 
@@ -618,8 +618,8 @@ bool MetadataExtractor::extract() {
     llvm::ErrorOr<std::unique_ptr<llvm::Module> > errval =
         llvm::parseBitcodeFile(MEM.get()->getMemBufferRef(), *mContext);
     if (std::error_code ec = errval.getError()) {
-        __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Could not parse bitcode file");
-        __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "%s", ec.message().c_str());
+        ALOGE("Could not parse bitcode file");
+        ALOGE("%s", ec.message().c_str());
         return false;
     }
 
@@ -650,31 +650,31 @@ bool MetadataExtractor::extract() {
 
   if (!populateNameMetadata(ExportVarMetadata, mExportVarNameList,
                             mExportVarCount)) {
-    __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Could not populate export variable metadata");
+    ALOGE("Could not populate export variable metadata");
     goto err;
   }
 
   if (!populateNameMetadata(ExportFuncMetadata, mExportFuncNameList,
                             mExportFuncCount)) {
-    __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Could not populate export function metadata");
+    ALOGE("Could not populate export function metadata");
     goto err;
   }
 
   if (!populateForEachMetadata(ExportForEachNameMetadata,
                                ExportForEachMetadata)) {
-    __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Could not populate ForEach signature metadata");
+    ALOGE("Could not populate ForEach signature metadata");
     goto err;
   }
 
   if (!populateReduceMetadata(ExportReduceMetadata)) {
-    __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Could not populate export general reduction metadata");
+    ALOGE("Could not populate export general reduction metadata");
     goto err;
   }
 
   populatePragmaMetadata(PragmaMetadata);
 
   if (!populateObjectSlotMetadata(ObjectSlotMetadata)) {
-    __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Could not populate object slot metadata");
+    ALOGE("Could not populate object slot metadata");
     goto err;
   }
 

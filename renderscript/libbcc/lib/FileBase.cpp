@@ -231,7 +231,7 @@ void FileBase::close() {
   if (mShouldDelete) {
     int res = ::remove(mName.c_str());
     if (res != 0) {
-      __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Failed to remove file: %s - %s", mName.c_str(), ::strerror(res));
+      ALOGE("Failed to remove file: %s - %s", mName.c_str(), ::strerror(res));
     }
   }
   return;

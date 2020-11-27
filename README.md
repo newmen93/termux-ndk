@@ -6,6 +6,8 @@ At first, we don‘t need to rebuild the whole NDK, since google already built m
 we only need to build llvm toolchain, then replace the llvm in the NDK.
 of course you can build the whole NDK, use checkbuild.py, but the source code is too huge.
 
+For more details information, please refer to docs/Toolchains.md
+
 ##### [download r21](https://github.com/Lzhiyong/termux-ndk/releases)
 
 ####  How to build
@@ -13,10 +15,6 @@ of course you can build the whole NDK, use checkbuild.py, but the source code is
 Termux needs to install aarch64 version of Linux,
 I recommend using [TermuxArch](https://github.com/SDRausty/TermuxArch) 
 ArchLinux only downloads source code, we are not using it to compile
-
-For more details, please refer to toolchain build doc
-
-The latest version of this document is available at [Toolchains.md](https://android.googlesource.com/platform/ndk/+/master/docs/Toolchains.md) and [ToolchainPrebuilts.md](https://android.googlesource.com/platform/external/clang/+/dev/ToolchainPrebuilts.md)
 
 ```bash
 # I assume that you have installed the ArchLinux
@@ -43,15 +41,18 @@ exit
 Termux needs to install some build-essential packages, then copy or soft link it to llvm-toolchain/prebuilts
 
 ```bash
-# remove prebuilt clang under llvm-toolchain/prebuilts, CLANG_PREBUILT_VERSION is defined in llvm-toolchain/toolchain/llvm_android/constants.py
-rm -vrf llvm-toolchain/prebuilts/clang/host/linux-x86/CLANG_PREBUILT_VERSION/*
+# remove prebuilt clang 
+# CLANG_PREBUILT_VERSION is defined in llvm-toolchain/toolchain/llvm_android/constants.py
+# for example CLANG_PREBUILT_VERSION: str = 'clang-r383902b'
 
-# extract android-ndk-r21.tar.xz to your path
-# android-ndk-r21.tar.xz from termux-ndk release
-tar -xJvf android-ndk-r21.tar.xz -C /path/to/android-ndk-r21
+rm -vrf llvm-toolchain/prebuilts/clang/host/linux-x86/clang-r383902b/*
+
+# extract android-ndk-r21d.tar.xz to your path
+# android-ndk-r21d.tar.xz from termux-ndk release
+tar -xJvf android-ndk-r21d.tar.xz -C /path/to/android-ndk-r21d
 
 # copy ndk llvm toolchain to prebuilt clang directory 
- cp -r android-ndk-r21/toolchains/llvm/prebuilt/linux-aarch64/* llvm-toolchain/prebuilts/clang/host/linux-x86/CLANG_PREBUILT_VERSION
+cp -r android-ndk-r21d/toolchains/llvm/prebuilt/linux-aarch64/* llvm-toolchain/prebuilts/clang/host/linux-x86/clang-r383902b
 
 # soft link cmake to llvm-toolchain/prebuilts
 ln -sf /data/data/com.termux/files/usr/bin/cmake llvm-toolchain/prebuilts/cmake/linux-x86/bin/cmake
@@ -59,23 +60,14 @@ ln -sf /data/data/com.termux/files/usr/bin/cmake llvm-toolchain/prebuilts/cmake/
 # soft link ninja to llvm-toolchain/prebuilts
 ln -sf /data/data/com.termux/files/usr/bin/ninja llvm-toolchain/prebuilts/ninja/linux-x86/bin/ninja
 
-# remove prebuilt python under llvm-toolchain/prebuilts
+# remove prebuilt python
 rm -vrf llvm-toolchain/prebuilts/python/linux-x86/*
-
 # apt download python3
-# extract /data/data/com.termux/files/usr/var/cache/apt/archives/python_3.8.2_aarch64.deb to llvm-toolchain/prebuilts/python/linux-x86
-# or modify llvm-toolchain/toolchain/llvm_android/py3_utils.py 
-# golang is the same
+# extract python_3.8.6_aarch64.deb to llvm-toolchain/prebuilts/python/linux-x86
 
-# copy libedit to libedit prebuilt dirctory
-cp /data/data/com.termux/files/usr/lib/libedit* llvm-toolchain/prebuilts/libedit/linux-x86/lib
-
-# copy swig to swig prebuilt directory
-cp /data/data/com.termux/files/usr/bin/swig llvm-toolchain/prebuilts/swig/linux-x86/bin
-
-# modify llvm-toolchain/toolchain/llvm_android/configs.py 
-# change sysroot to llvm-toolchain/prebuilts/clang/host/linux-x86/CLANG_PREBUILT_VERSION/sysroot
-# There are some that need to be change, please see llvm_android/*.py for details
+# building golang
+cd llvm-toolchain/prebuilts/go/linux-x86/src
+./make.bash
 
 ```
 
@@ -102,11 +94,11 @@ python toolchain/llvm_android/build.py --no-build windows
 cd binutils && mkdir build && cd build
 
 # setting android ndk toolchain
-TOOLCHAIN=/path/to/android-ndk-r21/toolchains/llvm/prebuilt/linux-aarch64
+TOOLCHAIN=/path/to/android-ndk-r21d/toolchains/llvm/prebuilt/linux-aarch64
 
 ../configure \                                      
-    CC=$TOOLCHAIN/bin/aarch64-linux-android29-clang \                                              
-    CXX=$TOOLCHAIN/bin/aarch64-linux-android29-clang++ \                                           
+    CC=$TOOLCHAIN/bin/aarch64-linux-android30-clang \                                              
+    CXX=$TOOLCHAIN/bin/aarch64-linux-android30-clang++ \                                           
     CFLAGS="-fPIC -std=c11" \                       
     CXXFLAGS="-fPIC -std=c++17" \                   
     --prefix=$HOME/binutils/x86_64 \                
@@ -126,7 +118,7 @@ TOOLCHAIN=/path/to/android-ndk-r21/toolchains/llvm/prebuilt/linux-aarch64
  **** 
 #### Simpleperf no need to compile
 ```bash
-cd android-ndk-r21/simpleperf/bin/linux/aarch64
+cd android-ndk-r21d/simpleperf/bin/linux/aarch64
 
 ln -sf ../../android/arm64/simpleperf ./simpleperf
 
@@ -159,11 +151,11 @@ git clone https://github.com/KhronosGroup/glslang.git
 cd ~/shaderc && mkdir build && cd build
 
 # setting android ndk toolchain
-TOOLCHAIN=/path/to/android-ndk-r21/toolchains/llvm/prebuilt/linux-aarch64
+TOOLCHAIN=/path/to/android-ndk-r21d/toolchains/llvm/prebuilt/linux-aarch64
 
 cmake -G "Ninja" \
-    -DCMAKE_C_COMPILER=$TOOLCHAIN/bin/aarch64-linux-android29-clang \
-    -DCMAKE_CXX_COMPILER=$TOOLCHAIN/bin/aarch64-linux-android29-clang++ \
+    -DCMAKE_C_COMPILER=$TOOLCHAIN/bin/aarch64-linux-android30-clang \
+    -DCMAKE_CXX_COMPILER=$TOOLCHAIN/bin/aarch64-linux-android30-clang++ \
     -DCMAKE_SYSROOT=$TOOLCHAIN/sysroot \
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX=/path/to/shader-tools \
@@ -174,11 +166,6 @@ ninja install -j16
 
  **** 
 #### Building renderscript (llvm-rs-cc and bcc_compat)
-
-build bcc_compat and llvm-rs-cc need older version llvm and clang, download [llvm.tar.xz](https://github.com/Lzhiyong/termux-ndk/releases)
- or you can download the llvm source code to compile it 
-
-if you don't want to compile liblog, change <log/log.h> to <android/log>
 
 ```bash
 # slang source code
@@ -191,19 +178,7 @@ if you don't want to compile liblog, change <log/log.h> to <android/log>
 # git clone https://android.googlesource.com/platform/external/llvm
 # git clone https://android.googlesource.com/platform/external/clang
 
-# clone termux-ndk
-git clone https://github.com/Lzhiyong/termux-ndk.git
-
-# extract llvm.tar.xz to termux-ndk/renderscript
-# llvm.tar.xz from termux-ndk release
-tar -xJvf llvm.tar.xz -C renderscript
-
-# build llvm-rs-cc
-cd renderscript/slang/build
-./build.sh
-
-# build bcc_compat
-cd renderscript/libbcc/build
+cd termux-ndk/renderscript
 ./build.sh
 
 ```

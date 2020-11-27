@@ -16,7 +16,7 @@
 
 #include "Log.h"
 #include "RSTransforms.h"
-#include "RSStubsWhiteList.h"
+#include "RSFunctionsList.h"
 
 #include <cstdlib>
 
@@ -48,7 +48,7 @@ private:
     // A global function symbol is legal if
     // a. it has a body, i.e. is not empty or
     // b. its name starts with "llvm." or
-    // c. it is present in the whitelist
+    // c. it is present in the RS Functions list.
 
     if (!F.empty())
       return true;
@@ -79,7 +79,7 @@ public:
     auto &FunctionList(M.getFunctionList());
     for(auto &F: FunctionList) {
       if (!isLegal(F)) {
-        __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Call to function %s from RenderScript is disallowed\n",
+        ALOGE("Call to function %s from RenderScript is disallowed\n",
               F.getName().str().c_str());
         failed = true;
       }

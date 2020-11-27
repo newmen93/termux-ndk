@@ -35,7 +35,7 @@ cc_library {
         "RSKernelExpand.cpp",
         "RSScreenFunctionsPass.cpp",
         "RSScriptGroupFusion.cpp",
-        "RSStubsWhiteList.cpp",
+        "RSFunctionsList.cpp",
         "RSX86CallConvPass.cpp",
         "RSX86TranslateGEPPass.cpp",
         "Script.cpp",

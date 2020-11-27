@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.4.3)
+cmake_minimum_required(VERSION 3.14.2)
 
 project(Wrap)
 
@@ -9,8 +9,6 @@ set(Wrap_SRC_FILES
     in_memory_wrapper_input.cpp
     wrapper_output.cpp
 	)
-
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../include)
 
 add_library(LLVMWrap STATIC ${Wrap_SRC_FILES})
 

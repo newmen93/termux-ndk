@@ -49,7 +49,7 @@ static inline std::unique_ptr<llvm::Module> helper_load_bitcode(llvm::LLVMContex
   llvm::ErrorOr<std::unique_ptr<llvm::Module> > moduleOrError
       = llvm::getLazyBitcodeModule(std::move(pInput), pContext);
   if (std::error_code ec = moduleOrError.getError()) {
-    __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Unable to parse the given bitcode file `%s'! (%s)",
+    ALOGE("Unable to parse the given bitcode file `%s'! (%s)",
           bufferId, ec.message().c_str());
   }
 
@@ -109,7 +109,7 @@ Source *Source::CreateFromBuffer(BCCContext &pContext,
       llvm::MemoryBuffer::getMemBuffer(input_data, "", false);
 
   if (input_memory == nullptr) {
-    __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Unable to load bitcode `%s' from buffer!", pName);
+    ALOGE("Unable to load bitcode `%s' from buffer!", pName);
     return nullptr;
   }
 
@@ -141,7 +141,7 @@ Source *Source::CreateFromFile(BCCContext &pContext, const std::string &pPath) {
   llvm::ErrorOr<std::unique_ptr<llvm::MemoryBuffer>> mb_or_error =
       llvm::MemoryBuffer::getFile(pPath);
   if (mb_or_error.getError()) {
-    __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Failed to load bitcode from path %s! (%s)", pPath.c_str(),
+    ALOGE("Failed to load bitcode from path %s! (%s)", pPath.c_str(),
           mb_or_error.getError().message().c_str());
     return nullptr;
   }
@@ -181,14 +181,14 @@ Source *Source::CreateFromModule(BCCContext &pContext, const char* name, llvm::M
   llvm::raw_string_ostream ErrorStream(ErrorInfo);
   pModule.materializeAll();
   if (llvm::verifyModule(pModule, &ErrorStream)) {
-    __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Bitcode of RenderScript module does not pass verification: `%s'!",
+    ALOGE("Bitcode of RenderScript module does not pass verification: `%s'!",
           ErrorStream.str().c_str());
     return nullptr;
   }
 
   Source *result = new (std::nothrow) Source(name, pContext, pModule, pNoDelete);
   if (result == nullptr) {
-    __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Out of memory during Source object allocation for `%s'!",
+    ALOGE("Out of memory during Source object allocation for `%s'!",
           pModule.getModuleIdentifier().c_str());
   }
   helper_set_module_metadata_from_bitcode_wrapper(pModule, compilerVersion, optimizationLevel);
@@ -212,7 +212,7 @@ Source::~Source() {
 bool Source::merge(Source &pSource) {
   // TODO(srhines): Add back logging of actual diagnostics from linking.
   if (llvm::Linker::linkModules(*mModule, std::unique_ptr<llvm::Module>(&pSource.getModule())) != 0) {
-    __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Failed to link source `%s' with `%s'!",
+    ALOGE("Failed to link source `%s' with `%s'!",
           getIdentifier().c_str(), pSource.getIdentifier().c_str());
     return false;
   }

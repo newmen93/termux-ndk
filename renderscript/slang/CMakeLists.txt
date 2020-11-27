@@ -2,19 +2,16 @@ cmake_minimum_required(VERSION 3.14.2)
 
 project(slang)
 
-set(HOME "/data/data/com.termux/files/home")
-
-set(TOOLCHAIN "${HOME}/android/android-ndk-r21/llvm/prebuilt/linux-aarch64")
-
-set(CMAKE_C_COMPILE "${TOOLCHAIN}/bin/aarch64-linux-android29-clang")
-set(CMAKE_CXX_COMPILE "${TOOLCHAIN}/bin/aarch64-linux-android29-clang++")
-
-set(CXXFLAGS " \
-    -Wall -Werror \
+set(CMAKE_CXX_FLAGS " \
+    ${GLOBAL_CXX_FLAGS} \
+    -O0 \
     -Wno-deprecated-declarations \
-    -fno-rtti -fno-exceptions \
-    -fPIC -std=c++11 \
+    -Wno-inconsistent-missing-override \
+    -Wno-sign-compare \
+    -DRS_VERSION=24 \
     -D__DISABLE_ASSERTS \
+    -D__ENABLE_INTERNAL_OPTIONS \
+    -UTARGET_BUILD_VARIANT \
     -DTARGET_BUILD_VARIANT=eng \
     ")
 
@@ -55,12 +52,10 @@ set(LLVM_RS_CC_SRC_FILES
 
 # set(LLD_SRC_FILES lld_main.cpp)
 
-set(CMAKE_CXX_FLAGS ${CXXFLAGS})
+include_directories(${CMAKE_SOURCE_DIR}/llvm/include)
+include_directories(${CMAKE_SOURCE_DIR}/libbcc/bcinfo/include)
 
-include_directories(${CMAKE_SOURCE_DIR}/../llvm/include)
-include_directories(${CMAKE_SOURCE_DIR}/../libbcc/bcinfo/include)
-
-link_directories(${CMAKE_SOURCE_DIR}/../llvm/lib)
+link_directories(${CMAKE_SOURCE_DIR}/llvm/lib)
 
 add_subdirectory(BitWriter_2_9)
 add_subdirectory(BitWriter_2_9_func)

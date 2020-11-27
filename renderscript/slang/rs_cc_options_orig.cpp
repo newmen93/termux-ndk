@@ -34,7 +34,6 @@
 #include <utility>
 #include <vector>
 
-
 enum {
   OPT_INVALID = 0,  // This is not an option ID.
 #define PREFIX(NAME, VALUE)
@@ -68,12 +67,12 @@ static const llvm::opt::OptTable::Info RSCCInfoTable[] = {
 #undef PREFIX
 };
 
-
 namespace {
 
 class RSCCOptTable : public llvm::opt::OptTable {
  public:
-   RSCCOptTable(): OptTable(llvm::makeArrayRef(RSCCInfoTable)) {}
+  RSCCOptTable()
+      : OptTable(llvm::makeArrayRef(RSCCInfoTable)) {}
 };
 }
 
@@ -313,4 +312,3 @@ bool ParseArguments(const llvm::ArrayRef<const char *> &ArgsIn,
   return true;
 }
 }
-

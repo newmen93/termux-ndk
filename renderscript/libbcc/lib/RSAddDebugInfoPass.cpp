@@ -57,7 +57,7 @@ public:
     // Gather information about this bcc module.
     bcinfo::MetadataExtractor me(&Module);
     if (!me.extract()) {
-      __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Could not extract metadata from module!");
+      ALOGE("Could not extract metadata from module!");
       return false;
     }
 

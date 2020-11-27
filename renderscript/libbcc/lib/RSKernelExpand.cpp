@@ -175,7 +175,7 @@ private:
         llvm::StringRef SigString = SigS->getString();
         uint32_t Signature = 0;
         if (SigString.getAsInteger(10, Signature)) {
-          __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Non-integer signature value '%s'", SigString.str().c_str());
+          ALOGE("Non-integer signature value '%s'", SigString.str().c_str());
           return 0;
         }
         return Signature;
@@ -775,7 +775,7 @@ public:
    * invokes <NAME>() in a loop with the appropriate parameters.
    */
   bool ExpandOldStyleForEach(llvm::Function *Function, uint32_t Signature) {
-    __android_log_print(ANDROID_LOG_INFO, LOG_TAG, "Expanding ForEach-able Function %s",
+    ALOGV("Expanding ForEach-able Function %s",
           Function->getName().str().c_str());
 
     if (!Signature) {
@@ -917,7 +917,7 @@ public:
    */
   bool ExpandForEach(llvm::Function *Function, uint32_t Signature) {
     bccAssert(bcinfo::MetadataExtractor::hasForEachSignatureKernel(Signature));
-    __android_log_print(ANDROID_LOG_INFO, LOG_TAG, "Expanding kernel Function %s", Function->getName().str().c_str());
+    ALOGV("Expanding kernel Function %s", Function->getName().str().c_str());
 
     // TODO: Refactor this to share functionality with ExpandOldStyleForEach.
     llvm::DataLayout DL(Module);
@@ -1143,7 +1143,7 @@ public:
   //
   // This is very similar to foreach kernel expansion with no output.
   bool ExpandReduceAccumulator(llvm::Function *FnAccumulator, uint32_t Signature, size_t NumInputs) {
-    __android_log_print(ANDROID_LOG_INFO, LOG_TAG, "Expanding accumulator %s for general reduce kernel",
+    ALOGV("Expanding accumulator %s for general reduce kernel",
           FnAccumulator->getName().str().c_str());
 
     // Create TBAA meta-data.
@@ -1223,7 +1223,7 @@ public:
   //     call void @accumFn(accumType* %accum, accumType %1);
   //   }
   bool CreateReduceCombinerFromAccumulator(llvm::Function *FnAccumulator) {
-    __android_log_print(ANDROID_LOG_INFO, LOG_TAG, "Creating combiner from accumulator %s for general reduce kernel",
+    ALOGV("Creating combiner from accumulator %s for general reduce kernel",
           FnAccumulator->getName().str().c_str());
 
     using llvm::Attribute;
@@ -1333,7 +1333,7 @@ public:
       llvm::Function *Function = Module.getFunction(FI);
 
       if (!Function) {
-        __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Missing run-time function '%s'", FI);
+        ALOGE("Missing run-time function '%s'", FI);
         return true;
       }
 
@@ -1374,7 +1374,7 @@ public:
 
     bcinfo::MetadataExtractor me(&Module);
     if (!me.extract()) {
-      __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Could not extract metadata from module!");
+      ALOGE("Could not extract metadata from module!");
       return false;
     }
 

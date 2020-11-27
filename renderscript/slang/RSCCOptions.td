@@ -1,4 +1,3 @@
-
 /*
  * Copyright 2010-2012, The Android Open Source Project
  *

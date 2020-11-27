@@ -295,7 +295,7 @@ int main(int argc, char **argv) {
   RSCompilerDriver RSCD;
 
   if (OptBCLibFilename.empty()) {
-    __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, ("Failed to compile bitcode, -bclib was not specified");
+    ALOGE("Failed to compile bitcode, -bclib was not specified");
     return EXIT_FAILURE;
   }
 
@@ -308,14 +308,14 @@ int main(int argc, char **argv) {
     // (aka VNDK libs) are provided.
     void* handle = android_load_sphal_library(OptVendorPlugin.c_str(), RTLD_LAZY|RTLD_GLOBAL);
     if (handle == nullptr) {
-      __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, ("Failed to load vendor plugin %s", OptVendorPlugin.c_str());
+      ALOGE("Failed to load vendor plugin %s", OptVendorPlugin.c_str());
       return EXIT_FAILURE;
     }
   }
 #endif
 
   if (!ConfigCompiler(RSCD)) {
-    __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, ("Failed to configure compiler");
+    ALOGE("Failed to configure compiler");
     return EXIT_FAILURE;
   }
 
@@ -340,7 +340,7 @@ int main(int argc, char **argv) {
   llvm::ErrorOr<std::unique_ptr<llvm::MemoryBuffer>> mb_or_error =
       llvm::MemoryBuffer::getFile(OptInputFilenames[0].c_str());
   if (mb_or_error.getError()) {
-    __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, ("Failed to load bitcode from path %s! (%s)",
+    ALOGE("Failed to load bitcode from path %s! (%s)",
           OptInputFilenames[0].c_str(), mb_or_error.getError().message().c_str());
     return EXIT_FAILURE;
   }
@@ -367,7 +367,7 @@ int main(int argc, char **argv) {
 
     // If the bitcode fails verification in the bitcode loader, the returned Source is set to NULL.
     if (!source) {
-      __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, ("Failed to load source from file %s", OptInputFilenames[0].c_str());
+      ALOGE("Failed to load source from file %s", OptInputFilenames[0].c_str());
       return EXIT_FAILURE;
     }
 

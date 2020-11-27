@@ -137,14 +137,15 @@ llvm::opt::OptTable *createRSCCOptTable();
  * \param Opts - returned options after command line has been processed
  * \param DiagEngine - input for issuing warnings/errors on arguments
  */
+
 /*
 bool ParseArguments(const llvm::ArrayRef<const char *> &ArgsIn,
                     llvm::SmallVectorImpl<const char *> &Inputs,
                     RSCCOptions &Opts, clang::DiagnosticOptions &DiagOpts,
                     llvm::StringSaver &StringSaver);
-
 */
 
+// 打印帮助信息
 void PrintHelper();
 
 // 解析参数(重写)

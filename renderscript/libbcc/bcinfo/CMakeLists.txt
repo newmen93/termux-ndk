@@ -15,13 +15,9 @@ add_subdirectory(Wrap)
 add_subdirectory(tools)
 
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../lib)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/rs)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+add_library(bcinfo_static STATIC ${LIBBCINFO_SRC_FILES})
 
-
-add_library(bcinfo STATIC ${LIBBCINFO_SRC_FILES})
-target_link_libraries(bcinfo LLVMWrap LLVMBitReader_2_7 LLVMBitReader_3_0 LLVMBitWriter_3_2 StripUnkAttr LLVMBitReader LLVMCore LLVMSupport log)
+target_link_libraries(bcinfo_static LLVMWrap LLVMBitReader_2_7 LLVMBitReader_3_0 LLVMBitWriter_3_2 StripUnkAttr LLVMBitReader LLVMCore LLVMSupport log)
 
 
 

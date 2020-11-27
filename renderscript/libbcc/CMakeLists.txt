@@ -1,18 +1,12 @@
 cmake_minimum_required(VERSION 3.14.2)
 
-project(bcc)
+project(libbcc)
 
-set(HOME "/data/data/com.termux/files/home")
-
-set(TOOLCHAIN "${HOME}/android/android-ndk-r21/llvm/prebuilt/linux-aarch64")
-
-set(CMAKE_C_COMPILE "${TOOLCHAIN}/bin/aarch64-linux-android29-clang")
-set(CMAKE_CXX_COMPILE "${TOOLCHAIN}/bin/aarch64-linux-android29-clang++")
-
-set(CXXFLAGS " \
-    -fno-rtti -fno-exceptions \
-    -fPIC -std=c++11 \
+set(CMAKE_CXX_FLAGS " \
+    ${GLOBAL_CXX_FLAGS} \
     -Wno-deprecated-declarations \
+    -Wno-inconsistent-missing-override \
+    -DRS_VERSION=24 \
     -D__DISABLE_ASSERTS \
     -DFORCE_ARM64_CODEGEN \
     -DARCH_ARM_HAVE_NEON \
@@ -21,14 +15,17 @@ set(CXXFLAGS " \
     -DDISABLE_CLCORE_NEON \
     ")
 
-set(CMAKE_CXX_FLAGS ${CXXFLAGS})
-
-include_directories(${CMAKE_SOURCE_DIR}/../llvm/include)
-include_directories(${CMAKE_SOURCE_DIR}/../slang)
-
-link_directories(${CMAKE_SOURCE_DIR}/../slang/build/StripUnkAttr)                   
-link_directories(${CMAKE_SOURCE_DIR}/../slang/build/BitWriter_3_2)                   
-link_directories(${CMAKE_SOURCE_DIR}/../llvm/lib)
+include_directories(
+    ${CMAKE_SOURCE_DIR}/llvm/include
+    ${CMAKE_SOURCE_DIR}/slang
+    ${CMAKE_SOURCE_DIR}/rs
+    ${CMAKE_SOURCE_DIR}/liblog/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/lib
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/bcinfo/include
+    )
+                   
+link_directories(${CMAKE_SOURCE_DIR}/llvm/lib)
 
 add_subdirectory(bcinfo)
 add_subdirectory(lib)

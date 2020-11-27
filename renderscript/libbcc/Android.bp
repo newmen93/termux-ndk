@@ -13,6 +13,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
+
 cc_defaults {
     name: "libbcc-defaults",
     defaults: [
@@ -20,12 +21,14 @@ cc_defaults {
         "rs-version",
         "libbcc-targets",
     ],
+
     cflags: [
         "-Wall",
         "-Wno-unused-parameter",
         "-Werror",
         "-D__DISABLE_ASSERTS",
     ],
+
     target: {
         android: {
             cflags: [
@@ -39,22 +42,26 @@ cc_defaults {
             ],
         },
     },
+
     product_variables: {
         eng: {
             cflags: ["-U__DISABLE_ASSERTS"],
         },
     },
+
     include_dirs: [
         "frameworks/compile/libbcc/include",
         "frameworks/rs",
     ],
 }
+
 //=====================================================================
 // Architecture Selection
 //=====================================================================
 // Note: We should only use -DFORCE_ARCH_CODEGEN on target build.
 // For the host build, we will include as many architecture as possible,
 // so that we can test the execution engine easily.
+
 cc_defaults {
     name: "libbcc-targets",
     arch: {
@@ -103,6 +110,7 @@ cc_defaults {
         },
     },
 }
+
 subdirs = [
     "bcinfo",
     "lib",

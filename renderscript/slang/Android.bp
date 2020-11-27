@@ -72,6 +72,8 @@ cc_library_headers {
     vendor_available: true,
     export_include_dirs: ["."],
     host_supported: true,
+    // TODO(b/153609531): remove when no longer needed.
+    native_bridge_supported: true,
     target: {
         windows: {
 	    enabled: true,
@@ -101,12 +103,6 @@ cc_library_host_static {
     ],
 
     shared_libs: ["libbcinfo"],
-
-    product_variables: {
-        unbundled_build: {
-            enabled: false,
-        },
-    },
 }
 
 // ========================================================
@@ -184,12 +180,6 @@ cc_binary_host {
                 // Skip missing-field-initializer warnings for mingw.
                 "-Wno-error=missing-field-initializers",
             ],
-        },
-    },
-
-    product_variables: {
-        unbundled_build: {
-            enabled: false,
         },
     },
 }

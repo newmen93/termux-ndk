@@ -9,9 +9,8 @@ set(BitWriter_2_9_func_SRC_FILES
     ValueEnumerator.cpp
 	)
 
-include_directories(${CMAKE_SOURCE_DIR})
+include_directories(${CMAKE_SOURCE_DIR}/slang)
 
-set(CMAKE_CXX_FLAGS ${CXXFLAGS})
 add_library(LLVMBitWriter_2_9_func STATIC ${BitWriter_2_9_func_SRC_FILES})
 
 target_link_libraries(LLVMBitWriter_2_9_func)

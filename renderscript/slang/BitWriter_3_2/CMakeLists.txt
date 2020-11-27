@@ -10,7 +10,7 @@ set(BitWriter_3_2_SRC_FILES
 	)
 
 
-include_directories(${CMAKE_SOURCE_DIR})
+include_directories(${CMAKE_SOURCE_DIR}/slang)
 
 add_library(LLVMBitWriter_3_2 STATIC ${BitWriter_3_2_SRC_FILES})
 

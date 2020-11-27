@@ -26,7 +26,7 @@
 #include "StripUnkAttr/strip_unknown_attributes.h"
 
 #define LOG_TAG "bcinfo"
-#include <android/log.h>
+#include <log/log.h>
 
 #include "llvm/Bitcode/BitstreamWriter.h"
 #include "llvm/Bitcode/ReaderWriter.h"
@@ -56,9 +56,6 @@ namespace bcinfo {
  * LLVM 3.1
  *  16 - Ice Cream Sandwich MR2
  */
- 
-// from slang_version.h 
-#define RS_VERSION 30
 static const unsigned int kMinimumAPIVersion     = 11;
 static const unsigned int kMaximumAPIVersion     = RS_VERSION;
 static const unsigned int kCurrentAPIVersion     = 10000;
@@ -99,13 +96,13 @@ BitcodeTranslator::~BitcodeTranslator() {
 
 bool BitcodeTranslator::translate() {
   if (!mBitcode || !mBitcodeSize) {
-    __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Invalid/empty bitcode");
+    ALOGE("Invalid/empty bitcode");
     return false;
   }
 
   BitcodeWrapper BCWrapper(mBitcode, mBitcodeSize);
   if (BCWrapper.getTargetAPI() != mVersion) {
-    __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Bitcode wrapper (%u) and translator (%u) disagree about target API",
+    ALOGE("Bitcode wrapper (%u) and translator (%u) disagree about target API",
           BCWrapper.getTargetAPI(), mVersion);
   }
 
@@ -113,7 +110,7 @@ bool BitcodeTranslator::translate() {
       (mVersion != kCurrentAPIVersion)     &&
        ((mVersion < kMinimumAPIVersion) ||
         (mVersion > kMaximumAPIVersion))) {
-    __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Invalid API version: %u is out of range ('%u' - '%u')", mVersion,
+    ALOGE("Invalid API version: %u is out of range ('%u' - '%u')", mVersion,
          kMinimumAPIVersion, kMaximumAPIVersion);
     return false;
   }
@@ -142,13 +139,13 @@ bool BitcodeTranslator::translate() {
   } else if (mVersion >= kMinimumCompatibleVersion_LLVM_2_7) {
     MOrErr = llvm_2_7::parseBitcodeFile(*MBOrErr, *mContext);
   } else {
-    __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "No compatible bitcode reader for API version %d", mVersion);
+    ALOGE("No compatible bitcode reader for API version %d", mVersion);
     return false;
   }
 
   if (std::error_code EC = MOrErr.getError()) {
-    __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Could not parse bitcode file");
-    __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "%s", EC.message().c_str());
+    ALOGE("Could not parse bitcode file");
+    ALOGE("%s", EC.message().c_str());
     return false;
   }
 
@@ -169,7 +166,7 @@ bool BitcodeTranslator::translate() {
       &wrapper, Buffer.size(), kMinimumUntranslatedVersion,
       BCWrapper.getCompilerVersion(), BCWrapper.getOptimizationLevel());
   if (!actualWrapperLen) {
-    __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "Couldn't produce bitcode wrapper!");
+    ALOGE("Couldn't produce bitcode wrapper!");
     return false;
   }
 

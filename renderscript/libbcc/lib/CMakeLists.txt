@@ -2,10 +2,9 @@ cmake_minimum_required(VERSION 3.14.2)
 
 project(libbcc)
 
-
 set(LIBBCC_SRC_FILES 
-	BCCContext.cpp
-	BCCContextImpl.cpp
+    BCCContext.cpp
+    BCCContextImpl.cpp
     Compiler.cpp
     CompilerConfig.cpp
     FileBase.cpp
@@ -20,19 +19,12 @@ set(LIBBCC_SRC_FILES
     RSKernelExpand.cpp
     RSScreenFunctionsPass.cpp
     RSScriptGroupFusion.cpp
-    RSStubsWhiteList.cpp
+    RSFunctionsList.cpp
     RSX86CallConvPass.cpp
     RSX86TranslateGEPPass.cpp
     Script.cpp
     Source.cpp
 	)
-
-
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../include)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../libbcc/bcinfo/include)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../bcinfo/include)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../bcinfo/rs)
-
 
 add_library(bcc STATIC ${LIBBCC_SRC_FILES})
 target_link_libraries(bcc)
