@@ -1,0 +1,58 @@
+--- /sdcard/Download/llvm_android/do_build.py	2020-11-14 20:16:20.792021095 +0800
++++ llvm_android/do_build.py	2020-11-28 14:20:44.404902211 +0800
+@@ -112,7 +112,8 @@
+     builders.CompilerRTBuilder().build()
+     # 32-bit host crts are not needed for Darwin
+     if hosts.build_host().is_linux:
+-        builders.CompilerRTHostI386Builder().build()
++        #builders.CompilerRTHostI386Builder().build()
++        builders.CompilerRTHostAarch64Builder().build()
+     builders.LibOMPBuilder().build()
+     if build_lldb_server:
+         builders.LldbServerBuilder().build()
+@@ -228,6 +229,7 @@
+         'compiler-rt',
+         'libcxx',
+         'libcxxabi',
++        'libunwind',
+         'openmp',
+         'clang',
+         'clang-tools-extra',
+@@ -611,6 +613,7 @@
+     instrumented = hosts.build_host().is_linux and args.build_instrumented
+ 
+     stage1 = builders.Stage1Builder()
++    
+     stage1.build_name = 'stage1'
+     stage1.svn_revision = android_version.get_svn_revision()
+     # Build lldb for lldb-tblgen. It will be used to build lldb-server and windows lldb.
+@@ -618,7 +621,15 @@
+     stage1.build_android_targets = args.debug or instrumented
+     stage1.build()
+     set_default_toolchain(stage1.installed_toolchain)
+-
++    
++    prebuilt_toolchain: toolchains.Toolchain = toolchains.get_prebuilt_toolchain()
++    
++    # copy aarch64-linux-android29-clang to stage1-install/bin
++    shutil.copy2(prebuilt_toolchain.cc, stage1.install_dir / 'bin')
++    # copy aarch64-linux-android29-clang++ to stage1-install/bin
++    shutil.copy2(prebuilt_toolchain.cxx, stage1.install_dir / 'bin')
++    
++    
+     if build_lldb:
+         # Swig is needed for both host and windows lldb.
+         swig_builder = builders.SwigBuilder()
+@@ -669,6 +680,12 @@
+             set_default_toolchain(stage2.installed_toolchain)
+ 
+         Builder.output_toolchain = stage2.installed_toolchain
++        
++        # copy aarch64-linux-android29-clang to stage2-install/bin
++        shutil.copy2(prebuilt_toolchain.cc, stage2.install_dir / 'bin')
++        # copy aarch64-linux-android29-clang to stage2-install/bin
++        shutil.copy2(prebuilt_toolchain.cxx, stage2.install_dir / 'bin')
++    
+         if hosts.build_host().is_linux and do_runtimes:
+             build_runtimes(build_lldb_server=build_lldb)
+ 

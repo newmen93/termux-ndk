@@ -1,0 +1,27 @@
+--- /sdcard/Download/llvm_android/toolchains.py	2020-11-14 20:16:17.468687430 +0800
++++ llvm_android/toolchains.py	2020-11-19 11:06:33.756203658 +0800
+@@ -35,12 +35,12 @@
+     @property
+     def cc(self) -> Path:  # pylint: disable=invalid-name
+         """Returns the path to c compiler."""
+-        return self.path / 'bin' / 'clang'
++        return self.path / 'bin' / 'aarch64-linux-android29-clang'
+ 
+     @property
+     def cxx(self) -> Path:
+         """Returns the path to c++ compiler."""
+-        return self.path / 'bin' / 'clang++'
++        return self.path / 'bin' / 'aarch64-linux-android29-clang++'
+ 
+     @property
+     def cl(self) -> Path:
+@@ -129,7 +129,8 @@
+ 
+     @property
+     def resource_dir(self) -> Path:
+-        return self.clang_lib_dir / 'lib' / 'linux'
++        #return self.clang_lib_dir / 'lib' / 'linux'
++        return self.clang_lib_dir / 'lib' / 'android'
+ 
+ 
+ def get_prebuilt_toolchain() -> Toolchain:

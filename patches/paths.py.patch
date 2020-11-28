@@ -1,0 +1,34 @@
+--- /sdcard/Download/llvm_android/paths.py	2020-11-14 20:16:19.622020978 +0800
++++ llvm_android/paths.py	2020-11-28 12:04:29.909102013 +0800
+@@ -35,6 +35,7 @@
+ TOOLCHAIN_UTILS_DIR: Path = EXTERNAL_DIR / 'toolchain-utils'
+ TOOLCHAIN_LLVM_PATH: Path = TOOLCHAIN_DIR / 'llvm-project'
+ 
++# prebuilt clang path
+ CLANG_PREBUILT_DIR: Path = (PREBUILTS_DIR / 'clang' / 'host' / hosts.build_host().os_tag
+                             / constants.CLANG_PREBUILT_VERSION)
+ CLANG_PREBUILT_LIBCXX_HEADERS: Path = CLANG_PREBUILT_DIR / 'include' / 'c++' / 'v1'
+@@ -44,6 +45,11 @@
+ CMAKE_BIN_PATH: Path = PREBUILTS_DIR / 'cmake' / hosts.build_host().os_tag / 'bin' / 'cmake'
+ NINJA_BIN_PATH: Path = PREBUILTS_DIR / 'build-tools' / hosts.build_host().os_tag / 'bin' / 'ninja'
+ 
++# setting ncuses path
++# building libedit needs ncurses
++# apt download ncurses, then extract ncurses_xxx_aarch64.deb to llvm-toolchain/external/ncurses
++NCURSES_DIR: Path = EXTERNAL_DIR / 'ncurses'
++
+ LIBEDIT_SRC_DIR: Path = EXTERNAL_DIR / 'libedit'
+ SWIG_SRC_DIR: Path = EXTERNAL_DIR / 'swig'
+ XZ_SRC_DIR: Path = TOOLCHAIN_DIR / 'xz'
+@@ -54,7 +60,10 @@
+ NDK_LIBCXXABI_HEADERS: Path = NDK_BASE / 'sources' / 'cxx-stl' / 'llvm-libc++abi' / 'include'
+ NDK_SUPPORT_HEADERS: Path = NDK_BASE / 'sources' / 'android' / 'support' / 'include'
+ 
+-GCC_ROOT: Path = PREBUILTS_DIR / 'gcc' / hosts.build_host().os_tag
++# gcc sysroot path
++#GCC_ROOT: Path = PREBUILTS_DIR / 'gcc' / hosts.build_host().os_tag
++GCC_ROOT: Path = CLANG_PREBUILT_DIR
++
+ MINGW_ROOT: Path = PREBUILTS_DIR / 'gcc' / 'linux-x86' / 'host' / 'x86_64-w64-mingw32-4.8'
+ 
+ _WIN_ZLIB_PATH: Path = (PREBUILTS_DIR / 'clang' / 'host' / 'windows-x86' /
