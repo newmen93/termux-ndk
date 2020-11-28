@@ -15,6 +15,12 @@ fi
 # /path/to/android-ndk-r21d
 TOOLCHAIN=$HOME/toolchain/android-ndk-r21d/toolchains/llvm/prebuilt/linux-aarch64
 
+# check toolchain
+if [ ! -d "$TOOLCHAIN" ];then
+  echo "The toolchain cannot be found, please set the toolchain path correctly."
+  exit 1
+fi
+
 cmake -G "Unix Makefiles" \
 	-DCMAKE_C_COMPILER=${TOOLCHAIN}/bin/aarch64-linux-android30-clang \
 	-DCMAKE_CXX_COMPILER=${TOOLCHAIN}/bin/aarch64-linux-android30-clang++ \
