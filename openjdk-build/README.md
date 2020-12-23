@@ -60,7 +60,7 @@ FLAGS="-fdiagnostics-color -fPIC -fno-emulated-tls"
 ![image](/storage/emulated/0/DCIM/Screenshots/IMG_20201223_161621.jpg)
 
 
-3. Android TLS(thread local storage) seems to have a bug, so add cxxflags -fno-emulated-tls to disable TLS supports, please refer [android-elf-tls](xxx) for more information
+3. Android TLS(thread local storage) seems to have a bug, so add cxxflags -fno-emulated-tls to disable TLS supports, please refer [android-elf-tls](https://github.com/Lzhiyong/termux-ndk/blob/master/openjdk-build/android-elf-tls.md) for more information
 >ld.lld: error: libjvm.so: undefined reference to Thread::_thr_current , or libjvm.so: undefined reference to _ZN6Thread12_thr_currentE
 >
 >Thread::_thr_current defined in src/hotspot/share/utilities/thread.hpp
