@@ -54,7 +54,7 @@ FLAGS="-fdiagnostics-color -fPIC -fno-emulated-tls"
 
 #### Issues
 
-****1. jdk/lib/libxxx.so has unsupported flags DT_FLAGS_1=0x81, please using termux-elf-cleaner to remove it. for example: termux-elf-cleaner \*.so****
+****1. jdk/lib/libxxx.so has unsupported flags DT_FLAGS_1=0x81, please using termux-elf-cleaner to remove it. for example: termux-elf-cleaner \*.so
 
 
 **2. jshell has segmentation fault**
