@@ -33,7 +33,8 @@ make -j16
 FLAGS="-fdiagnostics-color -fPIC -fno-emulated-tls"
 
 ./configure \
-    CC=clang \                                           CXX=clang++ \
+    CC=clang \
+    CXX=clang++ \
     --with-debug-level=release \
     --with-extra-cflags="$FLAGS" \
     --with-extra-cxxflags="$FLAGS -std=c++11" \
