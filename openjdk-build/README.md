@@ -30,7 +30,9 @@ make -j16
 ```bash
 # I downloaded openjdk-jdk11u-jdk-11.0.8-10_adopt from AdoptOpenJDK, you can also download other versions
 
-FLAGS="-fdiagnostics-color -fPIC -fno-emulated-tls"                                                       ./configure \ 
+FLAGS="-fdiagnostics-color -fPIC -fno-emulated-tls"
+
+./configure \
     CC=clang \                                           CXX=clang++ \
     --with-debug-level=release \
     --with-extra-cflags="$FLAGS" \
