@@ -57,7 +57,7 @@ FLAGS="-fdiagnostics-color -fPIC -fno-emulated-tls"
 
 
 2. jshell has segmentation fault
-![image](/storage/emulated/0/DCIM/Screenshots/IMG_20201223_161621.jpg)
+<a href="./img/IMG_02.jpg"><img src="./img/IMG_02.jpg" width="100%" height="100%"/></a>
 
 
 3. Android TLS(thread local storage) seems to have a bug, so add cxxflags -fno-emulated-tls to disable TLS supports, please refer [android-elf-tls](https://github.com/Lzhiyong/termux-ndk/blob/master/openjdk-build/android-elf-tls.md) for more information
@@ -74,9 +74,11 @@ cd openjdk-build/tls-test
 ./build.sh
 ```
 **On Android Failure**
-![image](/storage/emulated/0/DCIM/Screenshots/IMG_20201223_161641.jpg)
+<a href="./img/IMG_03.jpg"><img src="./img/IMG_03.jpg" width="100%" height="100%"/></a>
+
 **On TermuxArch (ArchLinux) Success**
-![image](/storage/emulated/0/DCIM/Screenshots/IMG_20201223_210119.jpg)
+<a href="./img/IMG_04.jpg"><img src="./img/IMG_04.jpg" width="100%" height="100%"/></a>
+
 
 5. If anyone knows, please submit an issue
 
