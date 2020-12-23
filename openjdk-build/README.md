@@ -77,7 +77,7 @@ cd openjdk-build/tls-test
 <a href="./img/IMG_03.jpg"><img src="./img/IMG_03.jpg" width="100%" height="100%"/></a>
 
 **On TermuxArch (ArchLinux) Success**
-<a href="./img/IMG_04.jpg"><img src="./img/IMG_04.jpg" width="100%" height="100%"/></a>\n
+<a href="./img/IMG_04.jpg"><img src="./img/IMG_04.jpg" width="100%" height="100%"/></a>
 
 
 5. If anyone knows, please submit an issue
