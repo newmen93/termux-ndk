@@ -48,7 +48,7 @@ FLAGS="-fdiagnostics-color -fPIC -fno-emulated-tls"
 
 ```
 ##### building finish
-![image](/storage/emulated/0/DCIM/Screenshots/IMG_20201223_212301.jpg)
+<a href="./img/IMG_01.jpg"><img src="./img/IMG_01.jpg" width="100%" height="100%"/></a>
 
  **** 
 
