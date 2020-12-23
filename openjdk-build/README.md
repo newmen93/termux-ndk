@@ -54,14 +54,14 @@ FLAGS="-fdiagnostics-color -fPIC -fno-emulated-tls"
 
 #### Issues
 
-****1. jdk/lib/libxxx.so has unsupported flags DT_FLAGS_1=0x81, please using termux-elf-cleaner to remove it. for example: termux-elf-cleaner \*.so
+1. jdk/lib/libxxx.so has unsupported flags DT_FLAGS_1=0x81, please using termux-elf-cleaner to remove it. for example: termux-elf-cleaner \*.so
 
 
-**2. jshell has segmentation fault**
+2. jshell has segmentation fault
 <a href="./img/IMG_02.jpg"><img src="./img/IMG_02.jpg" width="100%" height="100%"/></a>
 
 
-**3. Android TLS(thread local storage) seems to have a bug, so add cxxflags -fno-emulated-tls to disable TLS supports, please refer [android-elf-tls](https://github.com/Lzhiyong/termux-ndk/blob/master/openjdk-build/android-elf-tls.md) for more information**
+3. Android TLS(thread local storage) seems to have a bug, so add cxxflags -fno-emulated-tls to disable TLS supports, please refer [android-elf-tls](https://github.com/Lzhiyong/termux-ndk/blob/master/openjdk-build/android-elf-tls.md) for more information**
 >ld.lld: error: libjvm.so: undefined reference to Thread::_thr_current , or libjvm.so: undefined reference to _ZN6Thread12_thr_currentE
 >
 >Thread::_thr_current defined in src/hotspot/share/utilities/thread.hpp
@@ -69,15 +69,15 @@ FLAGS="-fdiagnostics-color -fPIC -fno-emulated-tls"
 >_ZN6Thread12_thr_currentE defined in src/hotspot/os_cpu/linux_aarch64/threadLS_linux_aarch64.s
 
 
-**4. Test if TLS working**
+4. Test if TLS working
 ```bash
 cd openjdk-build/tls-test
 ./build.sh
 ```
-**On Android Failure**
+On Android Failure
 <a href="./img/IMG_03.jpg"><img src="./img/IMG_03.jpg" width="100%" height="100%"/></a>
 
-**On TermuxArch (ArchLinux) Success**
+On TermuxArch (ArchLinux) Success
 <a href="./img/IMG_04.jpg"><img src="./img/IMG_04.jpg" width="100%" height="100%"/></a>
 
 
