@@ -28,7 +28,8 @@ make -j16
 
 ##### building openjdk-11
 ```bash
-# I downloaded openjdk-jdk11u-jdk-11.0.8-10_adopt from AdoptOpenJDK, you can also download other versions
+# I downloaded openjdk-jdk11u-jdk-11.0.8-10_adopt from AdoptOpenJDK
+# you can also download other versions
 
 FLAGS="-fdiagnostics-color -fPIC -fno-emulated-tls"
 
