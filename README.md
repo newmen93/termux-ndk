@@ -69,6 +69,7 @@ rm -vrf llvm-toolchain/prebuilts/python/linux-x86/*
 # apt download ncurse, then extract ncurse_xxx_aarch64.deb to llvm-toolchain/external/ncurse
 
 # building golang
+apt install golang
 cd llvm-toolchain/prebuilts/go/linux-x86/src
 ./make.bash
 
