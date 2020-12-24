@@ -2,6 +2,18 @@ building openjdk-11 for Android with Termux
 
 download the source code from [AdoptOpenJDK/openjdk-jdk11u](https://github.com/AdoptOpenJDK/openjdk-jdk11u) release
 
+
+#### install boot JDK openjdk-11.0.1 from termux-ndk/release
+```bash
+tar -xJvf openjdk-11.0.1.tar.xz
+
+vim /data/data/com.termux/files/usr/etc/bash.bashrc
+
+export PATH=$PATH:/path/to/openjdk-11.0.1/bin
+export JAVA_HOME=/path/to/openjdk-11.0.1
+
+```
+
 #### install X11 packages from x11-repo
 ```bash
 apt install x11-repo
