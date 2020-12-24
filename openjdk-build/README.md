@@ -70,7 +70,7 @@ make JOBS=16
 >_ZN6Thread12_thr_currentE defined in src/hotspot/os_cpu/linux_aarch64/threadLS_linux_aarch64.s
 
 
-* Test if TLS working
+* Test if TLS working<br>
 cd openjdk-build/tls-test<br>
 ./build.sh
 
