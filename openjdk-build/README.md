@@ -72,7 +72,7 @@ make JOBS=16
 
 
 ```bash
-# Test if TLS working
+# Test if Android TLS working
 
 cd openjdk-build/tls-test
 ./build.sh
