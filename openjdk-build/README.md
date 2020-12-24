@@ -71,10 +71,9 @@ make JOBS=16
 
 
 * Test if TLS working
-```bash
-cd openjdk-build/tls-test
+cd openjdk-build/tls-test<br>
 ./build.sh
-```
+
 * On Android Failure
 <a href="./img/IMG_03.jpg"><img src="./img/IMG_03.jpg" width="100%" height="100%"/></a>
 
