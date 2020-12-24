@@ -70,14 +70,15 @@ make JOBS=16
 >_ZN6Thread12_thr_currentE defined in src/hotspot/os_cpu/linux_aarch64/threadLS_linux_aarch64.s
 
 
-* Test if TLS working<br>
-cd openjdk-build/tls-test<br>
+* Test if TLS working
+```bash
+cd openjdk-build/tls-test
 ./build.sh
-
-* On Android Failure
+```
+On Android Failure
 <a href="./img/IMG_03.jpg"><img src="./img/IMG_03.jpg" width="100%" height="100%"/></a>
 
-* On TermuxArch (ArchLinux) Success
+On TermuxArch (ArchLinux) Success
 <a href="./img/IMG_04.jpg"><img src="./img/IMG_04.jpg" width="100%" height="100%"/></a>
 
 
