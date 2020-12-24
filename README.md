@@ -276,4 +276,4 @@ the build script are not generic, so please solve the error yourself.
 
 * llvm-tblgen -I=../llvm/include RSCCOptions.tb -o RSCCOptions.inc
 
-if anyone konws, please submit to issue
+**if anyone konws, please submit to issue**
