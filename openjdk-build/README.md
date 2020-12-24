@@ -81,7 +81,7 @@ make JOBS=16
 >
 >_ZN6Thread12_thr_currentE defined in src/hotspot/os_cpu/linux_aarch64/threadLS_linux_aarch64.s
 
-
+ **** 
 
 ```bash
 # Test if Android TLS working
