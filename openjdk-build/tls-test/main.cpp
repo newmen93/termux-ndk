@@ -4,7 +4,7 @@
 #include "thread.h"
 #include "JavaThread.h"
 
-// test __thread is working
+// test __thread if works
 __thread int var = 5;
 
 void* worker1(void* arg){
