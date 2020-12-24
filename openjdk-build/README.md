@@ -55,7 +55,7 @@ make JOBS=16
 
 ## Issues
 
-*** jdk/lib/libxxx.so has linker warning: unsupported flags DT_FLAGS_1=0x81, please using termux-elf-cleaner to remove it. for example: termux-elf-cleaner \*.so**
+** * jdk/lib/libxxx.so has linker warning: unsupported flags DT_FLAGS_1=0x81, please using termux-elf-cleaner to remove it. for example: termux-elf-cleaner \*.so**
 
 
 * jshell has segmentation fault
