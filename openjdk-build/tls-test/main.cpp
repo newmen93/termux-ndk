@@ -11,6 +11,7 @@ void* worker1(void* arg){
     printf("thread worker1 var = %d\n", ++var); // output 6
     return NULL;
 }
+
 void* worker2(void* arg){
     sleep(2); // sleeping 2s
     printf("thread worker2 var = %d\n", ++var); // output 6
@@ -29,11 +30,11 @@ int main(int argc, char *argv[]){
 
     pthread_t pid1, pid2;
     
-    pthread_create(&pid1,NULL,worker1,NULL);
-    pthread_create(&pid2,NULL,worker2,NULL);
+    pthread_create(&pid1, NULL, worker1, NULL);
+    pthread_create(&pid2, NULL, worker2, NULL);
     
-    pthread_join(pid1,NULL);
-    pthread_join(pid2,NULL);
+    pthread_join(pid1, NULL);
+    pthread_join(pid2, NULL);
 
     printf("android tls test success!\n");
     return 0;
