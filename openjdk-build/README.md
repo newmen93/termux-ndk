@@ -81,6 +81,7 @@ On Android Failure
 On TermuxArch (ArchLinux) Success
 <a href="./img/IMG_04.jpg"><img src="./img/IMG_04.jpg" width="100%" height="100%"/></a>
 
-
+ **** 
+ 
 **If anyone knows, please submit an issue**
 
