@@ -2,14 +2,14 @@ building openjdk-11 for Android with Termux
 
 download the source code from [AdoptOpenJDK/openjdk-jdk11u](https://github.com/AdoptOpenJDK/openjdk-jdk11u) release
 
-##### install X11 packages from x11-repo
+#### install X11 packages from x11-repo
 ```bash
 apt install x11-repo
 apt install libx11 libxext libxrender libxrandr libxtst libxt xorgproto fontconfig pulseaudio
 
 ```
 
-##### building cups
+#### building cups
 ```bash
 git clone https://github.com/apple/cups
 cd cups 
@@ -17,7 +17,7 @@ cd cups
 make -j16
 ```
 
-##### building alsa-lib
+#### building alsa-lib
 ```bash
 git clone https://github.com/alsa-project/alsa-lib
 cd alsa-lib
@@ -26,7 +26,7 @@ cd alsa-lib
 make -j16
 ```
 
-##### building openjdk-11
+#### building openjdk-11
 ```bash
 # I downloaded openjdk-jdk11u-jdk-11.0.8-10_adopt from AdoptOpenJDK
 # you can also download other versions
@@ -48,21 +48,21 @@ make -j16
 make JOBS=16
 
 ```
-##### building finish
+#### building finish
 <a href="./img/IMG_01.jpg"><img src="./img/IMG_01.jpg" width="100%" height="100%"/></a>
 
  **** 
 
-#### Issues
+## Issues
 
-1. jdk/lib/libxxx.so has linker warning: unsupported flags DT_FLAGS_1=0x81, please using termux-elf-cleaner to remove it. for example: termux-elf-cleaner \*.so
+* jdk/lib/libxxx.so has linker warning: unsupported flags DT_FLAGS_1=0x81, please using termux-elf-cleaner to remove it. for example: termux-elf-cleaner \*.so
 
 
-2. jshell has segmentation fault
+* jshell has segmentation fault
 <a href="./img/IMG_02.jpg"><img src="./img/IMG_02.jpg" width="100%" height="100%"/></a>
 
 
-3. Android TLS(thread local storage) seems to have a bug, so add cxxflags -fno-emulated-tls to disable TLS supports, please refer [android-elf-tls](https://github.com/Lzhiyong/termux-ndk/blob/master/openjdk-build/android-elf-tls.md) for more information
+* Android TLS(thread local storage) seems to have a bug, so add cxxflags -fno-emulated-tls to disable TLS supports, please refer [android-elf-tls](https://github.com/Lzhiyong/termux-ndk/blob/master/openjdk-build/android-elf-tls.md) for more information
 >ld.lld: error: libjvm.so: undefined reference to Thread::_thr_current , or libjvm.so: undefined reference to _ZN6Thread12_thr_currentE
 >
 >Thread::_thr_current defined in src/hotspot/share/utilities/thread.hpp
@@ -70,7 +70,7 @@ make JOBS=16
 >_ZN6Thread12_thr_currentE defined in src/hotspot/os_cpu/linux_aarch64/threadLS_linux_aarch64.s
 
 
-4. Test if TLS working
+* Test if TLS working
 ```bash
 cd openjdk-build/tls-test
 ./build.sh
