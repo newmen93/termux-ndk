@@ -43,7 +43,6 @@ make -j16
 # I downloaded openjdk-jdk11u-jdk-11.0.8-10_adopt from AdoptOpenJDK
 # you can also download other versions
 
-
 ./configure \
     CC=clang \
     CXX=clang++ \
