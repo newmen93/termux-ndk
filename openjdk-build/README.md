@@ -39,8 +39,10 @@ make -j16
 ```
 
 #### monotonic clock fix
-```cpp
+```bash
 # get real libc.so path for dlopen
+# src/hotspot/os/linux/os_linux.cpp:1312:clock_init()
+
 # /system/lib64/libc.so -> /apex/com.android.runtime/lib64/bionic/libc.so
 ls -l /system/lib64/libc.so 
 
@@ -49,34 +51,6 @@ ln -sf /apex/com.android.runtime/lib64/bionic/libc.so /data/data/com.termux/file
 
 libc.so -> libpthread.so
 ln -sf /apex/com.android.runtime/lib64/bionic/libc.so /data/data/com.termux/files/usr/lib/libpthread.so
-
-# src/hotspot/os/linux/os_linux.cpp
-void os::Linux::clock_init() {
-  // we do dlopen's in this particular order due to bug in linux
-  // dynamical loader (see 6348968) leading to crash on exit
-  void* handle = dlopen("librt.so.1", RTLD_LAZY);
-  if (handle == NULL) {
-    handle = dlopen("librt.so", RTLD_LAZY);
-  }
-
-  if (handle) {
-      ......
-      
-      // See if monotonic clock is supported by the kernel. Note that some
-      // early implementations simply return kernel jiffies (updated every
-      // 1/100 or 1/1000 second). It would be bad to use such a low res clock
-      // for nano time (though the monotonic property is still nice to have).
-      // It's fixed in newer kernels, however clock_getres() still returns
-      // 1/HZ. We check if clock_getres() works, but will ignore its reported
-      // resolution for now. Hopefully as people move to new kernels, this
-      // won't be a problem.
-      
-      ......
-    }
-  }
-  warning("No monotonic clock was available - timed services may " \
-          "be adversely affected if the time-of-day clock changes");
-}
 
 ```
 
