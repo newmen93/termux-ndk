@@ -14,12 +14,14 @@ export JAVA_HOME=/path/to/openjdk-11.0.1
 
 ```
 
+
 #### install X11 packages from x11-repo
 ```bash
 apt install x11-repo
 apt install libx11 libxext libxrender libxrandr libxtst libxt xorgproto fontconfig pulseaudio
 
 ```
+
 
 #### building cups
 ```bash
@@ -28,6 +30,7 @@ cd cups
 ./configure --prefix=/path/to/libcups
 make -j16
 ```
+
 
 #### building alsa-lib
 ```bash
@@ -38,22 +41,6 @@ cd alsa-lib
 make -j16
 ```
 
-#### monotonic clock fix
-```bash
-# get real libc.so path 
-# src/hotspot/os/linux/os_linux.cpp:1312:clock_init()
-# the dlopen function requires a real librt.so path
-
-# /system/lib64/libc.so -> /apex/com.android.runtime/lib64/bionic/libc.so
-ls -l /system/lib64/libc.so 
-
-# libc.so -> librt.so
-ln -sf /apex/com.android.runtime/lib64/bionic/libc.so /data/data/com.termux/files/usr/lib/librt.so
-
-# libc.so -> libpthread.so
-ln -sf /apex/com.android.runtime/lib64/bionic/libc.so /data/data/com.termux/files/usr/lib/libpthread.so
-
-```
 
 #### building openjdk-11
 ```bash
@@ -76,10 +63,13 @@ ln -sf /apex/com.android.runtime/lib64/bionic/libc.so /data/data/com.termux/file
 make JOBS=16
 
 ```
+
+
 #### building finish
 <a href="./img/IMG_01.jpg"><img src="./img/IMG_01.jpg" width="100%" height="100%"/></a>
 
  **** 
+
 
 ## Issues
 
@@ -88,6 +78,24 @@ make JOBS=16
 
 * jshell has segmentation fault
 <a href="./img/IMG_02.jpg"><img src="./img/IMG_02.jpg" width="100%" height="100%"/></a>
+
+
+* monotonic clock fix
+```bash
+# get real libc.so path 
+# src/hotspot/os/linux/os_linux.cpp:1312:clock_init()
+# the dlopen function requires a real librt.so path
+
+# /system/lib64/libc.so -> /apex/com.android.runtime/lib64/bionic/libc.so
+ls -l /system/lib64/libc.so 
+
+# libc.so -> librt.so
+ln -sf /apex/com.android.runtime/lib64/bionic/libc.so /data/data/com.termux/files/usr/lib/librt.so
+
+# libc.so -> libpthread.so
+ln -sf /apex/com.android.runtime/lib64/bionic/libc.so /data/data/com.termux/files/usr/lib/libpthread.so
+
+```
 
 
 * Android TLS(thread local storage) seems to have a bug, so add cxxflags -fno-emulated-tls to disable TLS supports, please refer [android-elf-tls](https://github.com/Lzhiyong/termux-ndk/blob/master/openjdk-build/android-elf-tls.md) for more information
@@ -105,8 +113,10 @@ make JOBS=16
 cd openjdk-build/tls-test
 ./build.sh
 ```
+
 On Android Failure
 <a href="./img/IMG_03.jpg"><img src="./img/IMG_03.jpg" width="100%" height="100%"/></a>
+
 
 On TermuxArch (ArchLinux) Success
 <a href="./img/IMG_04.jpg"><img src="./img/IMG_04.jpg" width="100%" height="100%"/></a>
