@@ -73,14 +73,14 @@ make JOBS=16
 
 ## Issues
 
-* jdk/lib/libxxx.so has linker warning: unsupported flags DT_FLAGS_1=0x81, please using termux-elf-cleaner to remove it. for example: termux-elf-cleaner \*.so
+1. jdk/lib/libxxx.so has linker warning: unsupported flags DT_FLAGS_1=0x81, please using termux-elf-cleaner to remove it. for example: termux-elf-cleaner \*.so
 
 
-* jshell has segmentation fault
+2. jshell has segmentation fault
 <a href="./img/IMG_02.jpg"><img src="./img/IMG_02.jpg" width="100%" height="100%"/></a>
 
 
-* monotonic clock fix
+3. monotonic clock fix
 ```bash
 # get real libc.so path 
 # src/hotspot/os/linux/os_linux.cpp:1312:clock_init()
@@ -98,7 +98,7 @@ ln -sf /apex/com.android.runtime/lib64/bionic/libc.so /data/data/com.termux/file
 ```
 
 
-* Android TLS(thread local storage) seems to have a bug, so add cxxflags -fno-emulated-tls to disable TLS supports, please refer [android-elf-tls](https://github.com/Lzhiyong/termux-ndk/blob/master/openjdk-build/android-elf-tls.md) for more information
+4. Android TLS(thread local storage) seems to have a bug, so add cxxflags -fno-emulated-tls to disable TLS supports, please refer [android-elf-tls](https://github.com/Lzhiyong/termux-ndk/blob/master/openjdk-build/android-elf-tls.md) for more information
 >ld.lld: error: libjvm.so: undefined reference to Thread::_thr_current , or libjvm.so: undefined reference to _ZN6Thread12_thr_currentE
 >
 >Thread::_thr_current defined in src/hotspot/share/utilities/thread.hpp
