@@ -81,7 +81,7 @@ make JOBS=16
 
 
 3. monotonic clock fix
-```bash
+   ```bash
 # get real libc.so path 
 # src/hotspot/os/linux/os_linux.cpp:1312:clock_init()
 # the dlopen function requires a real librt.so path
@@ -95,7 +95,7 @@ ln -sf /apex/com.android.runtime/lib64/bionic/libc.so /data/data/com.termux/file
 # libc.so -> libpthread.so
 ln -sf /apex/com.android.runtime/lib64/bionic/libc.so /data/data/com.termux/files/usr/lib/libpthread.so
 
-```
+   ```
 
 
 4. Android TLS(thread local storage) seems to have a bug, so add cxxflags -fno-emulated-tls to disable TLS supports, please refer [android-elf-tls](https://github.com/Lzhiyong/termux-ndk/blob/master/openjdk-build/android-elf-tls.md) for more information
