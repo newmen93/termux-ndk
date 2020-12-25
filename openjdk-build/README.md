@@ -99,11 +99,11 @@ make JOBS=16
 
 
 4. Android TLS(thread local storage) seems to have a bug, so add cxxflags -fno-emulated-tls to disable TLS supports, please refer [android-elf-tls](https://github.com/Lzhiyong/termux-ndk/blob/master/openjdk-build/android-elf-tls.md) for more information
-   >ld.lld: error: libjvm.so: undefined reference to Thread::_thr_current , or libjvm.so: undefined reference to _ZN6Thread12_thr_currentE
+   >ld.lld: error: libjvm.so: undefined reference to Thread::_thr_current ,<br> or libjvm.so: undefined reference to _ZN6Thread12_thr_currentE
    >
-   >Thread::_thr_current defined in src/hotspot/share/utilities/thread.hpp
-   >
-   >_ZN6Thread12_thr_currentE defined in src/hotspot/os_cpu/linux_aarch64/threadLS_linux_aarch64.s
+   >source code:
+   >src/hotspot/share/utilities/thread.hpp
+   >src/hotspot/os_cpu/linux_aarch64/threadLS_linux_aarch64.s
 
 
 5. test if Android TLS working
