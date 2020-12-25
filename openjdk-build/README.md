@@ -106,7 +106,7 @@ make JOBS=16
    >_ZN6Thread12_thr_currentE defined in src/hotspot/os_cpu/linux_aarch64/threadLS_linux_aarch64.s
 
 
-5. Test if Android TLS working
+5. test if Android TLS working
    ```bash
    cd openjdk-build/tls-test
    ./build.sh
