@@ -27,7 +27,7 @@
 +// getpagesize defined in unistd.h
 +#define SHMLBA (getpagesize())
 +    
-+// from libc/bionic/getloadavg.cpp
++// from https://android.googlesource.com/platform/bionic/+/refs/heads/master/libc/bionic/getloadavg.cpp
 +int getloadavg(double averages[], int n) {
 +  if (n < 0) return -1;
 +  if (n > 3) n = 3;
