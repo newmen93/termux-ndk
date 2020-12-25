@@ -50,7 +50,7 @@ ls -l /system/lib64/libc.so
 # libc.so -> librt.so
 ln -sf /apex/com.android.runtime/lib64/bionic/libc.so /data/data/com.termux/files/usr/lib/librt.so
 
-libc.so -> libpthread.so
+# libc.so -> libpthread.so
 ln -sf /apex/com.android.runtime/lib64/bionic/libc.so /data/data/com.termux/files/usr/lib/libpthread.so
 
 ```
