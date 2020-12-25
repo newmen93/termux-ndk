@@ -40,8 +40,9 @@ make -j16
 
 #### monotonic clock fix
 ```bash
-# get real libc.so path for dlopen
+# get real libc.so path 
 # src/hotspot/os/linux/os_linux.cpp:1312:clock_init()
+# the dlopen function requires a real librt.so path
 
 # /system/lib64/libc.so -> /apex/com.android.runtime/lib64/bionic/libc.so
 ls -l /system/lib64/libc.so 
