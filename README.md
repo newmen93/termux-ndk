@@ -104,19 +104,15 @@ TOOLCHAIN=/path/to/android-ndk-r21d/toolchains/llvm/prebuilt/linux-aarch64
     CC=$TOOLCHAIN/bin/aarch64-linux-android30-clang \                                              
     CXX=$TOOLCHAIN/bin/aarch64-linux-android30-clang++ \                                           
     CFLAGS="-fPIC -std=c11" \                       
-    CXXFLAGS="-fPIC -std=c++17" \                   
+    CXXFLAGS="-fPIC -std=c++11" \                   
     --prefix=$HOME/binutils/x86_64 \                
     --host=aarch64-linux-android \                  
-    --target=x86_64-linux-android \
-    --enable-initfini-array \                       
+    --target=x86_64-linux-android \                      
     --enable-plugins \                              
     --enable-gold \
-    --enable-lto \
-    --enable-libada \
-    --enable-liboffloadmic=target \
-    --enable-libssp \
-    --enable-threads \
-    --enable-new-dtags
+    --enable-new-dtags \
+    --disable-werror \  
+    --with-system-zlib
 ```
 
  **** 
