@@ -8,13 +8,16 @@ of course you can build the whole NDK, use checkbuild.py, but the source code is
 
 For more details information, please refer to docs/Toolchains.md
 
-##### [download r21](https://github.com/Lzhiyong/termux-ndk/releases)
+##### [download r22](https://github.com/Lzhiyong/termux-ndk/releases)
 
 ####  How to build
 
 Termux needs to install aarch64 version of Linux,
 I recommend using [TermuxArch](https://github.com/SDRausty/TermuxArch) 
 ArchLinux only downloads source code, we are not using it to compile
+
+In order to save memory, there are some pre-compiled tools that do not need to be downloaded. 
+comment out them in the llvm-toolchain/.repo/manifests/default.xml file, click here for example.
 
 ```bash
 # I assume that you have installed the ArchLinux
@@ -41,37 +44,37 @@ exit
 Termux needs to install some build-essential packages, then copy or soft link it to llvm-toolchain/prebuilts
 
 ```bash
-# remove prebuilt clang 
-# CLANG_PREBUILT_VERSION is defined in llvm-toolchain/toolchain/llvm_android/constants.py
-# for example CLANG_PREBUILT_VERSION: str = 'clang-r383902b'
 
-rm -vrf llvm-toolchain/prebuilts/clang/host/linux-x86/clang-r383902b/*
+# remove clang-bootstrap 
+rm -vrf llvm-toolchain/prebuilts/clang/host/linux-x86/clang-bootstrap
 
-# extract android-ndk-r21d.tar.xz to your path
-# android-ndk-r21d.tar.xz from termux-ndk release
-tar -xJvf android-ndk-r21d.tar.xz -C /path/to/android-ndk-r21d
-
-# copy ndk llvm toolchain to prebuilt clang directory 
-cp -r android-ndk-r21d/toolchains/llvm/prebuilt/linux-aarch64/* llvm-toolchain/prebuilts/clang/host/linux-x86/clang-r383902b
+# extract android-ndk-r22.tar.xz to /path/to/clang-bootstrap
+tar -xJvf android-ndk-r22.tar.xz -C llvm-toolchain/prebuilts/clang/host/linux-x86/clang-bootstrap
 
 # soft link cmake to llvm-toolchain/prebuilts
 ln -sf /data/data/com.termux/files/usr/bin/cmake llvm-toolchain/prebuilts/cmake/linux-x86/bin/cmake
 
+# soft link make to llvm-toolchain/prebuilts
+ln -sf /data/data/com.termux/files/usr/bin/make llvm-toolchain/prebuilts/build-tools/linux-x86/bin/make
+
 # soft link ninja to llvm-toolchain/prebuilts
-ln -sf /data/data/com.termux/files/usr/bin/ninja llvm-toolchain/prebuilts/ninja/linux-x86/bin/ninja
+ln -sf /data/data/com.termux/files/usr/bin/ninja llvm-toolchain/prebuilts/build-tools/linux-x86/bin/ninja
 
 # remove prebuilt python
 rm -vrf llvm-toolchain/prebuilts/python/linux-x86/*
 # apt download python3
 # extract python_3.8.6_aarch64.deb to llvm-toolchain/prebuilts/python/linux-x86
 
-# building libedit needs ncurse
-# apt download ncurse, then extract ncurse_xxx_aarch64.deb to llvm-toolchain/external/ncurse
-
 # building golang
 apt install golang
 cd llvm-toolchain/prebuilts/go/linux-x86/src
 ./make.bash
+
+# copy patches/crypt.h to llvm-toolchain/prebuilts/clang/host/linux-x86/clang-bootstrap/sysroot/usr/include
+
+# copy patches/sFile.h to llvm-toolchain/toolchain/llvm-project/lldb/include/lldb/Utility
+# vim llvm-toolchain/toolchain/llvm-project/lldb/include/lldb/Utility/ReproducerInstrumentation.h
+# add #include "lldb/Utility/sFile.h"
 
 ```
 
@@ -98,7 +101,7 @@ python toolchain/llvm_android/build.py --no-build windows
 cd binutils && mkdir build && cd build
 
 # setting android ndk toolchain
-TOOLCHAIN=/path/to/android-ndk-r21d/toolchains/llvm/prebuilt/linux-aarch64
+TOOLCHAIN=/path/to/android-ndk-r22/toolchains/llvm/prebuilt/linux-aarch64
 
 ../configure \                                      
     CC=$TOOLCHAIN/bin/aarch64-linux-android30-clang \                                              
@@ -118,7 +121,7 @@ TOOLCHAIN=/path/to/android-ndk-r21d/toolchains/llvm/prebuilt/linux-aarch64
  **** 
 #### Simpleperf no need to compile
 ```bash
-cd android-ndk-r21d/simpleperf/bin/linux/aarch64
+cd android-ndk-r22/simpleperf/bin/linux/aarch64
 
 ln -sf ../../android/arm64/simpleperf ./simpleperf
 
@@ -151,9 +154,9 @@ git clone https://github.com/KhronosGroup/glslang.git
 cd ~/shaderc && mkdir build && cd build
 
 # setting android ndk toolchain
-TOOLCHAIN=/path/to/android-ndk-r21d/toolchains/llvm/prebuilt/linux-aarch64
+TOOLCHAIN=/path/to/android-ndk-r22/toolchains/llvm/prebuilt/linux-aarch64
 
-cmake -G "Ninja" \
+cmake -G "Unix Makefiles" \
     -DCMAKE_C_COMPILER=$TOOLCHAIN/bin/aarch64-linux-android30-clang \
     -DCMAKE_CXX_COMPILER=$TOOLCHAIN/bin/aarch64-linux-android30-clang++ \
     -DCMAKE_SYSROOT=$TOOLCHAIN/sysroot \
@@ -161,7 +164,7 @@ cmake -G "Ninja" \
     -DCMAKE_INSTALL_PREFIX=/path/to/shader-tools \
     ..
 
-ninja install -j16
+make -j16
 ```
 
  **** 
@@ -184,7 +187,7 @@ cd termux-ndk/renderscript
 ```
  **** 
 #### Building finish!
-llvm-toolchain stage1 and stage2 compilation takes about 10 hours.
+llvm-toolchain stage1 and stage2 compilation takes about 20 hours.
 
 If your phone performance is good, the time may be shorter, but it still takes a lot of time to compile.
 
@@ -245,7 +248,7 @@ externalNativeBuild {
     cmake {
         // specify the cmake version
         version "3.17.2"
-        arguments "-DANDROID_APP_PLATFORM=android-21", "-DANDROID_STL=c++_static", "-fuse-ld=lld"
+        arguments "-DANDROID_APP_PLATFORM=android-21", "-DANDROID_STL=c++_static"
         abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
     }
 }
