@@ -63,7 +63,7 @@ ln -sf /data/data/com.termux/files/usr/bin/ninja llvm-toolchain/prebuilts/build-
 # remove prebuilt python
 rm -vrf llvm-toolchain/prebuilts/python/linux-x86/*
 # apt download python3
-# extract python_3.8.6_aarch64.deb to llvm-toolchain/prebuilts/python/linux-x86
+# extract archives/python_3.8.6_aarch64.deb to llvm-toolchain/prebuilts/python/linux-x86
 
 # building golang
 apt install golang
@@ -83,7 +83,8 @@ cd llvm-toolchain/prebuilts/go/linux-x86/src
 
 ```bash
 # no build for windows
-python toolchain/llvm_android/build.py --no-build windows
+# If it is not the first time to build, you can add options --skip-source-setup to save time
+python toolchain/llvm_android/build.py --enable-assertions --no-build windows
 ```
 
  **** 
