@@ -199,8 +199,8 @@ $NDK_TOOLCHAIN/bin/aarch64-linux-android30-clang++ test.cpp -o test
 # if you don't specify a target, the default is --target=aarch64-unknown-linux-android
 $NDK_TOOLCHAIN/bin/clang --sysroot=/path/to/sysroot hello.c -o hello
 
-# c++ needs link flags -lc++_shared -Wl,-rpath-link
-$NDK_TOOLCHAIN/bin/clang++ --sysroot=/path/to/sysroot -lc++_shared -Wl,-rpath-link hello.cpp -o hello
+# c++ needs link flags -lc++_shared -static-libstdc++
+$NDK_TOOLCHAIN/bin/clang++ --sysroot=/path/to/sysroot -lc++_shared -static-libstdc++ hello.cpp -o hello
 ```
  **** 
  
