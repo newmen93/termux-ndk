@@ -132,23 +132,14 @@ ln -sf ../../android/arm64/simpleperf ./simpleperf
 #### Building shader-tools
 ```bash
 cd /data/data/com.termux/files/home
-
 git clone https://github.com/google/shaderc
-
 cd shaderc/third_party
-
 git clone https://github.com/KhronosGroup/SPIRV-Tools.git   spirv-tools
-
 git clone https://github.com/KhronosGroup/SPIRV-Headers.git spirv-tools/external/spirv-headers
-    
 git clone https://github.com/google/googletest.git
-
 git clone https://github.com/google/effcee.git
-
 git clone https://github.com/google/re2.git
-
 git clone https://github.com/KhronosGroup/glslang.git
-
 
 # start building shaderc...
 
@@ -195,8 +186,24 @@ If your phone performance is good, the time may be shorter, but it still takes a
 There may be some errors during the compilation process, please solve it yourself!
 
  **** 
+#### Compile simple c/c++ code with ndk clang
+```bash
 
+# note that aarch64-linux-android$API-clang++ is recommended instead of clang alone
+# armv7a-linux-android$API-clang ...etc
+NDK_TOOLCHAIN=/path/to/android-ndk-r22/toolchains/llvm/prebuilt/linux-aarch64
+$NDK_TOOLCHAIN/bin/aarch64-linux-android30-clang++ test.cpp -o test
 
+# if you want to use clang alone, you need to specify --sysroot=/path/to/sysroot
+# for example --sysroot=/data/data/com.termux/files (termux default sysroot)
+# if you don't specify a target, the default is --target=aarch64-unknown-linux-android
+$NDK_TOOLCHAIN/bin/clang --sysroot=/path/to/sysroot hello.c -o hello
+
+# c++ needs link flags -lc++_shared -Wl,-rpath-link
+$NDK_TOOLCHAIN/bin/clang++ --sysroot=/path/to/sysroot -lc++_shared -Wl,-rpath-link hello.cpp -o hello
+```
+ **** 
+ 
 #### Screenshots
 
 <a href="./screenshot/Screenshot_01.jpg"><img src="./screenshot/Screenshot_01.jpg" width="30%" /></a>
