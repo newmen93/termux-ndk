@@ -17,7 +17,7 @@ I recommend using [TermuxArch](https://github.com/SDRausty/TermuxArch)
 ArchLinux only downloads source code, we are not using it to compile
 
 In order to save memory, there are some pre-compiled tools that do not need to be downloaded. 
-comment out them in the llvm-toolchain/.repo/manifests/default.xml file, click here for example.
+comment out them in the llvm-toolchain/.repo/manifests/default.xml file, click [here](https://github.com/Lzhiyong/termux-ndk/blob/master/patches/default.xml.patch) for example.
 
 ```bash
 # I assume that you have installed the ArchLinux
