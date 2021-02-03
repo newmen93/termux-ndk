@@ -63,7 +63,7 @@ ln -sf /data/data/com.termux/files/usr/bin/ninja llvm-toolchain/prebuilts/build-
 # remove prebuilt python
 rm -vrf llvm-toolchain/prebuilts/python/linux-x86/*
 # apt download python3
-# extract archives/python_3.8.6_aarch64.deb to llvm-toolchain/prebuilts/python/linux-x86
+# extract archives/python_3.9.x_aarch64.deb to llvm-toolchain/prebuilts/python/linux-x86
 
 # building golang
 apt install golang
