@@ -99,7 +99,7 @@ gradle build
 ```
 <a href="./screenshot/build_termux_app_01.jpg"><img src="./screenshot/build_termux_app_01.jpg" width="50%" /></a>
 <a href="./screenshot/build_termux_app_02.jpg"><img src="./screenshot/build_termux_app_02.jpg" width="50%" /></a>
-<a href="./screenshot/
+
 **** 
 ##### Building example
 ```bash
@@ -113,7 +113,6 @@ gradle build
 ```
 <a href="./screenshot/build_example_01.jpg"><img src="./screenshot/build_example_01.jpg" width="50%" /></a>
 <a href="./screenshot/build_example_02.jpg"><img src="./screenshot/build_example_02.jpg" width="50%" /></a>
-<a href="./screenshot/
 
  **** 
 
