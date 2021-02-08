@@ -49,7 +49,7 @@
 * Execute the `gradle build` command to start building the android app, the below error will occur, this is because the gradle plugin will download a corresponding version of aapt2-4.1.1-6503028-linux.jar, we need to replace it.
 <a href="./screenshot/aapt2_xxx_linux_error.jpg"><img src="./screenshot/aapt2_xxx_linux_error.jpg" width="100%" /></a>
 
-* Replace the aapt2-4.1.1-6503028-linux.jar with [gradle-plugin](https://github.com/Lzhiyong/termux-ndk/tree/master/build-apk/gradle-plugin)
+* Replace the aapt2-4.1.1-6503028-linux.jar with [gradle-plugin](https://github.com/Lzhiyong/termux-ndk/tree/master/build-app/gradle-plugin)
    ```bash
    # aapt2 is inside the jar file(aapt2-4.1.1-6503028-linux.jar)
    # because the aapt2 is x86_64 architecture not aarch64, so we need to replace it
