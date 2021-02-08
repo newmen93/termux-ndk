@@ -15,7 +15,7 @@ ndk.dir=/data/data/com.termux/files/home/android/android-ndk-r22
 cmake.dir=/data/data/com.termux/files/home/android/android-sdk/cmake
 ```
 * Modify the project root directory build.gradle file
-```bash
+   ```bash
 # setting gradle plugin version 
 # gradle:4.1.1 is recommended
 com.android.tools.build:gradle:4.1.1
@@ -23,10 +23,10 @@ com.android.tools.build:gradle:4.1.1
 # com.android.tools.build:gradle:4.0.1
 # com.android.tools.build:gradle:3.6.3
 # com.android.tools.build:gradle:3.5.1
-......
+   ......
 ```
 * Modify the project app/build.gradle
-```bash
+   ```bash
 # setting build tools version
 # 28.0.3 or 29.0.3 or 30.0.3
 android {
@@ -50,7 +50,7 @@ android {
     }
     ......
 }
-```
+   ```
 
 * Execute the `gradle build` command to start building the android app, the below error will occur, this is because the gradle plugin will download a corresponding version of aapt2-4.1.1-6503028-linux.jar, we need to replace it.
 
