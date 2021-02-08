@@ -54,8 +54,9 @@
    # aapt2 is inside the jar file(aapt2-4.1.1-6503028-linux.jar)
    # because the aapt2 is x86_64 architecture not aarch64, so we need to replace it
    # execute the find command to search aapt-xxx-linux.jar, then replace it
-   find ~/.gradle -type f -name aapt2-*-linux.jar
-   cp /path/to/aapt2-4.1.1-6503028-linux.jar ~/.gradle/caches/modules-2/files-2.1/com.android.tools.build/aapt2/4.1.1-6503028/eb7d8e65025222eff8e09cb86740914a28f1417/aapt2-4.1.1-6503028-linux.jar
+   cd ~/.gradle
+   find . -type f -name aapt2-*-linux.jar
+   cp /path/to/aapt2-4.1.1-6503028-linux.jar caches/modules-2/files-2.1/com.android.tools.build/aapt2/4.1.1-6503028/eb7d8e65025222eff8e09cb86740914a28f1417/aapt2-4.1.1-6503028-linux.jar
    ```
    <a href="./screenshot/copy_aapt2.jpg"><img src="./screenshot/copy_aapt2.jpg" width="100%" /></a>
    
