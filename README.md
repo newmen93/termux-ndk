@@ -190,7 +190,9 @@ There may be some errors during the compilation process, please solve it yoursel
 ```bash
 
 # note that aarch64-linux-android$API-clang++ is recommended instead of clang alone
-# armv7a-linux-android$API-clang ...etc
+# armv7a-linux-android$API-clang
+# i686-linux-android$API-clang
+# x86_64-linux-android$API-clang
 NDK_TOOLCHAIN=/path/to/android-ndk-r22/toolchains/llvm/prebuilt/linux-aarch64
 $NDK_TOOLCHAIN/bin/aarch64-linux-android30-clang++ test.cpp -o test
 
