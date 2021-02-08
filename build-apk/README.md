@@ -16,54 +16,54 @@ cmake.dir=/data/data/com.termux/files/home/android/android-sdk/cmake
 ```
 * Modify the project root directory build.gradle file
    ```bash
-# setting gradle plugin version 
-# gradle:4.1.1 is recommended
-com.android.tools.build:gradle:4.1.1
-# others version
-# com.android.tools.build:gradle:4.0.1
-# com.android.tools.build:gradle:3.6.3
-# com.android.tools.build:gradle:3.5.1
+   # setting gradle plugin version 
+   # gradle:4.1.1 is recommended
+   com.android.tools.build:gradle:4.1.1
+   # others version
+   # com.android.tools.build:gradle:4.0.1
+   # com.android.tools.build:gradle:3.6.3
+   # com.android.tools.build:gradle:3.5.1
    ......
-```
+   ```
 * Modify the project app/build.gradle
    ```bash
-# setting build tools version
-# 28.0.3 or 29.0.3 or 30.0.3
-android {
-    ......
-    buildToolsVersion "30.0.3"
-    ndkVersion "22.0.7026061"
-    defaultConfig {
-        externalNativeBuild {
-             cmake {
-                // specify the cmake version
-                version "3.18.5"
-                arguments "-DANDROID_APP_PLATFORM=android-30", "-DANDROID_STL=c++_static"
-                abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
-            }
-        }
-    }
-    externalNativeBuild {
-        cmake {
-            path "src/main/cpp/CMakeLists.txt"
-        }
-    }
-    ......
-}
+   # setting build tools version
+   # 28.0.3 or 29.0.3 or 30.0.3
+   android {
+       ......
+       buildToolsVersion "30.0.3"
+       ndkVersion "22.0.7026061"
+       defaultConfig {
+           externalNativeBuild {
+                cmake {
+                   // specify the cmake version
+                   version "3.18.5"
+                   arguments "-DANDROID_APP_PLATFORM=android-30", "-DANDROID_STL=c++_static"
+                   abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+               }
+           }
+       }
+       externalNativeBuild {
+           cmake {
+               path "src/main/cpp/CMakeLists.txt"
+           }
+       }
+       ......
+   }
    ```
 
 * Execute the `gradle build` command to start building the android app, the below error will occur, this is because the gradle plugin will download a corresponding version of aapt2-4.1.1-6503028-linux.jar, we need to replace it.
 
 * Replace the aapt2-4.1.1-6503028-linux.jar with 
-```bash
-# aapt2 is inside the jar file(aapt2-4.1.1-6503028-linux.jar)
-# because the aapt2 is x86_64 architecture not aarch64, so we need to replace it
-# execute the find command to search aapt-xxx-linux.jar
-# the path may be (~/.gradle/caches/modules-2/files-2.1/com.android.tools.build/aapt2/4.1.1-6503028/eb7d8e65025222eff8e09cb86740914a28f1417/aapt2-4.1.1-6503028-linux.jar)
-find ~/.gradle -type f -name aapt2-*-linux.jar
-# download the aapt-xxx-linux.jar for termux-ndk release 
-cp /path/to/aapt2-4.1.1-6503028-linux.jar ~/.gradle/caches/modules-2/files-2.1/com.android.tools.build/aapt2/4.1.1-6503028/eb7d8e65025222eff8e09cb86740914a28f1417/aapt2-4.1.1-6503028-linux.jar
-```
+   ```bash
+   # aapt2 is inside the jar file(aapt2-4.1.1-6503028-linux.jar)
+   # because the aapt2 is x86_64 architecture not aarch64, so we need to replace it
+   # execute the find command to search aapt-xxx-linux.jar
+   # the path may be (~/.gradle/caches/modules-2/files-2.1/com.android.tools.build/aapt2/4.1.1-6503028/eb7d8e65025222eff8e09cb86740914a28f1417/aapt2-4.1.1-6503028-linux.jar)
+   find ~/.gradle -type f -name aapt2-*-linux.jar
+   # download the aapt-xxx-linux.jar for termux-ndk release 
+   cp /path/to/aapt2-4.1.1-6503028-linux.jar ~/.gradle/caches/modules-2/files-2.1/com.android.tools.build/aapt2/4.1.1-6503028/eb7d8e65025222eff8e09cb86740914a28f1417/aapt2-4.1.1-6503028-linux.jar
+   ```
 * If an error occurs during the build app, this may be a network problem, please execute the `gradle build` again or execute the `gradle build --info` for more information.
 
 **** 
