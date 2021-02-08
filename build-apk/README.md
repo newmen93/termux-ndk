@@ -17,12 +17,11 @@
 * Modify the project/build.gradle file
    ```bash
    # setting gradle plugin version 
+   # com.android.tools.build:gradle:3.5.1
+   # com.android.tools.build:gradle:3.6.3
+   # com.android.tools.build:gradle:4.0.1
    # gradle:4.1.1 is recommended
    com.android.tools.build:gradle:4.1.1
-   # others version
-   # com.android.tools.build:gradle:4.0.1
-   # com.android.tools.build:gradle:3.6.3
-   # com.android.tools.build:gradle:3.5.1
    ......
    ```
 * Modify the project app/build.gradle
