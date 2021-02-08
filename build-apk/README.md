@@ -1,4 +1,4 @@
-##### How to use termux-ndk to build android app
+### How to use termux-ndk to build android app
 
 * Download the build-essential toolchain, android-ndk android-sdk openjdk from [release](https://github.com/Lzhiyong/termux-ndk/release) and [gradle](https://gradle.org) 
 
@@ -52,6 +52,7 @@
    ```
 
 * Execute the `gradle build` command to start building the android app, the below error will occur, this is because the gradle plugin will download a corresponding version of aapt2-4.1.1-6503028-linux.jar, we need to replace it.
+<a href="./screenshot/aapt2_xxx_linux_error.jpg"><img src="./screenshot/aapt2_xxx_linux_error.jpg" width="100%" /></a>
 
 * Replace the aapt2-4.1.1-6503028-linux.jar with 
    ```bash
@@ -63,10 +64,12 @@
    # download the aapt-xxx-linux.jar for termux-ndk release 
    cp /path/to/aapt2-4.1.1-6503028-linux.jar ~/.gradle/caches/modules-2/files-2.1/com.android.tools.build/aapt2/4.1.1-6503028/eb7d8e65025222eff8e09cb86740914a28f1417/aapt2-4.1.1-6503028-linux.jar
    ```
+   <a href="./screenshot/copy_aapt2.jpg"><img src="./screenshot/copy_appt2.jpg" width="100%" /></a>
+   
 * If an error occurs during the build app, this may be a network problem, please execute the `gradle build` again or execute the `gradle build --info` for more information.
 
 **** 
-##### Building termux-app with termux
+#### Building termux-app with termux
 ```bash
 git clone https://github.com/termux/termux-app
 
@@ -100,7 +103,7 @@ gradle build
 <a href="./screenshot/build_termux_app_02.jpg"><img src="./screenshot/build_termux_app_02.jpg" width="50%" /></a>
 
 **** 
-##### Building example
+#### Building example
 ```bash
 # cmake-example
 cd termux-ndk/example/cmake-example
@@ -115,5 +118,5 @@ gradle build
 
  **** 
 
-#### Issues
+### Issues
 Using proot or chroot linux is not recommended, this may have some problems, the building speed is much slower than the native Termux.
