@@ -66,7 +66,7 @@ make JOBS=16
 
 
 #### building finish
-<a href="./img/IMG_01.jpg"><img src="./img/IMG_01.jpg" width="100%" height="100%"/></a>
+<a href="./img/java.jpg"><img src="./img/java.jpg" width="100%" height="100%"/></a>
 
  **** 
 
@@ -77,7 +77,7 @@ make JOBS=16
 
 
 2. jshell has segmentation fault
-<a href="./img/IMG_02.jpg"><img src="./img/IMG_02.jpg" width="100%" height="100%"/></a>
+<a href="./img/jshell_error.jpg"><img src="./img/jshell_error.jpg" width="100%" height="100%"/></a>
 
 
 3. monotonic clock fix
@@ -113,11 +113,11 @@ make JOBS=16
    ```
 
    On Android Failure
-<a href="./img/IMG_03.jpg"><img src="./img/IMG_03.jpg" width="100%" height="100%"/></a>
+<a href="./img/tls_test1.jpg"><img src="./img/tls_test1.jpg" width="100%" height="100%"/></a>
 
 
    On TermuxArch (ArchLinux) Success
-<a href="./img/IMG_04.jpg"><img src="./img/IMG_04.jpg" width="100%" height="100%"/></a>
+<a href="./img/tls_test2.jpg"><img src="./img/IMG_04.jpg" width="100%" height="100%"/></a>
 
  **** 
  
