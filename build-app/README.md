@@ -85,7 +85,7 @@ buildToolsVersion=30.0.3
 android {
     ......
     compileSdkVersion project.properties.compileSdkVersion.toInteger()
-    buildToolsVersion project.properties.ndkVersion
+    buildToolsVersion project.properties.buildToolsVersion
     ......
 }
 
