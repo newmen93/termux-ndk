@@ -102,7 +102,7 @@ make JOBS=16
    >ld.lld: error: libjvm.so: undefined reference to Thread::_thr_current , or libjvm.so: undefined reference to _ZN6Thread12_thr_currentE
    >
    >source code:
-   >src/hotspot/share/utilities/thread.hpp
+   >src/hotspot/share/utilities/thread.cpp
    >src/hotspot/os_cpu/linux_aarch64/threadLS_linux_aarch64.s
 
 
