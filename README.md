@@ -204,7 +204,7 @@ $NDK_TOOLCHAIN/bin/clang++ --sysroot=/path/to/sysroot -lc++_shared -static-libst
 ```
  **** 
  
-#### Building android app with termux-ndk, please refer to [build-apk]
+#### Building android app with termux-ndk, please refer to [build-apk](https://github.com/Lzhiyong/termux-ndk/blob/master/build-apk.md)
 
 ## Issues
 
