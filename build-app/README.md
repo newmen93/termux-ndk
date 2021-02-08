@@ -89,7 +89,7 @@ android {
     ......
 }
 
-# ok starting
+# ok start building termux-app
 gradle build
 
 ```
