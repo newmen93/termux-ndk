@@ -108,7 +108,7 @@ cd termux-ndk/example/hello-jni-kotlinApp
 
 gradle build
 ```
-<div align="center">
+<div align="left">
     <img src="./screenshot/build_example_01.jpg" width="50%" /><img src="./screenshot/build_example_02.jpg" width="50%" />
 </div>
 
