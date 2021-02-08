@@ -204,71 +204,7 @@ $NDK_TOOLCHAIN/bin/clang++ --sysroot=/path/to/sysroot -lc++_shared -static-libst
 ```
  **** 
  
-#### Screenshots
-
-<a href="./screenshot/Screenshot_01.jpg"><img src="./screenshot/Screenshot_01.jpg" width="30%" /></a>
-<a href="./screenshot/Screenshot_02.jpg"><img src="./screenshot/Screenshot_02.jpg" width="30%" /></a>
-<a href="./screenshot/Screenshot_03.jpg"><img src="./screenshot/Screenshot_03.jpg" width="30%" /></a>
-
-
-#### Buinding app with ndk cmake
-
-Using termux to build android app.
-
-1\. download the build-essential toolchain, [gradle](https://gradle.org) and [openjdk](https://github.com/Lzhiyong/termux-ndk/releases), 
-update [aapt2](https://github.com/Lzhiyong/sdk-tools) is here.
-
-2\. please note when you execute the gradle build command finish, some errors will occur.
-> AAPT2 aapt2-4.0.1-6197926-linux Daemon #7: Daemon startup failed.  
-        This should not happen under normal circumstances, please file an issue if it does.
-
-3\. this is because the gradle plugin will download a corresponding version of aapt2.
-
-4\. We need to replace the aapt2-xxx-linux.jar, which under /data/data/com.termux/files/home/.gradle 
-
-5\. execute the find command to search for aapt2, find . -type f -name "aapt2\*-linux.jar"
-(such as aapt2-4.0.1-6197926-linux.jar or other version)
-
-6\. extract the jar file, aapt2 is inside this jar file, replace it with [sdk-tools](https://github.com/Lzhiyong/sdk-tools)/build-tools/aapt2
-
-7\. if there are still errors, continue to replace！
-
-
-```bash
-
-# modify local.properties file
-# sdk.dir=/path/to/android-sdk
-# ndk.dir=/path/to/ndk
-# cmake.dir=/path/to/cmake
-
-
-# setting the buildToolsVersion
-# update buildToolsVersion you need download the sdk-tools, then copy it to android-sdk/build-tools platform-tools
-# sdk-tools from https://github.com/Lzhiyong/sdk-tools
-buildToolsVersion "30.0.1"
-
-
-# setting the cmake version 
-# update cmake you need download the cmake source code to compile it
-......
-
-externalNativeBuild {
-    cmake {
-        // specify the cmake version
-        version "3.17.2"
-        arguments "-DANDROID_APP_PLATFORM=android-21", "-DANDROID_STL=c++_static"
-        abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
-    }
-}
-
-......
-
-# building examples
-cd termux-ndk/cmake-example 
-
-gradle build
-
-```
+#### Building android app with termux-ndk, please refer to [build-apk]
 
 ## Issues
 
