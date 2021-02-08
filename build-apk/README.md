@@ -3,18 +3,18 @@
 * Download the build-essential toolchain, android-ndk android-sdk openjdk from [release](https://github.com/Lzhiyong/termux-ndk/release) and [gradle](https://gradle.org) 
 
 * Add a local.properties file to the root of the project as below
-```bash
-# modify the local.properties file
-# please note ndk.dir has been deprecated, but it still works
-sdk.dir=/path/to/android-sdk
-ndk.dir=/path/to/android-ndk
-cmake.dir=/path/to/cmake
-# for example:
-sdk.dir=/data/data/com.termux/files/home/android/android-sdk
-ndk.dir=/data/data/com.termux/files/home/android/android-ndk-r22
-cmake.dir=/data/data/com.termux/files/home/android/android-sdk/cmake
-```
-* Modify the project root directory build.gradle file
+   ```bash
+   # modify the local.properties file
+   # please note ndk.dir has been deprecated, but it still works
+   sdk.dir=/path/to/android-sdk
+   ndk.dir=/path/to/android-ndk
+   cmake.dir=/path/to/cmake
+   # for example:
+   sdk.dir=/data/data/com.termux/files/home/android/android-sdk
+   ndk.dir=/data/data/com.termux/files/home/android/android-ndk-r22
+   cmake.dir=/data/data/com.termux/files/home/android/android-sdk/cmake
+   ```
+* Modify the project/build.gradle file
    ```bash
    # setting gradle plugin version 
    # gradle:4.1.1 is recommended
