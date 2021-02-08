@@ -42,11 +42,6 @@
                }
            }
        }
-       externalNativeBuild {
-           cmake {
-               path "src/main/cpp/CMakeLists.txt"
-           }
-       }
        ......
    }
    ```
@@ -69,7 +64,7 @@
 * If an error occurs during the build app, this may be a network problem, please execute the `gradle build` again or execute the `gradle build --info` for more information.
 
 **** 
-#### Building termux-app with termux
+### Building termux-app with termux
 ```bash
 git clone https://github.com/termux/termux-app
 
@@ -99,11 +94,16 @@ android {
 gradle build
 
 ```
+<center class="half">
+    <img src="./screenshot/build_termux_app_01.jpg" width="50%" />
+    <img src="./screenshot/build_termux_app_02.jpg" width="50%" />
+</center>
+
 <a href="./screenshot/build_termux_app_01.jpg"><img src="./screenshot/build_termux_app_01.jpg" width="50%" /></a>
 <a href="./screenshot/build_termux_app_02.jpg"><img src="./screenshot/build_termux_app_02.jpg" width="50%" /></a>
 
 **** 
-#### Building example
+### Building example
 ```bash
 # cmake-example
 cd termux-ndk/example/cmake-example
@@ -116,7 +116,7 @@ gradle build
 <a href="./screenshot/build_example_01.jpg"><img src="./screenshot/build_example_01.jpg" width="50%" /></a>
 <a href="./screenshot/build_example_02.jpg"><img src="./screenshot/build_example_02.jpg" width="50%" /></a>
 
- **** 
+**** 
 
 ### Issues
 Using proot or chroot linux is not recommended, this may have some problems, the building speed is much slower than the native Termux.
