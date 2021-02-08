@@ -94,9 +94,9 @@ android {
 gradle build
 
 ```
-<center class="half">
+<div align="center">
     <img src="./screenshot/build_termux_app_01.jpg" width="50%" /><img src="./screenshot/build_termux_app_02.jpg" width="50%" />
-</center>
+</div>
 
 <a href="./screenshot/build_termux_app_01.jpg"><img src="./screenshot/build_termux_app_01.jpg" width="50%" /></a>
 <a href="./screenshot/build_termux_app_02.jpg"><img src="./screenshot/build_termux_app_02.jpg" width="50%" /></a>
