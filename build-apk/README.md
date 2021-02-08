@@ -49,14 +49,12 @@
 * Execute the `gradle build` command to start building the android app, the below error will occur, this is because the gradle plugin will download a corresponding version of aapt2-4.1.1-6503028-linux.jar, we need to replace it.
 <a href="./screenshot/aapt2_xxx_linux_error.jpg"><img src="./screenshot/aapt2_xxx_linux_error.jpg" width="100%" /></a>
 
-* Replace the aapt2-4.1.1-6503028-linux.jar with 
+* Replace the aapt2-4.1.1-6503028-linux.jar with [gradle-plugin](https://github.com/Lzhiyong/termux-ndk/tree/master/build-apk/gradle-plugin)
    ```bash
    # aapt2 is inside the jar file(aapt2-4.1.1-6503028-linux.jar)
    # because the aapt2 is x86_64 architecture not aarch64, so we need to replace it
-   # execute the find command to search aapt-xxx-linux.jar
-   # the path may be (~/.gradle/caches/modules-2/files-2.1/com.android.tools.build/aapt2/4.1.1-6503028/eb7d8e65025222eff8e09cb86740914a28f1417/aapt2-4.1.1-6503028-linux.jar)
+   # execute the find command to search aapt-xxx-linux.jar, then replace it
    find ~/.gradle -type f -name aapt2-*-linux.jar
-   # download the aapt-xxx-linux.jar for termux-ndk release 
    cp /path/to/aapt2-4.1.1-6503028-linux.jar ~/.gradle/caches/modules-2/files-2.1/com.android.tools.build/aapt2/4.1.1-6503028/eb7d8e65025222eff8e09cb86740914a28f1417/aapt2-4.1.1-6503028-linux.jar
    ```
    <a href="./screenshot/copy_aapt2.jpg"><img src="./screenshot/copy_aapt2.jpg" width="100%" /></a>
