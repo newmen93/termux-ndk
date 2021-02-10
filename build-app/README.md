@@ -101,6 +101,9 @@ gradle build
 **** 
 ### Building example
 ```bash
+# File Manager
+cd termux-ndk/example/FileManager
+
 # cmake-example
 cd termux-ndk/example/cmake-example
 
