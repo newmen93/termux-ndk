@@ -102,13 +102,13 @@ gradle build
 ### Building example
 ```bash
 # File Manager
-cd termux-ndk/example/FileManager
+cd example/FileManager
 
 # cmake-example
-cd termux-ndk/example/cmake-example
+cd example/cmake-example
 
 # hello-jni-kotlinApp
-cd termux-ndk/example/hello-jni-kotlinApp
+cd example/hello-jni-kotlinApp
 
 gradle build
 ```
