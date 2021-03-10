@@ -1,6 +1,6 @@
 ### How to use termux-ndk to build android app
 
-* Download the build-essential toolchain, android-ndk android-sdk openjdk from [release](https://github.com/Lzhiyong/termux-ndk/release) and [gradle](https://gradle.org) 
+* Download the build-essential toolchain, android-ndk android-sdk openjdk from [release](https://github.com/Lzhiyong/termux-ndk/releases) and [gradle](https://gradle.org) 
 
 * Add a local.properties file to the root of the project as below
    ```bash
@@ -20,9 +20,11 @@
    # com.android.tools.build:gradle:3.5.1
    # com.android.tools.build:gradle:3.6.3
    # com.android.tools.build:gradle:4.0.1
-   # gradle:4.1.1 is recommended
+   # com.android.tools.build:gradle:4.1.1
+   # com.android.tools.build:gradle:4.1.2
+   # ......
    dependencies {
-       classpath 'com.android.tools.build:gradle:4.1.1'
+       classpath 'com.android.tools.build:gradle:4.1.2'
    }
    ```
 * Modify the project app/build.gradle
@@ -36,8 +38,6 @@
        defaultConfig {
            externalNativeBuild {
                 cmake {
-                   // specify the cmake version
-                   version "3.18.5"
                    arguments "-DANDROID_APP_PLATFORM=android-30", "-DANDROID_STL=c++_static"
                    abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
                }
