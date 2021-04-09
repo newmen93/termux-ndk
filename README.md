@@ -79,7 +79,7 @@ cd llvm-toolchain/prebuilts/go/linux-x86/src
 ```
 
  **** 
-####  OK start compile now!
+####  Building start
 
 ```bash
 # no build for windows
