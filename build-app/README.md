@@ -16,13 +16,7 @@
    ```
 * Modify the project/build.gradle file
    ```bash
-   # setting gradle plugin version 
-   # com.android.tools.build:gradle:3.5.1
-   # com.android.tools.build:gradle:3.6.3
-   # com.android.tools.build:gradle:4.0.1
-   # com.android.tools.build:gradle:4.1.1
-   # com.android.tools.build:gradle:4.1.2
-   # ......
+   # setting the gradle plugin version 
    dependencies {
        classpath 'com.android.tools.build:gradle:4.1.2'
    }
@@ -34,7 +28,7 @@
    android {
        ......
        buildToolsVersion "30.0.3"
-       ndkVersion "22.0.7026061"
+       ndkVersion "22.1.7171670"
        defaultConfig {
            externalNativeBuild {
                 cmake {
@@ -47,7 +41,8 @@
    }
    ```
 
-* Execute the `gradle build` command to start building the android app, the below error will occur, this is because the gradle plugin will download a corresponding version of aapt2-4.1.1-6503028-linux.jar, we need to replace it.
+* Execute the `gradle build` command to start building the android app, when building for the first time, the below error will occur.</br> 
+this is because the gradle plugin will download a corresponding version of aapt2-4.1.1-6503028-linux.jar, we need to replace it.
 <a href="./screenshot/aapt2_xxx_linux_error.jpg"><img src="./screenshot/aapt2_xxx_linux_error.jpg" width="100%" /></a>
 
 * Replace the aapt2-4.1.1-6503028-linux.jar with [gradle-plugin](https://github.com/Lzhiyong/termux-ndk/tree/master/build-app/gradle-plugin)
@@ -77,17 +72,17 @@ cmake.dir=/path/to/cmake
 # add buildToolsVersion
 minSdkVersion=24
 targetSdkVersion=28
-ndkVersion=22.0.7026061
+ndkVersion=22.1.7171670
 compileSdkVersion=28
 buildToolsVersion=30.0.3
 
 # modify app/build.gradle terminal-emulator/build.gradle and terminal-view/build.gradle
 # add buildToolsVersion
 android {
-    ......
+    ...
     compileSdkVersion project.properties.compileSdkVersion.toInteger()
     buildToolsVersion project.properties.buildToolsVersion
-    ......
+    ...
 }
 
 # ok start building termux-app
