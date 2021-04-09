@@ -175,8 +175,9 @@ cd termux-ndk/renderscript
 
 ```
  **** 
- 
-#### Building android app with termux-ndk, please refer to [build-app](https://github.com/Lzhiyong/termux-ndk/tree/master/build-app)
+
+#### Building app
+**building android app with termux-ndk, please refer to [build-app](https://github.com/Lzhiyong/termux-ndk/tree/master/build-app)**
 
 ## Issues
 
