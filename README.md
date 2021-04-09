@@ -95,9 +95,9 @@ There may be some errors during the compilation process, please solve it yoursel
 
  **** 
  
-#### Building finish test ndk clang
+#### Building finish!
 ```bash
-
+# test the ndk clang
 # Note: aarch64-linux-android$API-clang++ is recommended, instead of clang alone
 # armv7a-linux-android$API-clang
 # i686-linux-android$API-clang
@@ -155,9 +155,10 @@ make -j16
 ```
 
  **** 
-#### Building renderscript (llvm-rs-cc and bcc_compat)
+#### Building renderscript 
 
 ```bash
+# llvm-rs-cc and bcc_compat
 # slang source code
 # git clone https://android.googlesource.com/platform/frameworks/compile/slang
 # libbcc source code
