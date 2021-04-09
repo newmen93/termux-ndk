@@ -5,7 +5,9 @@
 * Add a local.properties file to the root of the project as below
    ```bash
    # modify the local.properties file
-   # please note ndk.dir has been deprecated, but it still works
+   # although ndk.dir has been deprecated, but it still works
+   # note: cmake version needs to less than 3.20.0 for ndk r22
+   # the android-sdk/cmake version is 3.19.8, you can also use termux's cmake
    sdk.dir=/path/to/android-sdk
    ndk.dir=/path/to/android-ndk
    cmake.dir=/path/to/cmake
