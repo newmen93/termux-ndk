@@ -91,7 +91,7 @@ llvm-toolchain stage1 and stage2 compilation will take a long time.
 
 or you can compile it on your computer, the operation process is the same.
 
-There may be some errors during the compilation process, please solve it yourself!
+there may be some errors during the compilation process, please solve it yourself!
 
  **** 
  
@@ -176,7 +176,7 @@ cd termux-ndk/renderscript
 ```
  **** 
 
-### Building app
+#### Building app
 **building android app with termux-ndk, please refer to [build-app](https://github.com/Lzhiyong/termux-ndk/tree/master/build-app)**
 
 ## Issues
