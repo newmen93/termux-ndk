@@ -28,7 +28,7 @@
    # setting build tools version
    # 28.0.3 or 29.0.3 or 30.0.3
    android {
-       ......
+       ...
        buildToolsVersion "30.0.3"
        ndkVersion "22.1.7171670"
        defaultConfig {
@@ -39,7 +39,7 @@
                }
            }
        }
-       ......
+       ...
    }
    ```
 
