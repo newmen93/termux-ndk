@@ -115,8 +115,9 @@ $NDK_TOOLCHAIN/bin/clang++ --sysroot=/path/to/sysroot -lc++_shared -static-libst
 ```
  **** 
  
-#### Simpleperf no need to compile
+#### Building simpleperf
 ```bash
+# simpleperf no need to compile
 cd android-ndk-r22b/simpleperf/bin/linux/aarch64
 
 ln -sf ../../android/arm64/simpleperf ./simpleperf
