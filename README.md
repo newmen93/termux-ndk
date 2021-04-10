@@ -6,7 +6,7 @@ At first, we don‘t need to rebuild the whole NDK, since google already built m
 we only need to build llvm toolchain, then replace the llvm in the NDK.
 of course you can build the whole NDK, use checkbuild.py, but the source code is too huge.
 
-For more details information, please refer to [docs](https://github.com/Lzhiyong/termux-ndk/tree/master/docs)
+For more details information, please refer to [toolchain readme docs](https://github.com/Lzhiyong/termux-ndk/tree/master/docs)
 
 ##### [download r22b](https://github.com/Lzhiyong/termux-ndk/releases)
 
