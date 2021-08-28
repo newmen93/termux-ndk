@@ -82,11 +82,11 @@ cocos run -p android
 
 #### Building test
 ```bash
-cd cocos2d-x/tests/cpp-test
-
 # you need to manually modify the build.gradle and gradle.properties files
 # please refer to the template project above
+cd cocos2d-x/tests/cpp-test
 cocos run -p android
+
 ```
 
 ### Issues fix
