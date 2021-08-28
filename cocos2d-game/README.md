@@ -66,11 +66,12 @@ adb devices
 adb devices
 
 # project path
-cd /sdcard/projects
+cd /sdcard/project
 
 # you can also create a Lua project with -l lua
 cocos new MyGame -p com.xxx.xxx -l cpp
 
+# game name
 cd MyGame
 
 # No need to use --proj-dir, this will cause an error, gradle.properties cannot be found
