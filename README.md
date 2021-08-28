@@ -17,6 +17,7 @@ In order to save storage , there are some pre-compiled tools that do not need to
 comment out them in the llvm-toolchain/.repo/manifests/default.xml file, click [here](https://github.com/Lzhiyong/termux-ndk/blob/master/patches/default.xml.patch) for example.
 
 ```bash
+pkg install proot-distro
 proot-distro install archlinux
 
 # I assume that you have installed the ArchLinux

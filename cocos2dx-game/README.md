@@ -85,16 +85,16 @@ cocos run -p android
 ```
 
 #### Issues fix
-* ANDROID_SDK_ROOT
-modify coco2d-x/setup.py
+* ANDROID_SDK_ROOT</br>
+modify coco2d-x/setup.py</br>
 refer to [setup.py.patch](https://github.com/Lzhiyong/termux-ndk/tree/master/cocos2dx-game/setup.py.patch)
 
-* cmake cannot found 
-modify cocos2d-x/tools/cocos2d-console/plugins/plugin_compile/build_android.py
+* cmake cannot found</br>
+modify cocos2d-x/tools/cocos2d-console/plugins/plugin_compile/build_android.py</br>
 refer to [build_android.py.patch](https://github.com/Lzhiyong/termux-ndk/tree/master/cocos2dx-game/build_android.py.patch)
 
-* unable to find library from dependent library specifier lua51.lib
-modify cocos2d-x.cocos/scripting/lua-bindings/manual/CCLuaEngine.cpp
+* unable to find library from dependent library specifier lua51.lib</br>
+modify cocos2d-x.cocos/scripting/lua-bindings/manual/CCLuaEngine.cpp</br>
 refer to [CCLuaEngine.cpp.patch](https://github.com/Lzhiyong/termux-ndk/tree/master/cocos2dx-game/CCLuaEngine.cpp.patch)
 
 **** 
