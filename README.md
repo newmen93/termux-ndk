@@ -180,7 +180,7 @@ cd termux-ndk/renderscript
 **building android app with termux-ndk, please refer to [build-app](https://github.com/Lzhiyong/termux-ndk/tree/master/build-app)**
 
 
-#### Building cocos2dx game
+#### Building cocos2d game
 **building cocos2d game for android with termux-ndk, please refer to [cocos2d-game](https://github.com/Lzhiyong/termux-ndk/tree/master/cocos2d-game)**
 
 ## Known issues
