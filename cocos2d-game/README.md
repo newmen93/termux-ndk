@@ -89,7 +89,7 @@ cd cocos2d-x/tests/cpp-test
 cocos run -p android
 ```
 
-#### Issues fix
+### Issues fix
 * ANDROID_SDK_ROOT</br>
 modify `coco2d-x/setup.py`</br>
 refer to [setup.py.patch](https://github.com/Lzhiyong/termux-ndk/tree/master/cocos2dx-game/setup.py.patch)
