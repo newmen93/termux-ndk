@@ -5,18 +5,21 @@ Building cocos2d-x game for android with termux-ndk
 pkg install python2
 ```
 
-#### Clone the repo to termux from GitHub
+#### Clone the repo
 ```bash
+# clone the repo to termux from github
 git clone https://github.com/cocos2d/cocos2d-x.git
-
 ```
-#### After cloning the repo, please execute download-deps.py to download and install dependencies
+#### Download and install dependencies
+cd cocos2d-x
 ```bash
+# after cloning the repo, please execute download-deps.py to download and install dependencies
 cd cocos2d-x
 python2 download-deps.py
 ```
-#### After running download-deps.py
+#### Git submodule
 ```bash
+# after running download-deps.py
 git submodule update --init
 ```
 
@@ -62,8 +65,8 @@ vim cocos/platform/android/libcocos2dx/build.gradle
 adb devices
 adb devices
 
-# for example
-cd /sdcard/games
+# project path
+cd /sdcard/projects
 
 # you can also create a Lua project with -l lua
 cocos new MyGame -p com.xxx.xxx -l cpp
@@ -80,21 +83,22 @@ cocos run -p android
 ```bash
 cd cocos2d-x/tests/cpp-test
 
-# you need to modify the build.gradle and gradle.properties files
+# you need to manually modify the build.gradle and gradle.properties files
+# please refer to the template project above
 cocos run -p android
 ```
 
 #### Issues fix
 * ANDROID_SDK_ROOT</br>
-modify coco2d-x/setup.py</br>
+modify `coco2d-x/setup.py`</br>
 refer to [setup.py.patch](https://github.com/Lzhiyong/termux-ndk/tree/master/cocos2dx-game/setup.py.patch)
 
 * cmake cannot found</br>
-modify cocos2d-x/tools/cocos2d-console/plugins/plugin_compile/build_android.py</br>
+modify `cocos2d-x/tools/cocos2d-console/plugins/plugin_compile/build_android.py`</br>
 refer to [build_android.py.patch](https://github.com/Lzhiyong/termux-ndk/tree/master/cocos2dx-game/build_android.py.patch)
 
 * unable to find library from dependent library specifier lua51.lib</br>
-modify cocos2d-x.cocos/scripting/lua-bindings/manual/CCLuaEngine.cpp</br>
+modify `cocos2d-x.cocos/scripting/lua-bindings/manual/CCLuaEngine.cpp`</br>
 refer to [CCLuaEngine.cpp.patch](https://github.com/Lzhiyong/termux-ndk/tree/master/cocos2dx-game/CCLuaEngine.cpp.patch)
 
 **** 
