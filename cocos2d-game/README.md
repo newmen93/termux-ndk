@@ -1,5 +1,5 @@
 Building cocos2d-x game for android with termux-ndk</br>
-More details information, please refer to [cocos2d-x](https://github.com/cocos2d/cocos2d-x)
+For more details information, please refer to [cocos2d-x](https://github.com/cocos2d/cocos2d-x)
 
 #### Install python2
 ```bash
@@ -11,8 +11,7 @@ pkg install python2
 # clone the repo to termux from github
 git clone https://github.com/cocos2d/cocos2d-x.git
 ```
-#### Download and install dependencies
-cd cocos2d-x
+#### Download dependencies
 ```bash
 # after cloning the repo, please execute download-deps.py to download and install dependencies
 cd cocos2d-x
