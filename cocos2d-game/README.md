@@ -1,5 +1,5 @@
 Building cocos2d-x game for android with termux-ndk</br>
-For more details information, please refer to [cocos2d-x](https://github.com/cocos2d/cocos2d-x)
+More details information, please refer to [cocos2d-x](https://github.com/cocos2d/cocos2d-x)
 
 #### Install python2
 ```bash
