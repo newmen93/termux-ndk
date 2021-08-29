@@ -91,7 +91,7 @@ llvm-toolchain stage1 and stage2 compilation will take a long time.
 
 or you can compile it on your computer, the operation process is the same.
 
-there may be some errors during the compilation process, please solve it yourself!
+there may be some errors during the compilation process, please solve it by yourself!
 
  **** 
  
