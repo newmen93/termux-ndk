@@ -99,7 +99,7 @@ modify `cocos2d-x/tools/cocos2d-console/plugins/plugin_compile/build_android.py`
 refer to [build_android.py.patch](https://github.com/Lzhiyong/termux-ndk/tree/master/cocos2dx-game/build_android.py.patch)
 
 * unable to find library from dependent library specifier lua51.lib</br>
-modify `cocos2d-x.cocos/scripting/lua-bindings/manual/CCLuaEngine.cpp`</br>
+modify `cocos2d-x/cocos/scripting/lua-bindings/manual/CCLuaEngine.cpp`</br>
 refer to [CCLuaEngine.cpp.patch](https://github.com/Lzhiyong/termux-ndk/tree/master/cocos2dx-game/CCLuaEngine.cpp.patch)
 
 **** 
