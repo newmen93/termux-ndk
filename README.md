@@ -185,7 +185,7 @@ cd termux-ndk/renderscript
 
 ## Known issues
 
-* each NDK version has a lot of changes, direct compilation will fail, 
+* each ndk version has a lot of changes, direct compilation will fail, 
 the build script are not generic, so please solve the error by yourself.
 
 * llvm-rs-cc may have bugs, I rewrote the rs_cc_options.cpp file.
