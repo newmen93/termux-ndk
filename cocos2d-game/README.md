@@ -94,11 +94,11 @@ refer to [setup.py.patch](https://github.com/Lzhiyong/termux-ndk/blob/master/coc
 
 * cmake cannot found</br>
 modify `cocos2d-x/tools/cocos2d-console/plugins/plugin_compile/build_android.py`</br>
-refer to [build_android.py.patch](https://github.com/Lzhiyong/termux-ndk/tree/master/cocos2dx-game/patches/build_android.py.patch)
+refer to [build_android.py.patch](https://github.com/Lzhiyong/termux-ndk/blob/master/cocos2d-game/patches/build_android.py.patch)
 
 * unable to find library from dependent library specifier lua51.lib</br>
 modify `cocos2d-x/cocos/scripting/lua-bindings/manual/CCLuaEngine.cpp`</br>
-refer to [CCLuaEngine.cpp.patch](https://github.com/Lzhiyong/termux-ndk/tree/master/cocos2dx-game/patches/CCLuaEngine.cpp.patch)
+refer to [CCLuaEngine.cpp.patch](https://github.com/Lzhiyong/termux-ndk/blob/master/cocos2d-game/patches/CCLuaEngine.cpp.patch)
 
 **** 
 **Screenshot**
