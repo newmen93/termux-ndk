@@ -90,7 +90,7 @@ cocos run -p android
 ### Issues fix
 * ANDROID_SDK_ROOT</br>
 modify `coco2d-x/setup.py`</br>
-refer to [setup.py.patch](https://github.com/Lzhiyong/termux-ndk/tree/master/cocos2dx-game/patches/setup.py.patch)
+refer to [setup.py.patch](https://github.com/Lzhiyong/termux-ndk/blob/master/cocos2d-game/patches/setup.py.patch)
 
 * cmake cannot found</br>
 modify `cocos2d-x/tools/cocos2d-console/plugins/plugin_compile/build_android.py`</br>
