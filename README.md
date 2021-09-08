@@ -41,7 +41,7 @@ exit
 ```
  ****
 
-Termux needs to install some build-essential packages, then copy or soft link it to llvm-toolchain/prebuilts
+Install some build-essential packages, then copy or soft link it to llvm-toolchain/prebuilts
 
 I recommend compiling on PC, because compiling on device will take a long time</br>
 If compiling on PC, we only replece the prebuilt clang toolchain
