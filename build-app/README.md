@@ -6,14 +6,12 @@
    ```bash
    # modify the local.properties file
    # although ndk.dir has been deprecated, but it still works
-   # note: cmake version needs to less than 3.20.0 for ndk r22
-   # the android-sdk/cmake version is 3.19.8, you can also use termux's cmake
    sdk.dir=/path/to/android-sdk
    ndk.dir=/path/to/android-ndk
    cmake.dir=/path/to/cmake
    # for example:
    sdk.dir=/data/data/com.termux/files/home/android/android-sdk
-   ndk.dir=/data/data/com.termux/files/home/android/android-ndk-r22
+   ndk.dir=/data/data/com.termux/files/home/android/android-ndk-r23
    cmake.dir=/data/data/com.termux/files/home/android/android-sdk/cmake
    ```
 * Modify the project/build.gradle file
@@ -30,7 +28,7 @@
    android {
        ...
        buildToolsVersion "30.0.3"
-       ndkVersion "22.1.7171670"
+       
        defaultConfig {
            externalNativeBuild {
                 cmake {
@@ -74,7 +72,7 @@ cmake.dir=/path/to/cmake
 # add buildToolsVersion
 minSdkVersion=24
 targetSdkVersion=28
-ndkVersion=22.1.7171670
+ndkVersion=23.0.7599858
 compileSdkVersion=28
 buildToolsVersion=30.0.3
 
@@ -83,7 +81,7 @@ buildToolsVersion=30.0.3
 android {
     ...
     compileSdkVersion project.properties.compileSdkVersion.toInteger()
-    buildToolsVersion project.properties.buildToolsVersion
+    buildToolsVersion project.properties.buildToolsVersion.toString()
     ...
 }
 

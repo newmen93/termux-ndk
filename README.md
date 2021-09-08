@@ -7,7 +7,7 @@ so we only need to build the llvm toolchain, then replace the llvm inside NDK.
 
 For more details information, please refer to [toolchain readme docs](https://github.com/Lzhiyong/termux-ndk/tree/master/docs)
 
-##### [download r22b](https://github.com/Lzhiyong/termux-ndk/releases)
+##### [download r23](https://github.com/Lzhiyong/termux-ndk/releases)
 
 ####  How to build
 
@@ -43,13 +43,16 @@ exit
 
 Termux needs to install some build-essential packages, then copy or soft link it to llvm-toolchain/prebuilts
 
+I recommend compiling on PC, because compiling on device will take a long time</br>
+If compiling on PC, we only replece the prebuilt clang toolchain
+
 ```bash
 
 # remove clang-bootstrap 
 rm -vrf llvm-toolchain/prebuilts/clang/host/linux-x86/clang-bootstrap
 
-# extract android-ndk-r22b.tar.xz to /path/to/clang-bootstrap
-tar -xJvf android-ndk-r22b.tar.xz -C llvm-toolchain/prebuilts/clang/host/linux-x86/clang-bootstrap
+# extract android-ndk-r23.tar.xz to /path/to/clang-bootstrap
+tar -xJvf android-ndk-r23.tar.xz -C llvm-toolchain/prebuilts/clang/host/linux-x86/clang-bootstrap
 
 # soft link cmake to llvm-toolchain/prebuilts
 ln -sf /data/data/com.termux/files/usr/bin/cmake llvm-toolchain/prebuilts/cmake/linux-x86/bin/cmake
@@ -70,12 +73,6 @@ apt install golang
 cd llvm-toolchain/prebuilts/go/linux-x86/src
 ./make.bash
 
-# copy patches/crypt.h to llvm-toolchain/prebuilts/clang/host/linux-x86/clang-bootstrap/sysroot/usr/include
-
-# copy patches/sFile.h to llvm-toolchain/toolchain/llvm-project/lldb/include/lldb/Utility
-# vim llvm-toolchain/toolchain/llvm-project/lldb/include/lldb/Utility/ReproducerInstrumentation.h
-# add #include "lldb/Utility/sFile.h"
-
 ```
 
  **** 
@@ -89,8 +86,6 @@ python toolchain/llvm_android/build.py --enable-assertions --no-build windows
 
 llvm-toolchain stage1 and stage2 compilation will take a long time.
 
-or you can compile it on your computer, the operation process is the same.
-
 there may be some errors during the compilation process, please solve it by yourself!
 
  **** 
@@ -98,27 +93,22 @@ there may be some errors during the compilation process, please solve it by your
 #### Building finish!
 ```bash
 # test the ndk clang
-# Note: aarch64-linux-android$API-clang++ is recommended, instead of clang alone
-# armv7a-linux-android$API-clang
-# i686-linux-android$API-clang
-# x86_64-linux-android$API-clang
-NDK_TOOLCHAIN=/path/to/android-ndk-r22b/toolchains/llvm/prebuilt/linux-aarch64
-$NDK_TOOLCHAIN/bin/aarch64-linux-android30-clang++ test.cpp -o test
+NDK_TOOLCHAIN=/path/to/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64
+$NDK_TOOLCHAIN/bin/aarch64-linux-android28-clang++ test.cpp -o test
 
-# if you want to use clang alone, you need to specify --sysroot=/path/to/sysroot
-# for example --sysroot=/data/data/com.termux/files (termux default sysroot)
-# if you don't specify a target, the default is --target=aarch64-unknown-linux-android
-$NDK_TOOLCHAIN/bin/clang --sysroot=/path/to/sysroot hello.c -o hello
+# if you want to use clang alone, you need to specify --target=<arch_api_level>
+# for example android api 28 --target=aarch64-linux-android28
+$NDK_TOOLCHAIN/bin/clang++ --target=aarch64-linux-android28 test.cpp -o test
 
-# c++ needs link flags -lc++_shared -static-libstdc++
-$NDK_TOOLCHAIN/bin/clang++ --sysroot=/path/to/sysroot -lc++_shared -static-libstdc++ hello.cpp -o hello
+# Note: <arch_api_level>-clang is recommended, instead of clang alone
+
 ```
  **** 
  
 #### Building simpleperf
 ```bash
 # simpleperf no need to compile
-cd android-ndk-r22b/simpleperf/bin/linux/aarch64
+cd android-ndk-r23/simpleperf/bin/linux/aarch64
 
 ln -sf ../../android/arm64/simpleperf ./simpleperf
 
@@ -142,17 +132,17 @@ git clone https://github.com/KhronosGroup/glslang.git
 cd ~/shaderc && mkdir build && cd build
 
 # setting android ndk toolchain
-TOOLCHAIN=/path/to/android-ndk-r22b/toolchains/llvm/prebuilt/linux-aarch64
+TOOLCHAIN=/path/to/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64
 
-cmake -G "Unix Makefiles" \
-    -DCMAKE_C_COMPILER=$TOOLCHAIN/bin/aarch64-linux-android30-clang \
-    -DCMAKE_CXX_COMPILER=$TOOLCHAIN/bin/aarch64-linux-android30-clang++ \
+cmake -G "Ninja" \
+    -DCMAKE_C_COMPILER=$TOOLCHAIN/bin/aarch64-linux-android28-clang \
+    -DCMAKE_CXX_COMPILER=$TOOLCHAIN/bin/aarch64-linux-android28-clang++ \
     -DCMAKE_SYSROOT=$TOOLCHAIN/sysroot \
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX=/path/to/shader-tools \
     ..
 
-make -j16
+ninja -j16
 ```
 
  **** 
@@ -178,7 +168,6 @@ cd termux-ndk/renderscript
 
 #### Building app
 **building android app with termux-ndk, please refer to [build-app](https://github.com/Lzhiyong/termux-ndk/tree/master/build-app)**
-
 
 #### Building cocos2d game
 **building cocos2d game for android with termux-ndk, please refer to [cocos2d-game](https://github.com/Lzhiyong/termux-ndk/tree/master/cocos2d-game)**
