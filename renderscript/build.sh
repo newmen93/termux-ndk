@@ -12,8 +12,8 @@ else
   cd build
 fi
 
-# /path/to/android-ndk-r21d
-TOOLCHAIN=$HOME/toolchain/android-ndk-r21d/toolchains/llvm/prebuilt/linux-aarch64
+# /path/to/android-ndk-r23
+TOOLCHAIN=$HOME/toolchain/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64
 
 # check toolchain
 if [ ! -d "$TOOLCHAIN" ];then
@@ -21,10 +21,10 @@ if [ ! -d "$TOOLCHAIN" ];then
   exit 1
 fi
 
-cmake -G "Unix Makefiles" \
-	-DCMAKE_C_COMPILER=${TOOLCHAIN}/bin/aarch64-linux-android30-clang \
-	-DCMAKE_CXX_COMPILER=${TOOLCHAIN}/bin/aarch64-linux-android30-clang++ \
+cmake -G "Ninja" \
+	-DCMAKE_C_COMPILER=${TOOLCHAIN}/bin/aarch64-linux-android28-clang \
+	-DCMAKE_CXX_COMPILER=${TOOLCHAIN}/bin/aarch64-linux-android28-clang++ \
 	-DCMAKE_BUILD_TYPE=Release \
 	..
 
-make -j4
+ninja -j16

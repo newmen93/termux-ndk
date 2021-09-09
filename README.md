@@ -13,7 +13,7 @@ For more details information, please refer to [toolchain readme docs](https://gi
 
 Termux needs to install aarch64 version of Linux to download the source code, we are not using it to compile
 
-In order to save storage , there are some pre-compiled tools that do not need to be downloaded. 
+In order to save storage , there are some prebuilts tools that do not need to be downloaded. 
 comment out them in the llvm-toolchain/.repo/manifests/default.xml file, click [here](https://github.com/Lzhiyong/termux-ndk/blob/master/patches/default.xml.patch) for example.
 
 ```bash
@@ -81,7 +81,7 @@ cd llvm-toolchain/prebuilts/go/linux-x86/src
 ```bash
 # no build for windows
 # If it is not the first time to build, you can add options --skip-source-setup to save time
-python toolchain/llvm_android/build.py --enable-assertions --no-build windows
+python toolchain/llvm_android/build.py --no-build windows --skip-source-setup
 ```
 
 llvm-toolchain stage1 and stage2 compilation will take a long time.
