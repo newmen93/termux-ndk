@@ -1,0 +1,26 @@
+add_definitions(
+    -DLIBLOG_LOG_TAG=1006 
+    -DSNET_EVENT_LOG_TAG=1397638686
+    )
+
+add_library(log STATIC
+    liblog/log_event_list.cpp    
+    liblog/log_event_write.cpp    
+    liblog/logger_name.cpp    
+    liblog/logger_read.cpp    
+    liblog/logger_write.cpp    
+    liblog/logprint.cpp    
+    liblog/properties.cpp    
+    liblog/event_tag_map.cpp    
+    liblog/log_time.cpp    
+    liblog/pmsg_reader.cpp    
+    liblog/pmsg_writer.cpp    
+    liblog/logd_reader.cpp    
+    liblog/logd_writer.cpp    
+    )
+
+target_include_directories(log PUBLIC
+    liblog/include
+    liblog/include_vndk
+    )
+target_compile_options(log PRIVATE -std=c++17)

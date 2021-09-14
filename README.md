@@ -1,9 +1,9 @@
 Android ndk for termux, that only support aarch64 architecture
 
-The source code from AOSP llvm-toolchain master branch, because llvm is cross-platform, so we can recompile it to Android
+The source code from AOSP llvm-toolchain, which is consistent with the official Ndk version
 
-At first, we don‘t need to rebuild the whole NDK, since google already built most of it.
-so we only need to build the llvm toolchain, then replace the llvm inside NDK.
+At first, we don‘t need to rebuild the whole Ndk, since google already built most of it.
+so we only need to build the llvm toolchain, then replace the llvm inside Ndk.
 
 For more details information, please refer to [toolchain readme docs](https://github.com/Lzhiyong/termux-ndk/tree/master/docs)
 
@@ -32,6 +32,10 @@ repo init -u https://android.googlesource.com/platform/manifest -b llvm-toolchai
 
 # for china
 repo init -u https://aosp.tuna.tsinghua.edu.cn/platform/manifest -b llvm-toolchain
+
+# rebuild the toolchain with that manifest:
+cp /path/to/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-x86_64/manifest_7284624.xml .repo/manifests
+repo init -m manifest_7284624.xml
 
 repo sync -c -j4
 
@@ -117,19 +121,21 @@ ln -sf ../../android/arm64/simpleperf ./simpleperf
  **** 
 #### Building shader-tools
 ```bash
-cd /data/data/com.termux/files/home
-git clone https://github.com/google/shaderc
+cd /path/to/your_dir
+
+# clone the source code
+git clone --depth=1 https://github.com/google/shaderc
 cd shaderc/third_party
-git clone https://github.com/KhronosGroup/SPIRV-Tools.git   spirv-tools
-git clone https://github.com/KhronosGroup/SPIRV-Headers.git spirv-tools/external/spirv-headers
-git clone https://github.com/google/googletest.git
-git clone https://github.com/google/effcee.git
-git clone https://github.com/google/re2.git
-git clone https://github.com/KhronosGroup/glslang.git
+git clone --depth=1 https://github.com/KhronosGroup/SPIRV-Tools.git   spirv-tools
+git clone --depth=1 https://github.com/KhronosGroup/SPIRV-Headers.git spirv-tools/external/spirv-headers
+git clone --depth=1 https://github.com/google/googletest.git
+git clone --depth=1 https://github.com/google/effcee.git
+git clone --depth=1 https://github.com/google/re2.git
+git clone --depth=1 https://github.com/KhronosGroup/glslang.git
 
 # start building shaderc...
 
-cd ~/shaderc && mkdir build && cd build
+mkdir build && cd build
 
 # setting android ndk toolchain
 TOOLCHAIN=/path/to/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64
@@ -150,19 +156,8 @@ ninja -j16
 
 ```bash
 # llvm-rs-cc and bcc_compat
-# slang source code
-# git clone https://android.googlesource.com/platform/frameworks/compile/slang
-# libbcc source code
-# git clone https://android.googlesource.com/platform/frameworks/compile/libbcc
-# rs souce code
-# git clone https://android.googlesource.com/platform/frameworks/rs
-# llvm and clang source code
-# git clone https://android.googlesource.com/platform/external/llvm
-# git clone https://android.googlesource.com/platform/external/clang
-
 cd termux-ndk/renderscript
 ./build.sh
-
 ```
  **** 
 
@@ -174,7 +169,4 @@ cd termux-ndk/renderscript
 
 ## Known issues
 
-* each ndk version has a lot of changes, direct compilation will fail, 
-the build script are not generic, so please solve the error by yourself.
-
-* llvm-rs-cc may have bugs, I rewrote the rs_cc_options.cpp file.
+* the build script are not generic, each Ndk version has some changes, direct compilation will be fail, so please solve the error by yourself.

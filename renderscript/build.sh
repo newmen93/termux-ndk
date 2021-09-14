@@ -1,8 +1,30 @@
 #!/bin/bash 
 
+# slang source code
+if [ ! -d "slang" ];then
+  git clone --depth=1 https://android.googlesource.com/platform/frameworks/compile/slang
+fi
+
+# libbcc source code
+if [ ! -d "libbcc" ];then
+  git clone --depth=1 https://android.googlesource.com/platform/frameworks/compile/libbcc
+fi
+
+if [ ! -f "slang/RSCCOptions.inc" ];then            
+    cp prebuilt/RSCCOptions.inc slang
+fi
+
+# rs souce code
+#git clone --depth=1 https://android.googlesource.com/platform/frameworks/rs
+
+# llvm and clang source code
+# git clone --depth=1 https://android.googlesource.com/platform/external/llvm
+# git clone --depth=1 https://android.googlesource.com/platform/external/clang
+
+
 # check llvm headers and libs
 if [ ! -d "llvm" ];then
-  tar -xJvf ../archives/llvm-3.9.tar.xz -C .
+  tar -xJvf prebuilt/llvm-3.9-aarch64.tar.xz -C .
 fi
 
 # check build directory
@@ -13,7 +35,7 @@ else
 fi
 
 # /path/to/android-ndk-r23
-TOOLCHAIN=$HOME/toolchain/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64
+TOOLCHAIN=$HOME/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64
 
 # check toolchain
 if [ ! -d "$TOOLCHAIN" ];then
@@ -22,8 +44,9 @@ if [ ! -d "$TOOLCHAIN" ];then
 fi
 
 cmake -G "Ninja" \
-	-DCMAKE_C_COMPILER=${TOOLCHAIN}/bin/aarch64-linux-android28-clang \
-	-DCMAKE_CXX_COMPILER=${TOOLCHAIN}/bin/aarch64-linux-android28-clang++ \
+	-DCMAKE_C_COMPILER=$TOOLCHAIN/bin/aarch64-linux-android30-clang \
+	-DCMAKE_CXX_COMPILER=$TOOLCHAIN/bin/aarch64-linux-android30-clang++ \
+	-DCMAKE_SYSROOT=$HOME/android/ndk-r21e-sysroot/sysroot \
 	-DCMAKE_BUILD_TYPE=Release \
 	..
 

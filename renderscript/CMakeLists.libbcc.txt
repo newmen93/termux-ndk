@@ -1,0 +1,91 @@
+add_definitions(
+    -DRS_VERSION=24 
+    -D__DISABLE_ASSERTS 
+    -D__HOST__
+    -DFORCE_ARM64_CODEGEN 
+    -DARCH_ARM_HAVE_NEON 
+    -DARCH_ARM_HAVE_VFP 
+    -DARCH_ARM_HAVE_VFP_D32 
+    -DDISABLE_CLCORE_NEON 
+    )
+    
+include_directories(
+    liblog/include
+    libbcc/lib
+    libbcc/include
+    libbcc/bcinfo/include
+    slang
+    rs
+    )
+                   
+link_directories(llvm/lib)
+
+add_library(bcinfo_static STATIC 
+    libbcc/bcinfo/BitcodeTranslator.cpp 
+	libbcc/bcinfo/BitcodeWrapper.cpp 
+	libbcc/bcinfo/MetadataExtractor.cpp 
+	)
+
+add_library(LLVMBitReader_2_7 STATIC 
+    libbcc/bcinfo/BitReader_2_7/BitcodeReader.cpp
+    )
+
+add_library(LLVMBitReader_3_0 STATIC 
+    libbcc/bcinfo/BitReader_3_0/BitcodeReader.cpp
+    )
+
+add_library(LLVMWrap STATIC
+    libbcc/bcinfo/Wrap/bitcode_wrapperer.cpp
+    libbcc/bcinfo/Wrap/file_wrapper_input.cpp
+    libbcc/bcinfo/Wrap/file_wrapper_output.cpp
+    libbcc/bcinfo/Wrap/in_memory_wrapper_input.cpp
+    libbcc/bcinfo/Wrap/wrapper_output.cpp
+	)
+
+add_library(bcc STATIC 
+    libbcc/lib/BCCContext.cpp
+    libbcc/lib/BCCContextImpl.cpp
+    libbcc/lib/Compiler.cpp
+    libbcc/lib/CompilerConfig.cpp
+    libbcc/lib/FileBase.cpp
+    libbcc/lib/Initialization.cpp
+    libbcc/lib/RSAddDebugInfoPass.cpp
+    libbcc/lib/RSCompilerDriver.cpp
+    libbcc/lib/RSEmbedInfo.cpp
+    libbcc/lib/RSGlobalInfoPass.cpp
+    libbcc/lib/RSInvariant.cpp
+    libbcc/lib/RSInvokeHelperPass.cpp
+    libbcc/lib/RSIsThreadablePass.cpp
+    libbcc/lib/RSKernelExpand.cpp
+    libbcc/lib/RSScreenFunctionsPass.cpp
+    libbcc/lib/RSScriptGroupFusion.cpp
+    libbcc/lib/RSFunctionsList.cpp
+    libbcc/lib/RSX86CallConvPass.cpp
+    libbcc/lib/RSX86TranslateGEPPass.cpp
+    libbcc/lib/Script.cpp
+    libbcc/lib/Source.cpp
+	)
+target_include_directories(bcc PRIVATE llvm/include)
+
+set(LINK_LIBRARIES
+    bcinfo_static 
+    LLVMWrap 
+    LLVMBitReader_2_7 
+    LLVMBitReader_3_0 
+    LLVMBitWriter_3_2 
+    StripUnkAttr 
+    LLVMBitReader 
+    LLVMCore 
+    LLVMSupport
+    LLVM_static 
+    clang_static 
+    bcc
+    log 
+    -lz
+    )
+    
+add_executable(bcinfo libbcc/bcinfo/tools/main.cpp)
+target_link_libraries(bcinfo PUBLIC ${LINK_LIBRARIES})
+
+add_executable(bcc_compat libbcc/tools/bcc_compat/Main.cpp)
+target_link_libraries(bcc_compat PUBLIC ${LINK_LIBRARIES})

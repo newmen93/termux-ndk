@@ -1,0 +1,17 @@
+/data/data/com.termux/files/home/proj/termux-ndk/renderscript/build/CMakeFiles/rebuild_cache.dir
+/data/data/com.termux/files/home/proj/termux-ndk/renderscript/build/CMakeFiles/edit_cache.dir
+/data/data/com.termux/files/home/proj/termux-ndk/renderscript/build/CMakeFiles/bcc_compat.dir
+/data/data/com.termux/files/home/proj/termux-ndk/renderscript/build/CMakeFiles/bcinfo.dir
+/data/data/com.termux/files/home/proj/termux-ndk/renderscript/build/CMakeFiles/bcc.dir
+/data/data/com.termux/files/home/proj/termux-ndk/renderscript/build/CMakeFiles/LLVMWrap.dir
+/data/data/com.termux/files/home/proj/termux-ndk/renderscript/build/CMakeFiles/llvm-rs-as.dir
+/data/data/com.termux/files/home/proj/termux-ndk/renderscript/build/CMakeFiles/log.dir
+/data/data/com.termux/files/home/proj/termux-ndk/renderscript/build/CMakeFiles/bcinfo_static.dir
+/data/data/com.termux/files/home/proj/termux-ndk/renderscript/build/CMakeFiles/StripUnkAttr.dir
+/data/data/com.termux/files/home/proj/termux-ndk/renderscript/build/CMakeFiles/LLVMBitReader_2_7.dir
+/data/data/com.termux/files/home/proj/termux-ndk/renderscript/build/CMakeFiles/llvm-rs-cc.dir
+/data/data/com.termux/files/home/proj/termux-ndk/renderscript/build/CMakeFiles/LLVMBitWriter_3_2.dir
+/data/data/com.termux/files/home/proj/termux-ndk/renderscript/build/CMakeFiles/LLVMBitWriter_2_9.dir
+/data/data/com.termux/files/home/proj/termux-ndk/renderscript/build/CMakeFiles/LLVMBitWriter_2_9_func.dir
+/data/data/com.termux/files/home/proj/termux-ndk/renderscript/build/CMakeFiles/slang.dir
+/data/data/com.termux/files/home/proj/termux-ndk/renderscript/build/CMakeFiles/LLVMBitReader_3_0.dir

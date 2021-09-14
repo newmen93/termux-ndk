@@ -1,0 +1,261 @@
+The system is: Android - 4.4.246-Asagiω≧▽≦*+ - aarch64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/bin/aarch64-linux-android30-clang 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is Clang, found in "/data/data/com.termux/files/home/proj/termux-ndk/renderscript/build/CMakeFiles/3.21.2/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/bin/aarch64-linux-android30-clang++ 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is Clang, found in "/data/data/com.termux/files/home/proj/termux-ndk/renderscript/build/CMakeFiles/3.21.2/CompilerIdCXX/a.out"
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /data/data/com.termux/files/home/proj/termux-ndk/renderscript/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/data/data/com.termux/files/usr/bin/ninja cmTC_995ce && [1/2] Building C object CMakeFiles/cmTC_995ce.dir/CMakeCCompilerABI.c.o
+Android (dev, based on r416183b) clang version 12.0.5 (https://android.googlesource.com/toolchain/llvm-project c935d99d7cf2016289302412d708641d52d2f7ee)
+Target: aarch64-unknown-linux-android30
+Thread model: posix
+InstalledDir: /data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/bin
+ (in-process)
+ "/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/bin/clang-12" -cc1 -triple aarch64-unknown-linux-android30 -emit-obj --mrelax-relocations -mnoexecstack -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=non-leaf -fno-rounding-math -mconstructor-aliases -munwind-tables -target-cpu generic -target-feature +neon -target-abi aapcs -mllvm -aarch64-fix-cortex-a53-835769=1 -fallow-half-arguments-and-returns -fno-split-dwarf-inlining -debug-info-kind=limited -dwarf-version=4 -debugger-tuning=gdb -v -resource-dir /data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5 -dependency-file CMakeFiles/cmTC_995ce.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_995ce.dir/CMakeCCompilerABI.c.o -sys-header-deps -D NDEBUG -isysroot /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot -internal-isystem /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/local/include -internal-isystem /data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/include -internal-externc-isystem /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include/aarch64-linux-android -internal-externc-isystem /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/include -internal-externc-isystem /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include -O2 -fdebug-compilation-dir /data/data/com.termux/files/home/proj/termux-ndk/renderscript/build/CMakeFiles/CMakeTmp -ferror-limit 19 -fno-signed-char -fgnuc-version=4.2.1 -vectorize-loops -vectorize-slp -o CMakeFiles/cmTC_995ce.dir/CMakeCCompilerABI.c.o -x c /data/data/com.termux/files/usr/share/cmake-3.21/Modules/CMakeCCompilerABI.c
+clang -cc1 version 12.0.5 based upon LLVM 12.0.5git default target aarch64-unknown-linux-android
+ignoring nonexistent directory "/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/local/include
+ /data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/include
+ /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include/aarch64-linux-android
+ /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include
+End of search list.
+[2/2] Linking C executable cmTC_995ce
+Android (dev, based on r416183b) clang version 12.0.5 (https://android.googlesource.com/toolchain/llvm-project c935d99d7cf2016289302412d708641d52d2f7ee)
+Target: aarch64-unknown-linux-android30
+Thread model: posix
+InstalledDir: /data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/bin
+ "/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/bin/ld" --sysroot=/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot -pie -z noexecstack -EL --fix-cortex-a53-843419 --warn-shared-textrel -z now -z relro -z max-page-size=4096 --hash-style=gnu --enable-new-dtags --eh-frame-hdr -m aarch64linux -dynamic-linker /system/bin/linker64 -o cmTC_995ce /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android/30/crtbegin_dynamic.o -L/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/lib/linux/aarch64 -L/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android/30 -L/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android -L/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib CMakeFiles/cmTC_995ce.dir/CMakeCCompilerABI.c.o /data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/lib/linux/libclang_rt.builtins-aarch64-android.a -l:libunwind.a -ldl -lc /data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/lib/linux/libclang_rt.builtins-aarch64-android.a -l:libunwind.a -ldl /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android/30/crtend_android.o
+
+
+
+Parsed C implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/local/include]
+    add: [/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/include]
+    add: [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include/aarch64-linux-android]
+    add: [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include]
+  end of search list found
+  collapse include dir [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/local/include] ==> [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/local/include]
+  collapse include dir [/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/include] ==> [/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/include]
+  collapse include dir [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include/aarch64-linux-android] ==> [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include/aarch64-linux-android]
+  collapse include dir [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include] ==> [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include]
+  implicit include dirs: [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/local/include;/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/include;/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include/aarch64-linux-android;/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include]
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld\.lld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /data/data/com.termux/files/home/proj/termux-ndk/renderscript/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/data/data/com.termux/files/usr/bin/ninja cmTC_995ce && [1/2] Building C object CMakeFiles/cmTC_995ce.dir/CMakeCCompilerABI.c.o]
+  ignore line: [Android (dev  based on r416183b) clang version 12.0.5 (https://android.googlesource.com/toolchain/llvm-project c935d99d7cf2016289302412d708641d52d2f7ee)]
+  ignore line: [Target: aarch64-unknown-linux-android30]
+  ignore line: [Thread model: posix]
+  ignore line: [InstalledDir: /data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/bin]
+  ignore line: [ (in-process)]
+  ignore line: [ "/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/bin/clang-12" -cc1 -triple aarch64-unknown-linux-android30 -emit-obj --mrelax-relocations -mnoexecstack -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=non-leaf -fno-rounding-math -mconstructor-aliases -munwind-tables -target-cpu generic -target-feature +neon -target-abi aapcs -mllvm -aarch64-fix-cortex-a53-835769=1 -fallow-half-arguments-and-returns -fno-split-dwarf-inlining -debug-info-kind=limited -dwarf-version=4 -debugger-tuning=gdb -v -resource-dir /data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5 -dependency-file CMakeFiles/cmTC_995ce.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_995ce.dir/CMakeCCompilerABI.c.o -sys-header-deps -D NDEBUG -isysroot /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot -internal-isystem /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/local/include -internal-isystem /data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/include -internal-externc-isystem /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include/aarch64-linux-android -internal-externc-isystem /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/include -internal-externc-isystem /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include -O2 -fdebug-compilation-dir /data/data/com.termux/files/home/proj/termux-ndk/renderscript/build/CMakeFiles/CMakeTmp -ferror-limit 19 -fno-signed-char -fgnuc-version=4.2.1 -vectorize-loops -vectorize-slp -o CMakeFiles/cmTC_995ce.dir/CMakeCCompilerABI.c.o -x c /data/data/com.termux/files/usr/share/cmake-3.21/Modules/CMakeCCompilerABI.c]
+  ignore line: [clang -cc1 version 12.0.5 based upon LLVM 12.0.5git default target aarch64-unknown-linux-android]
+  ignore line: [ignoring nonexistent directory "/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/local/include]
+  ignore line: [ /data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/include]
+  ignore line: [ /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include/aarch64-linux-android]
+  ignore line: [ /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include]
+  ignore line: [End of search list.]
+  ignore line: [[2/2] Linking C executable cmTC_995ce]
+  ignore line: [Android (dev  based on r416183b) clang version 12.0.5 (https://android.googlesource.com/toolchain/llvm-project c935d99d7cf2016289302412d708641d52d2f7ee)]
+  ignore line: [Target: aarch64-unknown-linux-android30]
+  ignore line: [Thread model: posix]
+  ignore line: [InstalledDir: /data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/bin]
+  link line: [ "/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/bin/ld" --sysroot=/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot -pie -z noexecstack -EL --fix-cortex-a53-843419 --warn-shared-textrel -z now -z relro -z max-page-size=4096 --hash-style=gnu --enable-new-dtags --eh-frame-hdr -m aarch64linux -dynamic-linker /system/bin/linker64 -o cmTC_995ce /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android/30/crtbegin_dynamic.o -L/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/lib/linux/aarch64 -L/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android/30 -L/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android -L/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib CMakeFiles/cmTC_995ce.dir/CMakeCCompilerABI.c.o /data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/lib/linux/libclang_rt.builtins-aarch64-android.a -l:libunwind.a -ldl -lc /data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/lib/linux/libclang_rt.builtins-aarch64-android.a -l:libunwind.a -ldl /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android/30/crtend_android.o]
+    arg [/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/bin/ld] ==> ignore
+    arg [--sysroot=/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot] ==> ignore
+    arg [-pie] ==> ignore
+    arg [-znoexecstack] ==> ignore
+    arg [-EL] ==> ignore
+    arg [--fix-cortex-a53-843419] ==> ignore
+    arg [--warn-shared-textrel] ==> ignore
+    arg [-znow] ==> ignore
+    arg [-zrelro] ==> ignore
+    arg [-zmax-page-size=4096] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--enable-new-dtags] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [aarch64linux] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/system/bin/linker64] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_995ce] ==> ignore
+    arg [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android/30/crtbegin_dynamic.o] ==> obj [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android/30/crtbegin_dynamic.o]
+    arg [-L/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/lib/linux/aarch64] ==> dir [/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/lib/linux/aarch64]
+    arg [-L/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android/30] ==> dir [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android/30]
+    arg [-L/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android] ==> dir [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android]
+    arg [-L/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib] ==> dir [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib]
+    arg [CMakeFiles/cmTC_995ce.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/lib/linux/libclang_rt.builtins-aarch64-android.a] ==> lib [/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/lib/linux/libclang_rt.builtins-aarch64-android.a]
+    arg [-l:libunwind.a] ==> lib [-l:libunwind.a]
+    arg [-ldl] ==> lib [dl]
+    arg [-lc] ==> lib [c]
+    arg [/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/lib/linux/libclang_rt.builtins-aarch64-android.a] ==> lib [/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/lib/linux/libclang_rt.builtins-aarch64-android.a]
+    arg [-l:libunwind.a] ==> lib [-l:libunwind.a]
+    arg [-ldl] ==> lib [dl]
+    arg [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android/30/crtend_android.o] ==> obj [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android/30/crtend_android.o]
+  remove lib [/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/lib/linux/libclang_rt.builtins-aarch64-android.a]
+  remove lib [/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/lib/linux/libclang_rt.builtins-aarch64-android.a]
+  collapse library dir [/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/lib/linux/aarch64] ==> [/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/lib/linux/aarch64]
+  collapse library dir [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android/30] ==> [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android/30]
+  collapse library dir [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android] ==> [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android]
+  collapse library dir [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib] ==> [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib]
+  implicit libs: [-l:libunwind.a;dl;c;-l:libunwind.a;dl]
+  implicit objs: [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android/30/crtbegin_dynamic.o;/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android/30/crtend_android.o]
+  implicit dirs: [/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/lib/linux/aarch64;/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android/30;/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android;/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib]
+  implicit fwks: []
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /data/data/com.termux/files/home/proj/termux-ndk/renderscript/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/data/data/com.termux/files/usr/bin/ninja cmTC_fd2b3 && [1/2] Building CXX object CMakeFiles/cmTC_fd2b3.dir/CMakeCXXCompilerABI.cpp.o
+Android (dev, based on r416183b) clang version 12.0.5 (https://android.googlesource.com/toolchain/llvm-project c935d99d7cf2016289302412d708641d52d2f7ee)
+Target: aarch64-unknown-linux-android30
+Thread model: posix
+InstalledDir: /data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/bin
+ (in-process)
+ "/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/bin/clang-12" -cc1 -triple aarch64-unknown-linux-android30 -emit-obj --mrelax-relocations -mnoexecstack -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=non-leaf -fno-rounding-math -mconstructor-aliases -munwind-tables -target-cpu generic -target-feature +neon -target-abi aapcs -mllvm -aarch64-fix-cortex-a53-835769=1 -fallow-half-arguments-and-returns -fno-split-dwarf-inlining -debug-info-kind=limited -dwarf-version=4 -debugger-tuning=gdb -v -resource-dir /data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5 -dependency-file CMakeFiles/cmTC_fd2b3.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_fd2b3.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -D NDEBUG -isysroot /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot -internal-isystem /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include/c++/v1 -internal-isystem /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/local/include -internal-isystem /data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/include -internal-externc-isystem /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include/aarch64-linux-android -internal-externc-isystem /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/include -internal-externc-isystem /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include -O2 -fdeprecated-macro -fdebug-compilation-dir /data/data/com.termux/files/home/proj/termux-ndk/renderscript/build/CMakeFiles/CMakeTmp -ferror-limit 19 -fno-signed-char -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -vectorize-loops -vectorize-slp -o CMakeFiles/cmTC_fd2b3.dir/CMakeCXXCompilerABI.cpp.o -x c++ /data/data/com.termux/files/usr/share/cmake-3.21/Modules/CMakeCXXCompilerABI.cpp
+clang -cc1 version 12.0.5 based upon LLVM 12.0.5git default target aarch64-unknown-linux-android
+ignoring nonexistent directory "/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include/c++/v1
+ /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/local/include
+ /data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/include
+ /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include/aarch64-linux-android
+ /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include
+End of search list.
+[2/2] Linking CXX executable cmTC_fd2b3
+Android (dev, based on r416183b) clang version 12.0.5 (https://android.googlesource.com/toolchain/llvm-project c935d99d7cf2016289302412d708641d52d2f7ee)
+Target: aarch64-unknown-linux-android30
+Thread model: posix
+InstalledDir: /data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/bin
+ "/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/bin/ld" --sysroot=/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot -pie -z noexecstack -EL --fix-cortex-a53-843419 --warn-shared-textrel -z now -z relro -z max-page-size=4096 --hash-style=gnu --enable-new-dtags --eh-frame-hdr -m aarch64linux -dynamic-linker /system/bin/linker64 -o cmTC_fd2b3 /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android/30/crtbegin_dynamic.o -L/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/lib/linux/aarch64 -L/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android/30 -L/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android -L/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib CMakeFiles/cmTC_fd2b3.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lm /data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/lib/linux/libclang_rt.builtins-aarch64-android.a -l:libunwind.a -ldl -lc /data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/lib/linux/libclang_rt.builtins-aarch64-android.a -l:libunwind.a -ldl /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android/30/crtend_android.o
+
+
+
+Parsed CXX implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include/c++/v1]
+    add: [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/local/include]
+    add: [/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/include]
+    add: [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include/aarch64-linux-android]
+    add: [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include]
+  end of search list found
+  collapse include dir [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include/c++/v1] ==> [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include/c++/v1]
+  collapse include dir [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/local/include] ==> [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/local/include]
+  collapse include dir [/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/include] ==> [/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/include]
+  collapse include dir [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include/aarch64-linux-android] ==> [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include/aarch64-linux-android]
+  collapse include dir [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include] ==> [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include]
+  implicit include dirs: [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include/c++/v1;/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/local/include;/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/include;/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include/aarch64-linux-android;/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include]
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld\.lld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /data/data/com.termux/files/home/proj/termux-ndk/renderscript/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/data/data/com.termux/files/usr/bin/ninja cmTC_fd2b3 && [1/2] Building CXX object CMakeFiles/cmTC_fd2b3.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [Android (dev  based on r416183b) clang version 12.0.5 (https://android.googlesource.com/toolchain/llvm-project c935d99d7cf2016289302412d708641d52d2f7ee)]
+  ignore line: [Target: aarch64-unknown-linux-android30]
+  ignore line: [Thread model: posix]
+  ignore line: [InstalledDir: /data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/bin]
+  ignore line: [ (in-process)]
+  ignore line: [ "/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/bin/clang-12" -cc1 -triple aarch64-unknown-linux-android30 -emit-obj --mrelax-relocations -mnoexecstack -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=non-leaf -fno-rounding-math -mconstructor-aliases -munwind-tables -target-cpu generic -target-feature +neon -target-abi aapcs -mllvm -aarch64-fix-cortex-a53-835769=1 -fallow-half-arguments-and-returns -fno-split-dwarf-inlining -debug-info-kind=limited -dwarf-version=4 -debugger-tuning=gdb -v -resource-dir /data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5 -dependency-file CMakeFiles/cmTC_fd2b3.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_fd2b3.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -D NDEBUG -isysroot /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot -internal-isystem /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include/c++/v1 -internal-isystem /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/local/include -internal-isystem /data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/include -internal-externc-isystem /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include/aarch64-linux-android -internal-externc-isystem /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/include -internal-externc-isystem /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include -O2 -fdeprecated-macro -fdebug-compilation-dir /data/data/com.termux/files/home/proj/termux-ndk/renderscript/build/CMakeFiles/CMakeTmp -ferror-limit 19 -fno-signed-char -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -vectorize-loops -vectorize-slp -o CMakeFiles/cmTC_fd2b3.dir/CMakeCXXCompilerABI.cpp.o -x c++ /data/data/com.termux/files/usr/share/cmake-3.21/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [clang -cc1 version 12.0.5 based upon LLVM 12.0.5git default target aarch64-unknown-linux-android]
+  ignore line: [ignoring nonexistent directory "/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include/c++/v1]
+  ignore line: [ /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/local/include]
+  ignore line: [ /data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/include]
+  ignore line: [ /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include/aarch64-linux-android]
+  ignore line: [ /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/include]
+  ignore line: [End of search list.]
+  ignore line: [[2/2] Linking CXX executable cmTC_fd2b3]
+  ignore line: [Android (dev  based on r416183b) clang version 12.0.5 (https://android.googlesource.com/toolchain/llvm-project c935d99d7cf2016289302412d708641d52d2f7ee)]
+  ignore line: [Target: aarch64-unknown-linux-android30]
+  ignore line: [Thread model: posix]
+  ignore line: [InstalledDir: /data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/bin]
+  link line: [ "/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/bin/ld" --sysroot=/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot -pie -z noexecstack -EL --fix-cortex-a53-843419 --warn-shared-textrel -z now -z relro -z max-page-size=4096 --hash-style=gnu --enable-new-dtags --eh-frame-hdr -m aarch64linux -dynamic-linker /system/bin/linker64 -o cmTC_fd2b3 /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android/30/crtbegin_dynamic.o -L/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/lib/linux/aarch64 -L/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android/30 -L/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android -L/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib CMakeFiles/cmTC_fd2b3.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lm /data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/lib/linux/libclang_rt.builtins-aarch64-android.a -l:libunwind.a -ldl -lc /data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/lib/linux/libclang_rt.builtins-aarch64-android.a -l:libunwind.a -ldl /data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android/30/crtend_android.o]
+    arg [/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/bin/ld] ==> ignore
+    arg [--sysroot=/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot] ==> ignore
+    arg [-pie] ==> ignore
+    arg [-znoexecstack] ==> ignore
+    arg [-EL] ==> ignore
+    arg [--fix-cortex-a53-843419] ==> ignore
+    arg [--warn-shared-textrel] ==> ignore
+    arg [-znow] ==> ignore
+    arg [-zrelro] ==> ignore
+    arg [-zmax-page-size=4096] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--enable-new-dtags] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [aarch64linux] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/system/bin/linker64] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_fd2b3] ==> ignore
+    arg [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android/30/crtbegin_dynamic.o] ==> obj [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android/30/crtbegin_dynamic.o]
+    arg [-L/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/lib/linux/aarch64] ==> dir [/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/lib/linux/aarch64]
+    arg [-L/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android/30] ==> dir [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android/30]
+    arg [-L/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android] ==> dir [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android]
+    arg [-L/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib] ==> dir [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib]
+    arg [CMakeFiles/cmTC_fd2b3.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lc++] ==> lib [c++]
+    arg [-lm] ==> lib [m]
+    arg [/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/lib/linux/libclang_rt.builtins-aarch64-android.a] ==> lib [/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/lib/linux/libclang_rt.builtins-aarch64-android.a]
+    arg [-l:libunwind.a] ==> lib [-l:libunwind.a]
+    arg [-ldl] ==> lib [dl]
+    arg [-lc] ==> lib [c]
+    arg [/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/lib/linux/libclang_rt.builtins-aarch64-android.a] ==> lib [/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/lib/linux/libclang_rt.builtins-aarch64-android.a]
+    arg [-l:libunwind.a] ==> lib [-l:libunwind.a]
+    arg [-ldl] ==> lib [dl]
+    arg [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android/30/crtend_android.o] ==> obj [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android/30/crtend_android.o]
+  remove lib [/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/lib/linux/libclang_rt.builtins-aarch64-android.a]
+  remove lib [/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/lib/linux/libclang_rt.builtins-aarch64-android.a]
+  collapse library dir [/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/lib/linux/aarch64] ==> [/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/lib/linux/aarch64]
+  collapse library dir [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android/30] ==> [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android/30]
+  collapse library dir [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android] ==> [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android]
+  collapse library dir [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib] ==> [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib]
+  implicit libs: [c++;m;-l:libunwind.a;dl;c;-l:libunwind.a;dl]
+  implicit objs: [/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android/30/crtbegin_dynamic.o;/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android/30/crtend_android.o]
+  implicit dirs: [/data/data/com.termux/files/home/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64/lib64/clang/12.0.5/lib/linux/aarch64;/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android/30;/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib/aarch64-linux-android;/data/data/com.termux/files/home/android/ndk-r21e-sysroot/sysroot/usr/lib]
+  implicit fwks: []
+
+

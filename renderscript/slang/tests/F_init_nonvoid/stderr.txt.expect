@@ -1,1 +1,0 @@
-init_nonvoid.rscript:4:5: error: init(void) is required to have a void return type

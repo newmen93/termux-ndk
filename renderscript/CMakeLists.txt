@@ -2,17 +2,10 @@ cmake_minimum_required(VERSION 3.14.2)
 
 project(renderscript)
 
-set(GLOBAL_CXX_FLAGS " \
-    -Wall \
-    -Werror \
-    -Wextra \
-    -fno-rtti \
-    -fno-exceptions \
-    -fPIC \
-    -std=c++11 \
-    -Wno-unused-parameter \
-    ")
+set(CMAKE_C_FLAGS "-fcolor-diagnostics -fPIC -std=c11")
+set(CMAKE_CXX_FLAGS "-fcolor-diagnostics -fPIC -Wno-inconsistent-missing-override -Wno-deprecated-declarations -fno-rtti -fno-exceptions -std=c++11")
+set(CMAKE_EXE_LINKER_FLAGS "-static")
 
-add_subdirectory(liblog)
-add_subdirectory(slang)
-add_subdirectory(libbcc)
+include(CMakeLists.slang.txt)
+include(CMakeLists.liblog.txt)
+include(CMakeLists.libbcc.txt)
