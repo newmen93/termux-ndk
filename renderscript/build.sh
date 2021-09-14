@@ -35,7 +35,7 @@ else
 fi
 
 # /path/to/android-ndk-r23
-TOOLCHAIN=$HOME/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-aarch64
+TOOLCHAIN=$HOME/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-x86_64
 
 # check toolchain
 if [ ! -d "$TOOLCHAIN" ];then
@@ -46,7 +46,7 @@ fi
 cmake -G "Ninja" \
 	-DCMAKE_C_COMPILER=$TOOLCHAIN/bin/aarch64-linux-android30-clang \
 	-DCMAKE_CXX_COMPILER=$TOOLCHAIN/bin/aarch64-linux-android30-clang++ \
-	-DCMAKE_SYSROOT=$HOME/android/ndk-r21e-sysroot/sysroot \
+	-DCMAKE_SYSROOT=$TOOLCHAIN/sysroot \
 	-DCMAKE_BUILD_TYPE=Release \
 	..
 
