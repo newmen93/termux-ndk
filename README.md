@@ -169,4 +169,4 @@ cd termux-ndk/renderscript
 
 ## Known issues
 
-* the build script are not generic, each Ndk version has some changes, direct compilation will be fail, so please solve the error by yourself.
+* the build script are not generic</br> each Ndk version has some changes, direct compilation will be fail, so please solve the error by yourself.
