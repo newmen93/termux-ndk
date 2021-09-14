@@ -33,7 +33,7 @@ repo init -u https://android.googlesource.com/platform/manifest -b llvm-toolchai
 # for china
 repo init -u https://aosp.tuna.tsinghua.edu.cn/platform/manifest -b llvm-toolchain
 
-# rebuild the toolchain with that manifest:
+# rebuild the toolchain with that manifest
 cp /path/to/android/android-ndk-r23/toolchains/llvm/prebuilt/linux-x86_64/manifest_7284624.xml .repo/manifests
 repo init -m manifest_7284624.xml
 
