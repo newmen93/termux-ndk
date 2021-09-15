@@ -169,5 +169,5 @@ cd termux-ndk/renderscript
 
 ## FAQ
 
-* I don't compile the Linux-aarch64 version only for Android
+* I don't compile the Linux-aarch64 version only for Android</br>
 but you can try to compile it for Linux, it is actually very simple.
