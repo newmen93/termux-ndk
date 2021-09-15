@@ -167,7 +167,7 @@ cd termux-ndk/renderscript
 #### Building cocos2d game
 **building cocos2d game for android with termux-ndk, please refer to [cocos2d-game](https://github.com/Lzhiyong/termux-ndk/tree/master/cocos2d-game)**
 
-## FAQ
+### FAQ
 
 * I don't compile the Linux-aarch64 version only for Android</br>
 but you can try to compile it for Linux, it is actually very simple.
