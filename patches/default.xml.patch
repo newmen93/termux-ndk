@@ -1,5 +1,5 @@
---- .repo/manifests/default.xml	2021-02-02 20:53:08.585116555 +0800
-+++ /sdcard/download/default.xml	2021-02-02 20:51:11.965104938 +0800
+--- a/.repo/manifests/default.xml	2021-09-15 20:53:08.585116555 +0800
++++ b/.repo/manifests/default.xml	2021-09-15 20:51:11.965104938 +0800
 @@ -25,7 +25,7 @@
    <project path="external/toolchain-utils" name="platform/external/toolchain-utils" revision="master" />
  

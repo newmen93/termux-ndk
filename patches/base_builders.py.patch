@@ -1,29 +1,18 @@
---- llvm_android/base_builders.py	2021-02-03 08:26:06.355554934 +0800
-+++ /sdcard/miui/llvm_android/base_builders.py	2021-02-03 08:11:33.022134600 +0800
-@@ -169,7 +169,8 @@
-         ldflags = []
-         # When cross compiling, toolchain libs won't work on target arch.
-         if not self._is_cross_compiling():
--            ldflags.append(f'-L{self.toolchain.lib_dir}')
-+            #ldflags.append(f'-L{self.toolchain.lib_dir}')
-+            None
-         return ldflags
- 
-     @property
-@@ -593,7 +594,15 @@
+--- a/llvm_android/base_builders.py	2021-09-15 06:00:45.315860391 +0800
++++ b/llvm_android/base_builders.py	2021-09-15 09:56:04.525460747 +0800
+@@ -596,8 +596,14 @@
  
          defines['LLVM_ENABLE_PROJECTS'] = ';'.join(sorted(self.llvm_projects))
  
 -        defines['LLVM_TARGETS_TO_BUILD'] = ';'.join(sorted(self.llvm_targets))
-+        #defines['LLVM_TARGETS_TO_BUILD'] = ';'.join(sorted(self.llvm_targets))
-+        defines['LLVM_TARGETS_TO_BUILD'] = 'all'
-+        # building for target
-+        defines['LLVM_TARGET_ARCH'] = 'AArch64'
-+        # llvm triple
-+        defines['LLVM_HOST_TRIPLE'] = 'aarch64-unknown-linux-android'
-+        
-+        defines['LLVM_ENABLE_PIC'] = 'ON'
-+        
++        defines['LLVM_TARGETS_TO_BUILD']= 'all'
++        defines['LLVM_EXPERIMENTAL_TARGETS_TO_BUILD'] = 'AVR;RISCV'
          defines['LLVM_BUILD_LLVM_DYLIB'] = 'ON'
++        defines['LLVM_ENABLE_PIC'] = 'ON'
++        defines['CMAKE_BUILD_WITH_INSTALL_RPATH'] = 'ON'
++        defines['CMAKE_POLICY_DEFAULT_CMP0116'] = 'NEW'
++        defines['LLVM_TARGET_ARCH'] = 'AArch64'
++        defines['LLVM_HOST_TRIPLE'] = 'aarch64-unknown-linux-android'
  
          if self.build_tags:
+             tags_str = ''.join(tag + ', ' for tag in self.build_tags)
