@@ -22,9 +22,9 @@ link_directories(llvm/lib)
 
 add_library(bcinfo_static STATIC 
     libbcc/bcinfo/BitcodeTranslator.cpp 
-	libbcc/bcinfo/BitcodeWrapper.cpp 
-	libbcc/bcinfo/MetadataExtractor.cpp 
-	)
+    libbcc/bcinfo/BitcodeWrapper.cpp 
+    libbcc/bcinfo/MetadataExtractor.cpp 
+    )
 
 add_library(LLVMBitReader_2_7 STATIC 
     libbcc/bcinfo/BitReader_2_7/BitcodeReader.cpp
@@ -40,7 +40,7 @@ add_library(LLVMWrap STATIC
     libbcc/bcinfo/Wrap/file_wrapper_output.cpp
     libbcc/bcinfo/Wrap/in_memory_wrapper_input.cpp
     libbcc/bcinfo/Wrap/wrapper_output.cpp
-	)
+    )
 
 add_library(bcc STATIC 
     libbcc/lib/BCCContext.cpp
@@ -64,7 +64,7 @@ add_library(bcc STATIC
     libbcc/lib/RSX86TranslateGEPPass.cpp
     libbcc/lib/Script.cpp
     libbcc/lib/Source.cpp
-	)
+    )
 target_include_directories(bcc PRIVATE llvm/include)
 
 set(LINK_LIBRARIES

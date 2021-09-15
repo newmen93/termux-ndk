@@ -15,34 +15,34 @@ add_library(LLVMBitWriter_2_9 STATIC
     slang/BitWriter_2_9/BitcodeWriter.cpp                               
     slang/BitWriter_2_9/BitcodeWriterPass.cpp
     slang/BitWriter_2_9/ValueEnumerator.cpp
-	)
+    )
 target_include_directories(LLVMBitWriter_2_9 PRIVATE slang)
 
 add_library(LLVMBitWriter_2_9_func STATIC
     slang/BitWriter_2_9_func/BitcodeWriter.cpp                               
     slang/BitWriter_2_9_func/BitcodeWriterPass.cpp
     slang/BitWriter_2_9_func/ValueEnumerator.cpp
-	)
+    )
 target_include_directories(LLVMBitWriter_2_9_func PRIVATE slang)
 
 add_library(LLVMBitWriter_3_2 STATIC
     slang/BitWriter_3_2/BitcodeWriter.cpp                               
     slang/BitWriter_3_2/BitcodeWriterPass.cpp
     slang/BitWriter_3_2/ValueEnumerator.cpp
-	)
+    )
 target_include_directories(LLVMBitWriter_3_2 PRIVATE slang)
 
 add_library(StripUnkAttr STATIC
     slang/StripUnkAttr/strip_unknown_attributes.cpp 
-	slang/StripUnkAttr/strip_unknown_attributes_pass.cpp 
-	)
+    slang/StripUnkAttr/strip_unknown_attributes_pass.cpp 
+    )
 
 add_library(slang STATIC
     slang/slang.cpp 
-	slang/slang_bitcode_gen.cpp
-	slang/slang_backend.cpp 
-	slang/slang_diagnostic_buffer.cpp
-	)
+    slang/slang_bitcode_gen.cpp
+    slang/slang_backend.cpp 
+    slang/slang_diagnostic_buffer.cpp
+    )
 
 set(LINK_LIBRARIES
     slang  
@@ -63,25 +63,25 @@ target_link_libraries(llvm-rs-as PUBLIC ${LINK_LIBRARIES})
 # llvm-rs-cc
 add_executable(llvm-rs-cc
     slang/llvm-rs-cc.cpp 
-	slang/rs_cc_options.cpp 
-	slang/slang_rs_foreach_lowering.cpp 
-	slang/slang_rs_ast_replace.cpp 
-	slang/slang_rs_check_ast.cpp 
-	slang/slang_rs_context.cpp 
-	slang/slang_rs_pragma_handler.cpp 
-	slang/slang_rs_exportable.cpp 
-	slang/slang_rs_export_type.cpp 
-	slang/slang_rs_export_element.cpp 
-	slang/slang_rs_export_var.cpp 
-	slang/slang_rs_export_func.cpp 
-	slang/slang_rs_export_foreach.cpp 
-	slang/slang_rs_export_reduce.cpp 
-	slang/slang_rs_object_ref_count.cpp 
-	slang/slang_rs_reflection.cpp 
-	slang/slang_rs_reflection_cpp.cpp 
-	slang/slang_rs_reflection_state.cpp 
-	slang/slang_rs_reflect_utils.cpp 
-	slang/slang_rs_special_func.cpp 
-	slang/slang_rs_special_kernel_param.cpp 
-	)
+    slang/rs_cc_options.cpp 
+    slang/slang_rs_foreach_lowering.cpp 
+    slang/slang_rs_ast_replace.cpp 
+    slang/slang_rs_check_ast.cpp 
+    slang/slang_rs_context.cpp 
+    slang/slang_rs_pragma_handler.cpp 
+    slang/slang_rs_exportable.cpp 
+    slang/slang_rs_export_type.cpp 
+    slang/slang_rs_export_element.cpp 
+    slang/slang_rs_export_var.cpp 
+    slang/slang_rs_export_func.cpp 
+    slang/slang_rs_export_foreach.cpp 
+    slang/slang_rs_export_reduce.cpp 
+    slang/slang_rs_object_ref_count.cpp 
+    slang/slang_rs_reflection.cpp 
+    slang/slang_rs_reflection_cpp.cpp 
+    slang/slang_rs_reflection_state.cpp 
+    slang/slang_rs_reflect_utils.cpp 
+    slang/slang_rs_special_func.cpp 
+    slang/slang_rs_special_kernel_param.cpp 
+    )
 target_link_libraries(llvm-rs-cc PUBLIC ${LINK_LIBRARIES})
