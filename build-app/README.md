@@ -105,7 +105,7 @@ cd example/cmake-example
 # hello-jni-kotlinApp
 cd example/hello-jni-kotlinApp
 
-gradle build
+gradle assembleDebug
 ```
 <div align="left">
     <img src="./screenshot/build_example_01.jpg" width="50%" /><img src="./screenshot/build_example_02.jpg" width="50%" />
