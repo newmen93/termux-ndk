@@ -41,7 +41,7 @@
    }
    ```
 
-* Execute the `gradle assembleDebug` command to start building the android app, when building for the first time, the below error will occur.</br> 
+* Execute the `gradle build` command to start building the android app, when building for the first time, the below error will occur.</br> 
 this is because the gradle plugin will download a corresponding version of aapt2-4.2.1-7147631-linux.jar, we need to replace it.
 <a href="./screenshot/aapt2_xxx_linux_error.jpg"><img src="./screenshot/aapt2_xxx_linux_error.jpg" width="100%" /></a>
 
@@ -56,7 +56,7 @@ this is because the gradle plugin will download a corresponding version of aapt2
    ```
    <a href="./screenshot/copy_aapt2.jpg"><img src="./screenshot/copy_aapt2.jpg" width="100%" /></a>
    
-* If an error occurs during the build app, this may be a network problem, please execute the `gradle build` again or execute the `gradle assembleDebug --info` for more information.
+* If an error occurs during the build app, this may be a network problem, please execute the `gradle build` again or execute the `gradle build --info` for more information.
 
 **** 
 ### Building termux-app with termux
