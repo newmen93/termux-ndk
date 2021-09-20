@@ -41,22 +41,22 @@
    }
    ```
 
-* Execute the `gradle build` command to start building the android app, when building for the first time, the below error will occur.</br> 
-this is because the gradle plugin will download a corresponding version of aapt2-4.1.1-6503028-linux.jar, we need to replace it.
+* Execute the `gradle assembleDebug` command to start building the android app, when building for the first time, the below error will occur.</br> 
+this is because the gradle plugin will download a corresponding version of aapt2-4.2.1-7147631-linux.jar, we need to replace it.
 <a href="./screenshot/aapt2_xxx_linux_error.jpg"><img src="./screenshot/aapt2_xxx_linux_error.jpg" width="100%" /></a>
 
-* Replace the aapt2-4.1.1-6503028-linux.jar with [gradle-plugin](https://github.com/Lzhiyong/termux-ndk/tree/master/build-app/gradle-plugin)
+* Replace the aapt2 in aapt2-4.2.1-7147631-linux.jar inside with [sdk-tools/build-tools/aapt2](https://github.com/Lzhiyong/sdk-tools/releases)
    ```bash
-   # aapt2 is inside the jar file(aapt2-4.1.1-6503028-linux.jar)
+   # aapt2 is inside the jar file(aapt2-4.2.1-7147631-linux.jar)
    # because the aapt2 is x86_64 architecture not aarch64, so we need to replace it
    # execute the find command to search aapt2-xxx-linux.jar, then replace it
    cd ~/.gradle
    find . -type f -name aapt2-*-linux.jar
-   cp /path/to/aapt2-4.1.1-6503028-linux.jar ./caches/modules-2/files-2.1/com.android.tools.build/aapt2/4.1.1-6503028/eb7d8e65025222eff8e09cb86740914a28f1417/aapt2-4.1.1-6503028-linux.jar
+   cp /path/to/aapt2-4.2.1-7147631-linux.jar ./caches/modules-2/files-2.1/com.android.tools.build/aapt2/4.2.1-7147631/eb7d8e65025222eff8e09cb86740914a28f1417/aapt2-4.2.1-7147631-linux.jar
    ```
    <a href="./screenshot/copy_aapt2.jpg"><img src="./screenshot/copy_aapt2.jpg" width="100%" /></a>
    
-* If an error occurs during the build app, this may be a network problem, please execute the `gradle build` again or execute the `gradle build --info` for more information.
+* If an error occurs during the build app, this may be a network problem, please execute the `gradle build` again or execute the `gradle assembleDebug --info` for more information.
 
 **** 
 ### Building termux-app with termux
@@ -86,7 +86,7 @@ android {
 }
 
 # ok start building termux-app
-gradle build
+gradle assembleDebug
 
 ```
 <div align="left">

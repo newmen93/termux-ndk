@@ -10,7 +10,7 @@ pkg install python2
 #### Clone the repository
 ```bash
 # clone the repo to termux from github
-git clone https://github.com/cocos2d/cocos2d-x.git
+git clone --depth=1 https://github.com/cocos2d/cocos2d-x.git
 
 # after cloning the repo, please execute download-deps.py to download and install dependencies
 cd cocos2d-x
