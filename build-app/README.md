@@ -18,7 +18,7 @@
    ```bash
    # setting the gradle plugin version 
    dependencies {
-       classpath 'com.android.tools.build:gradle:4.1.2'
+       classpath 'com.android.tools.build:gradle:4.2.1'
    }
    ```
 * Modify the project app/build.gradle
