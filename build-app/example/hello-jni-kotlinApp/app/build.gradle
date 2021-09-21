@@ -19,9 +19,9 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
     buildToolsVersion "30.0.3"
-    ndkVersion '22.0.7026061'
+    ndkVersion '23.0.7599858'
     
     defaultConfig {
         applicationId 'com.example.kotlinjni'
@@ -41,6 +41,11 @@ android {
             path "src/main/cpp/CMakeLists.txt"
             version "3.18.5+"
         }
+    }
+    
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 
     lintOptions {
