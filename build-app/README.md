@@ -23,8 +23,7 @@
    ```
 * Modify the project app/build.gradle
    ```bash
-   # setting build tools version
-   # 28.0.3 or 29.0.3 or 30.0.3
+   # setting build tools version 30.0.3
    android {
        ...
        buildToolsVersion "30.0.3"
@@ -73,7 +72,7 @@ cmake.dir=/path/to/cmake
 minSdkVersion=24
 targetSdkVersion=28
 ndkVersion=23.0.7599858
-compileSdkVersion=28
+compileSdkVersion=30
 buildToolsVersion=30.0.3
 
 # modify app/build.gradle terminal-emulator/build.gradle and terminal-view/build.gradle
