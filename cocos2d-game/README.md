@@ -36,7 +36,7 @@ source ~/.bashrc
 cd cocos2d-x/templates/cpp-template-default
 
 # set gradle plugin version
-# classpath 'com.android.tools.build:gradle:4.1.2'
+# classpath 'com.android.tools.build:gradle:7.0.2'
 vim proj.android/build.gradle
 
 # add Android SDK build-tools version

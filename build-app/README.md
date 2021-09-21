@@ -18,7 +18,7 @@
    ```bash
    # setting the gradle plugin version 
    dependencies {
-       classpath 'com.android.tools.build:gradle:4.2.1'
+       classpath 'com.android.tools.build:gradle:7.0.2'
    }
    ```
 * Modify the project app/build.gradle
@@ -42,17 +42,17 @@
    ```
 
 * Execute the `gradle build` command to start building the android app, when building for the first time, the below error will occur.</br> 
-this is because the gradle plugin will download a corresponding version of aapt2-4.2.1-7147631-linux.jar, we need to replace it.
+this is because the gradle plugin will download a corresponding version of aapt2-7.0.2-7396180-linux.jar, we need to replace it.
 <a href="./screenshot/aapt2_xxx_linux_error.jpg"><img src="./screenshot/aapt2_xxx_linux_error.jpg" width="100%" /></a>
 
-* Replace the aapt2 in aapt2-4.2.1-7147631-linux.jar inside with [sdk-tools/build-tools/aapt2](https://github.com/Lzhiyong/sdk-tools/releases)
+* Replace the aapt2 in aapt2-7.0.2-7396180-linux.jar inside with [sdk-tools/build-tools/aapt2](https://github.com/Lzhiyong/sdk-tools/releases)
    ```bash
-   # aapt2 is inside the jar file(aapt2-4.2.1-7147631-linux.jar)
+   # aapt2 is inside the jar file(aapt2-7.0.2-7396180-linux.jar)
    # because the aapt2 is x86_64 architecture not aarch64, so we need to replace it
    # execute the find command to search aapt2-xxx-linux.jar, then replace it
    cd ~/.gradle
    find . -type f -name aapt2-*-linux.jar
-   cp /path/to/aapt2-4.2.1-7147631-linux.jar ./caches/modules-2/files-2.1/com.android.tools.build/aapt2/4.2.1-7147631/eb7d8e65025222eff8e09cb86740914a28f1417/aapt2-4.2.1-7147631-linux.jar
+   cp /path/to/aapt2-7.0.2-7396180-linux.jar ./caches/modules-2/files-2.1/com.android.tools.build/aapt2/7.0.2-7396180/edbe192dae2621801ae9351b807cf156ade6899e/aapt2-7.0.2-7396180-linux.jar
    ```
    <a href="./screenshot/copy_aapt2.jpg"><img src="./screenshot/copy_aapt2.jpg" width="100%" /></a>
    
